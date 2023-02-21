@@ -19,11 +19,6 @@ int main() {
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
 
-        while(true) {
-        int new_socket = accept_server(proxy_server_fd);
-
-        char msg[65536] = {0} ;
-        recv(new_socket, msg, sizeof(msg), 0);
         std::string method, hostname, first_line;
         int port;
         parse_request(msg, method, hostname, port, first_line);
@@ -34,8 +29,8 @@ int main() {
         std::cout << "Port: " << port << std::endl;
         std::cout << "================================" << std::endl;
 
-    }
-
+        close(new_socket);
+        //break;
 
     }
     return 0;
