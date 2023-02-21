@@ -15,6 +15,9 @@
 #include <fstream>
 #include <vector>
 
+#include <boost/algorithm/string.hpp>
+#include <boost/lexical_cast.hpp>
+
 
 using namespace std;
 
@@ -117,27 +120,17 @@ int accept_server(int proxy_server_fd) {
     return socket_fd_new;
 }
 
-// Function to parse the HTTP request message
-void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port) {
+void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port, std::string& first_line) {
     // Split the message into lines
-    vector<string> lines;
-    size_t start = 0;
-    while (start < msg.size()) {
-        size_t end = msg.find("\r\n", start);
-        if (end == std::string::npos) {
-            lines.push_back(msg.substr(start));
-            break;
-        } else {
-            lines.push_back(msg.substr(start, end - start));
-            start = end + 2;
-        }
-    }
+    std::vector<std::string> lines;
+    boost::split(lines, msg, boost::is_any_of("\r\n"));
 
     // Extract the method and target URL from the first line
-    size_t space1 = lines[0].find(' ');
-    size_t space2 = lines[0].find(' ', space1 + 1);
-    method = lines[0].substr(0, space1);
-    std::string url = lines[0].substr(space1 + 1, space2 - space1 - 1);
+    std::vector<std::string> tokens;
+    boost::split(tokens, lines[0], boost::is_any_of(" "));
+    method = tokens[0];
+    std::string url = tokens[1];
+    first_line = lines[0];
 
     // Extract the hostname and port number from the URL
     size_t colon = url.find(':');
@@ -149,6 +142,6 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
     } else {
         // Port number in the URL
         hostname = url.substr(0, colon);
-        port = std::stoi(url.substr(colon + 1, slash - colon - 1));
+        port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
     }
 }

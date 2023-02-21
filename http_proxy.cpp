@@ -3,13 +3,7 @@
 #include <boost/beast.hpp>
 
 using namespace boost::beast;
-void parse_request(const char* msg, std::string& method, std::string& path, std::string& version) {
-    std::istringstream iss(msg);
-    std::getline(iss, method, ' ');
-    std::getline(iss, path, ' ');
-    std::getline(iss, version, '\r');
-    iss.ignore(1);
-}
+
 
 std::ofstream logFile("proxy.log");
 int main() { 
@@ -32,10 +26,11 @@ int main() {
 
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
-        std::string method, hostname;
+        std::string method, hostname, first_line;
         int port;
-        parse_request(msg, method, hostname, port);
+        parse_request(msg, method, hostname, port, first_line);
 
+        std::cout << "First line: " << first_line << std::endl;
         std::cout << "Method: " << method << std::endl;
         std::cout << "Hostname: " << hostname << std::endl;
         std::cout << "Port: " << port << std::endl;
