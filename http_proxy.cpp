@@ -34,29 +34,29 @@ void* handle_request(void* arg) {
     std::cout << "================================" << std::endl;
 
     // TODO: Implement the request handling logic
+    if (request->method == "CONNECT"){
+        const string response = "HTTP/1.1 200 Connection Established\r\nProxy-agent: MyProxy/1.0\r\n\r\n";
+        send(request->socket_fd, &response,sizeof(response),0);
+    
+        //cout<<"original: "<<request->socket_fd<<endl;
+        
+        //if (request->ip_address=="0.0.0.0") continue;
+        char recv_msg[3000];
+        memset(recv_msg,0,sizeof(recv_msg));
+        string port_str=to_string(request->port);
+        //int client_fd=create_client(request->ip_address.c_str(), port_str.c_str());
+        //send(client_fd, msg, strlen(msg), 0);
+        //recv(client_fd,recv_msg,sizeof(recv_msg),0);
+        //cout<<recv_msg<<endl;
 
+    }
     // Free the memory allocated for the ClientRequest object
     delete request;
 
     // Exit the thread
     pthread_exit(NULL);
 }
-string getIpaddress(int socket_fd){
-    //get ip address
-    
-    struct sockaddr_storage socket_addr;
-    memset(&socket_addr, 0, sizeof(socket_addr));
-    socklen_t socket_addr_len;
-    getpeername(socket_fd, (struct sockaddr *)&socket_addr, &socket_addr_len);
-    string IP_address;
-    struct sockaddr_in * s = (struct sockaddr_in *)&socket_addr;
-    IP_address = inet_ntoa(s->sin_addr);
-    //request->ip_address=IP_address;
-    
-    //cout<<"later: "<<socket_fd<<endl;
-    cout<<"ip: "<<IP_address<<endl;
-    return IP_address;
-}
+
 
 int main() { 
     int proxy_server_fd = create_server("8080");
@@ -76,27 +76,13 @@ int main() {
 
         // Parse the request and store the information in the ClientRequest object
         request->socket_fd = new_socket;
+        request->ip_address=getIpaddress(new_socket);
+        cout<<"ip: "<<request->ip_address<<endl;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
-        if (request->method == "CONNECT"){
-            const string response = "HTTP/1.1 200 Connection Established\r\nProxy-agent: MyProxy/1.0\r\n\r\n";
-            //send(new_socket, &response,sizeof(response),0);
-            
-            // Create a new thread to handle the request
-            pthread_t thread;
-            pthread_create(&thread, NULL, handle_request, request);
-            cout<<"original: "<<request->socket_fd<<endl;
-            request->ip_address=getIpaddress(request->socket_fd);
-
-            if (request->ip_address=="0.0.0.0") continue;
-            char recv_msg[3000];
-            memset(recv_msg,0,sizeof(recv_msg));
-            string port_str=to_string(request->port);
-            int client_fd=create_client(request->ip_address.c_str(), port_str.c_str());
-            send(client_fd, msg, strlen(msg), 0);
-            //recv(client_fd,recv_msg,sizeof(recv_msg),0);
-            //cout<<recv_msg<<endl;
-
-        }
+        // Create a new thread to handle the request
+        //pthread_t thread;
+        //pthread_create(&thread, NULL, handle_request, request);
+        handle_request(request);
 
         close(new_socket);
         //break;

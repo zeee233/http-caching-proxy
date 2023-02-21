@@ -146,3 +146,19 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
         port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
     }
 }
+string getIpaddress(int socket_fd){
+    //get ip address
+    
+    struct sockaddr_storage socket_addr;
+    memset(&socket_addr, 0, sizeof(socket_addr));
+    socklen_t socket_addr_len;
+    getpeername(socket_fd, (struct sockaddr *)&socket_addr, &socket_addr_len);
+    string IP_address;
+    struct sockaddr_in * s = (struct sockaddr_in *)&socket_addr;
+    IP_address = inet_ntoa(s->sin_addr);
+    //request->ip_address=IP_address;
+    
+    //cout<<"later: "<<socket_fd<<endl;
+    //cout<<"ip: "<<IP_address<<endl;
+    return IP_address;
+}
