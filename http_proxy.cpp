@@ -1,6 +1,6 @@
 #include "helper.h"
 #include <sstream>
-
+#include "client_request.h"
 
 
 std::ofstream logFile("proxy.log");
@@ -40,7 +40,7 @@ int main() {
 
         // Create a new thread to handle the incoming request
         std::thread th(handle_connection, new_socket);
-        th.detach();
+        //th.detach();
     }
     return 0;
 }
