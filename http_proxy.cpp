@@ -1,13 +1,8 @@
 #include "helper.h"
-<<<<<<< HEAD
-#include <boost/beast.hpp>
-namespace http = boost::beast::http;
-=======
 #include <sstream>
+#include <boost/beast.hpp>
 
->>>>>>> d31ccd9355001ffc27c0ec1e563ea0c0b2f98a73
-
-
+using namespace boost::beast;
 void parse_request(const char* msg, std::string& method, std::string& path, std::string& version) {
     std::istringstream iss(msg);
     std::getline(iss, method, ' ');
@@ -31,33 +26,27 @@ int main() {
 
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
-<<<<<<< HEAD
-        string request(msg);
         http::request<http::empty_body> req;
+        string request_str(msg);
+        http::parse(request, request_str.data(), request_str.size());
+        /*
+        http::request_parser< http::empty_body> parser;
         boost::beast::error_code ec;
-        boost::beast::string_view message(request);
-        http::parse(req, message, ec);
-        // Check if parsing was successful
-        if (ec) {
-            std::cerr << "Error parsing HTTP request: " << ec.message() << std::endl;
-            return -1;
+        parser.put(boost::asio::buffer(msg),ec);
+        http::request<http::empty_body> req;
+        req=parser.get();
+        ///http::request<http::string_body> req;
+        //string req_str(msg);
+        //req.parse_request(req_str);
+        for (auto const& f: req)
+        {
+            cout << f.name_string() << ": " << f.value() << endl;
         }
-        std::cout << "Method: " << req.method_string() << std::endl;
-        std::cout << "Target: " << req.target() << std::endl;
-        std::cout << "Version: " << req.version() << std::endl;
-        // Print the request headers
-        for (const auto& header : req) {
-            std::cout << header.name_string() << ": " << header.value() << std::endl;
-        }
-
-        cout << msg << endl;
-        cout << "hello" << endl;
-        cout << "test 2 " << endl;
-=======
-        std::string method, path, version;
-        parse_request(msg, method, path, version);
-        cout << method << endl << path<< endl<< version<<endl;
->>>>>>> d31ccd9355001ffc27c0ec1e563ea0c0b2f98a73
+*/
+        //cout<<msg<<endl;
+        //std::string method, path, version;
+        //parse_request(msg, method, path, version);
+        //cout << method << endl << path<< endl<< version<<endl;
 
     }
     return 0;
