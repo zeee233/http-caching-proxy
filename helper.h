@@ -13,6 +13,7 @@
 #include <arpa/inet.h>
 #include <thread>
 #include <fstream>
+#include <vector>
 
 
 using namespace std;
@@ -114,4 +115,40 @@ int accept_server(int proxy_server_fd) {
         return -1;
     } 
     return socket_fd_new;
+}
+
+// Function to parse the HTTP request message
+void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port) {
+    // Split the message into lines
+    vector<string> lines;
+    size_t start = 0;
+    while (start < msg.size()) {
+        size_t end = msg.find("\r\n", start);
+        if (end == std::string::npos) {
+            lines.push_back(msg.substr(start));
+            break;
+        } else {
+            lines.push_back(msg.substr(start, end - start));
+            start = end + 2;
+        }
+    }
+
+    // Extract the method and target URL from the first line
+    size_t space1 = lines[0].find(' ');
+    size_t space2 = lines[0].find(' ', space1 + 1);
+    method = lines[0].substr(0, space1);
+    std::string url = lines[0].substr(space1 + 1, space2 - space1 - 1);
+
+    // Extract the hostname and port number from the URL
+    size_t colon = url.find(':');
+    size_t slash = url.find('/');
+    if (colon == std::string::npos || colon > slash) {
+        // No port number in the URL
+        hostname = url.substr(0, slash);
+        port = 80;
+    } else {
+        // Port number in the URL
+        hostname = url.substr(0, colon);
+        port = std::stoi(url.substr(colon + 1, slash - colon - 1));
+    }
 }

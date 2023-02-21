@@ -26,27 +26,23 @@ int main() {
 
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
-        http::request<http::empty_body> req;
-        string request_str(msg);
-        http::parse(request, request_str.data(), request_str.size());
-        /*
-        http::request_parser< http::empty_body> parser;
-        boost::beast::error_code ec;
-        parser.put(boost::asio::buffer(msg),ec);
-        http::request<http::empty_body> req;
-        req=parser.get();
-        ///http::request<http::string_body> req;
-        //string req_str(msg);
-        //req.parse_request(req_str);
-        for (auto const& f: req)
-        {
-            cout << f.name_string() << ": " << f.value() << endl;
-        }
-*/
-        //cout<<msg<<endl;
-        //std::string method, path, version;
-        //parse_request(msg, method, path, version);
-        //cout << method << endl << path<< endl<< version<<endl;
+
+        while(true) {
+        int new_socket = accept_server(proxy_server_fd);
+
+        char msg[65536] = {0} ;
+        recv(new_socket, msg, sizeof(msg), 0);
+        std::string method, hostname;
+        int port;
+        parse_request(msg, method, hostname, port);
+
+        std::cout << "Method: " << method << std::endl;
+        std::cout << "Hostname: " << hostname << std::endl;
+        std::cout << "Port: " << port << std::endl;
+        std::cout << "================================" << std::endl;
+
+    }
+
 
     }
     return 0;
