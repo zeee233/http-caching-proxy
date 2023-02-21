@@ -5,23 +5,6 @@
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 std::ofstream logFile("proxy.log");
 std::vector<std::thread> threads;
-std::mutex mtx;
-
-// // Define a function to process the incoming request
-// void handle_request(ClientRequest request) {
-
-//     std::cout << "First line: " << request.first_line << std::endl;
-//     std::cout << "Method: " << request.method << std::endl;
-//     std::cout << "Hostname: " << request.hostname << std::endl;
-//     std::cout << "Port: " << request.port << std::endl;
-//     std::cout << "================================" << std::endl;
-
-
-//     // Process the request here
-//     // You can use the request object to access the method, hostname, port, etc.
-//     // ...
-//     std::cout << "Request processed: " << request.first_line << std::endl;
-// }
 
 void* handle_request(void* arg) {
     // Cast the argument to a ClientRequest pointer
@@ -30,6 +13,7 @@ void* handle_request(void* arg) {
     std::cout << "First line: " << request->first_line << std::endl;
     std::cout << "Method: " << request->method << std::endl;
     std::cout << "Hostname: " << request->hostname << std::endl;
+    std::cout << "IP: " << request->ip_address << std::endl;
     std::cout << "Port: " << request->port << std::endl;
     std::cout << "================================" << std::endl;
 
@@ -66,23 +50,30 @@ int main() {
     cout<<host<<endl;
 
     while(true) {
-        int new_socket = accept_server(proxy_server_fd);
+        string ip_address;
+        int new_socket = accept_server(proxy_server_fd, ip_address);
 
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
 
+
         // Allocate memory for a new ClientRequest object
+        pthread_mutex_lock(&lock);
         ClientRequest* request = new ClientRequest();
+        // Get ip address 
+        request->ip_address = ip_address;
 
         // Parse the request and store the information in the ClientRequest object
+        request->ID = request_id;
         request->socket_fd = new_socket;
-        request->ip_address=getIpaddress(new_socket);
-        cout<<"ip: "<<request->ip_address<<endl;
+        request_id++;
+        // cout<<"ip: "<<request->ip_address<<endl;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
+        pthread_mutex_unlock(&lock);
         // Create a new thread to handle the request
-        //pthread_t thread;
-        //pthread_create(&thread, NULL, handle_request, request);
-        handle_request(request);
+        pthread_t thread;
+        pthread_create(&thread, NULL, handle_request, request);
+        //handle_request(request);
 
         close(new_socket);
         //break;

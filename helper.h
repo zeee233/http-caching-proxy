@@ -14,7 +14,7 @@
 #include <thread>
 #include <fstream>
 #include <vector>
-#include <mutex>
+
 
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
@@ -109,7 +109,7 @@ int create_client(const char * hostname, const char * port) {
     return socket_fd;
 }
 
-int accept_server(int proxy_server_fd) {
+int accept_server(int proxy_server_fd, string & ip_address) {
     struct sockaddr_storage socket_addr;
     socklen_t socket_addr_len = sizeof(socket_addr);
     int socket_fd_new;
@@ -118,6 +118,9 @@ int accept_server(int proxy_server_fd) {
         cerr << "Error: cannot accept connection on socket" << endl;
         return -1;
     } 
+
+    struct sockaddr_in * addr = (struct sockaddr_in *)&socket_addr;
+    ip_address = inet_ntoa(addr->sin_addr);
     return socket_fd_new;
 }
 
@@ -145,20 +148,4 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
         hostname = url.substr(0, colon);
         port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
     }
-}
-string getIpaddress(int socket_fd){
-    //get ip address
-    
-    struct sockaddr_storage socket_addr;
-    memset(&socket_addr, 0, sizeof(socket_addr));
-    socklen_t socket_addr_len;
-    getpeername(socket_fd, (struct sockaddr *)&socket_addr, &socket_addr_len);
-    string IP_address;
-    struct sockaddr_in * s = (struct sockaddr_in *)&socket_addr;
-    IP_address = inet_ntoa(s->sin_addr);
-    //request->ip_address=IP_address;
-    
-    //cout<<"later: "<<socket_fd<<endl;
-    //cout<<"ip: "<<IP_address<<endl;
-    return IP_address;
 }

@@ -8,5 +8,6 @@ struct ClientRequest {
     int port;
     std::string first_line;
     std::string ip_address;
+    int ID;
     // Add any other relevant fields
 };
