@@ -2,6 +2,7 @@
 #include <string>
 
 struct ClientRequest {
+    int socket_fd;
     std::string method;
     std::string hostname;
     int port;
