@@ -1,6 +1,20 @@
 #include "helper.h"
+<<<<<<< HEAD
 #include <boost/beast.hpp>
 namespace http = boost::beast::http;
+=======
+#include <sstream>
+
+>>>>>>> d31ccd9355001ffc27c0ec1e563ea0c0b2f98a73
+
+
+void parse_request(const char* msg, std::string& method, std::string& path, std::string& version) {
+    std::istringstream iss(msg);
+    std::getline(iss, method, ' ');
+    std::getline(iss, path, ' ');
+    std::getline(iss, version, '\r');
+    iss.ignore(1);
+}
 
 std::ofstream logFile("proxy.log");
 int main() { 
@@ -10,11 +24,14 @@ int main() {
     char host[200];
     gethostname(host,sizeof host);
     cout<<host<<endl;
+
+
     while(true) {
         int new_socket = accept_server(proxy_server_fd);
 
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
+<<<<<<< HEAD
         string request(msg);
         http::request<http::empty_body> req;
         boost::beast::error_code ec;
@@ -36,6 +53,11 @@ int main() {
         cout << msg << endl;
         cout << "hello" << endl;
         cout << "test 2 " << endl;
+=======
+        std::string method, path, version;
+        parse_request(msg, method, path, version);
+        cout << method << endl << path<< endl<< version<<endl;
+>>>>>>> d31ccd9355001ffc27c0ec1e563ea0c0b2f98a73
 
     }
     return 0;
