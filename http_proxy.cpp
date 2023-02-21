@@ -1,7 +1,7 @@
 #include "helper.h"
 
 
-
+std::ofstream logFile("proxy.log");
 int main() { 
     int proxy_server_fd = create_server("8080");
 
@@ -17,10 +17,6 @@ int main() {
         cout << msg << endl;
 
     }
-
-
-
-
     return 0;
 }
 
