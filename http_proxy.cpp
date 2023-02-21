@@ -16,6 +16,7 @@ int main() {
         recv(new_socket, msg, sizeof(msg), 0);
         cout << msg << endl;
 
+        //cout
     }
     return 0;
 }
