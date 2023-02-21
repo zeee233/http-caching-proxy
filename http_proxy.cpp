@@ -14,8 +14,10 @@ int main() {
 
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
+        cout << msg << endl;
+        cout << "hello" << endl;
         cout << "test 2 " << endl;
-        cour<<"qeqwe"
+
     }
     return 0;
 }
