@@ -60,14 +60,12 @@ int main() {
         // Allocate memory for a new ClientRequest object
         pthread_mutex_lock(&lock);
         ClientRequest* request = new ClientRequest();
-        // Get ip address 
-        request->ip_address = ip_address;
-
+        
         // Parse the request and store the information in the ClientRequest object
         request->ID = request_id;
+        request->ip_address = ip_address;
         request->socket_fd = new_socket;
         request_id++;
-        // cout<<"ip: "<<request->ip_address<<endl;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
         pthread_mutex_unlock(&lock);
         // Create a new thread to handle the request
