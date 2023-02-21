@@ -1,5 +1,6 @@
 #include "helper.h"
-
+#include <boost/beast.hpp>
+namespace http = boost::beast::http;
 
 std::ofstream logFile("proxy.log");
 int main() { 
@@ -14,6 +15,24 @@ int main() {
 
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
+        string request(msg);
+        http::request<http::empty_body> req;
+        boost::beast::error_code ec;
+        boost::beast::string_view message(request);
+        http::parse(req, message, ec);
+        // Check if parsing was successful
+        if (ec) {
+            std::cerr << "Error parsing HTTP request: " << ec.message() << std::endl;
+            return -1;
+        }
+        std::cout << "Method: " << req.method_string() << std::endl;
+        std::cout << "Target: " << req.target() << std::endl;
+        std::cout << "Version: " << req.version() << std::endl;
+        // Print the request headers
+        for (const auto& header : req) {
+            std::cout << header.name_string() << ": " << header.value() << std::endl;
+        }
+
         cout << msg << endl;
         cout << "hello" << endl;
         cout << "test 2 " << endl;
