@@ -28,7 +28,9 @@ void* handle_request(void* arg) {
     if (request->method == "CONNECT") {
         connection(request, server_fd);
     } else if (request->method == "GET") {
+        
         // Step 2: Send the GET request to the server
+        cout<<request->first_line <<endl;
         std::string request_str = request->first_line + "\r\n";
         request_str += "Host: " + request->hostname + "\r\n";
         request_str += "User-Agent: MyProxy\r\n";
@@ -53,7 +55,9 @@ void* handle_request(void* arg) {
             }
             response_str.append(buf, bytes_received);
         } while (bytes_received > 0);
-
+        //cout<<response_str<<endl;
+        int data1=send(request->socket_fd,response_str.c_str(),response_str.length(),0);
+        //cout<<"data1: "<<data1<<endl;
         // Step 4: Extract cache control header from the response
         std::string cache_control_header = extract_cache_control_header(response_str);
         std::cout << "Cache-Control header: " << cache_control_header << std::endl;
