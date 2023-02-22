@@ -136,6 +136,7 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
     first_line = lines[0];
 
     // Extract the hostname and port number from the URL
+    if (method=="CONNECT"){
     size_t colon = url.find(':');
     size_t slash = url.find('/');
     if (colon == std::string::npos || colon > slash) {
@@ -147,8 +148,29 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
         hostname = url.substr(0, colon);
         port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
     }
+    }
+    else{
+    string target="://";
+    size_t get_pos=url.find("://")+target.length();
+    size_t get_end_pos=url.find("/", get_pos);
+    //cout<<"url: "<<url.substr(get_pos, get_end_pos - get_pos)<<endl;
+    hostname = url.substr(get_pos, get_end_pos - get_pos);
+    port = 80;
+    }
 }
-
+string extract_cache_control_header(const std::string& response) {
+    std::string header_name = "Cache-Control:";
+    std::size_t header_pos = response.find(header_name);
+    if (header_pos == std::string::npos) {
+        return "";
+    }
+    std::size_t end_pos = response.find("\r\n", header_pos);
+    if (end_pos == std::string::npos) {
+        return "";
+    }
+    std::string header_value = response.substr(header_pos + header_name.size(), end_pos - (header_pos + header_name.size()));
+    return header_value;
+}
 void connection(ClientRequest * request, int server_fd) {
     // Send a 200 OK response to the client
     const std::string response = "HTTP/1.1 200 Connection established\r\n\r\n";
@@ -199,19 +221,7 @@ void connection(ClientRequest * request, int server_fd) {
 
 }
 
-string extract_cache_control_header(const std::string& response) {
-    std::string header_name = "Cache-Control:";
-    std::size_t header_pos = response.find(header_name);
-    if (header_pos == std::string::npos) {
-        return "";
-    }
-    std::size_t end_pos = response.find("\r\n", header_pos);
-    if (end_pos == std::string::npos) {
-        return "";
-    }
-    std::string header_value = response.substr(header_pos + header_name.size(), end_pos - (header_pos + header_name.size()));
-    return header_value;
-}
+
 
 void parse_cache_control_directives(const std::string& cache_control_header, int& max_age, bool& must_revalidate, bool& no_cache, bool& no_store, bool& is_private) {
     // Define regular expressions for matching the cache control directives

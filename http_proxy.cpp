@@ -16,24 +16,24 @@ void* handle_request(void* arg) {
     std::cout << "IP: " << request->ip_address << std::endl;
     std::cout << "Port: " << request->port << std::endl;
     std::cout << "================================" << std::endl;
-
+    
+    std::string port_str = std::to_string(request->port);
+    int server_fd = create_client(request->hostname.c_str(), port_str.c_str());
+    if (server_fd == -1) {
+        std::cerr << "Failed to connect to server" << std::endl;
+        pthread_exit(NULL);
+    }
     // TODO: Implement the request handling logic
     // handle connect request 
     if (request->method == "CONNECT") {
-        // Step 1: Create a TCP connection to the destination server
-        std::string port_str = std::to_string(request->port);
-        int server_fd = create_client(request->hostname.c_str(), port_str.c_str());
-        if (server_fd == -1) {
-            std::cerr << "Failed to connect to server" << std::endl;
-            pthread_exit(NULL);
-        }
-
         connection(request, server_fd);
-        close(server_fd);
     } else if (request->method == "GET") {
-
+        char buf[BUFSIZ];
+        int bytes_received = recv(request->socket_fd, buf, BUFSIZ, 0);
+        string data=extract_cache_control_header(buf);
+        cout<<"data: "<<data<<endl;
     }
-
+    close(server_fd);
     // Free the memory allocated for the ClientRequest object
     delete request;
     close(request->socket_fd);
@@ -44,7 +44,7 @@ void* handle_request(void* arg) {
 
 
 int main() { 
-    int proxy_server_fd = create_server("9999");//need to change to the port "0"
+    int proxy_server_fd = create_server("8800");//need to change to the port "0"
     int request_id = 0;
     char host[200];
     gethostname(host,sizeof host);
@@ -57,7 +57,7 @@ int main() {
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
         //cout<<"data_size received from client: "<<data_size1<<endl;
-
+        cout<<msg<<endl;
         // Allocate memory for a new ClientRequest object
         pthread_mutex_lock(&plock);
         ClientRequest* request = new ClientRequest();
