@@ -5,7 +5,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <unistd.h>
-
+#include "client_request.h"
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <ctime>
@@ -148,4 +148,46 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
         hostname = url.substr(0, colon);
         port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
     }
+}
+void connection(ClientRequest *request,int client_fd){
+    fd_set readfds;
+    int max_fd;
+    if (request->socket_fd>client_fd)max_fd=request->socket_fd+1;
+    else max_fd=client_fd+1;
+    for(;;){
+        FD_ZERO(&readfds);
+        FD_SET(request->socket_fd, &readfds);
+        FD_SET(client_fd, &readfds); 
+        select(max_fd, &readfds, NULL, NULL, NULL);
+        char message[60000];  
+        memset(message,0,sizeof(message));
+        if (FD_ISSET(request->socket_fd, &readfds)){
+            int len = recv(request->socket_fd, message, sizeof(message), 0);
+            if (len<=0){
+                return ;
+            }
+            else{
+                if(send(client_fd,message,sizeof(message),0)<=0){
+                    cerr<<"";
+                    return;
+                }
+            }
+
+        }
+        if (FD_ISSET(client_fd, &readfds)){
+            int len = recv(client_fd, message, sizeof(message), 0);
+            if (len<=0){
+                return;
+            }
+            else{
+                if(send(client_fd,message,sizeof(message),0)<=0){
+                    cerr<<"";
+                    return;
+                }
+            }
+        }
+
+
+    }
+
 }
