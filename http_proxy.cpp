@@ -28,10 +28,37 @@ void* handle_request(void* arg) {
     if (request->method == "CONNECT") {
         connection(request, server_fd);
     } else if (request->method == "GET") {
+        // Step 2: Send the GET request to the server
+        std::string request_str = request->first_line + "\r\n";
+        request_str += "Host: " + request->hostname + "\r\n";
+        request_str += "User-Agent: MyProxy\r\n";
+        request_str += "Connection: close\r\n\r\n";
+        int bytes_sent = send(server_fd, request_str.c_str(), request_str.length(), 0);
+        if (bytes_sent < 0) {
+            std::cerr << "Failed to send GET request to server" << std::endl;
+            close(server_fd);
+            pthread_exit(NULL);
+        }
+
+        // Step 3: Receive the response from the server
         char buf[BUFSIZ];
-        int bytes_received = recv(request->socket_fd, buf, BUFSIZ, 0);
-        string data=extract_cache_control_header(buf);
-        cout<<"data: "<<data<<endl;
+        std::string response_str;
+        int bytes_received;
+        do {
+            bytes_received = recv(server_fd, buf, BUFSIZ, 0);
+            if (bytes_received < 0) {
+                std::cerr << "Failed to receive response from server" << std::endl;
+                close(server_fd);
+                pthread_exit(NULL);
+            }
+            response_str.append(buf, bytes_received);
+        } while (bytes_received > 0);
+
+        // Step 4: Extract cache control header from the response
+        std::string cache_control_header = extract_cache_control_header(response_str);
+        std::cout << "Cache-Control header: " << cache_control_header << std::endl;
+
+        cout<< "what"<<endl;
     }
     close(server_fd);
     // Free the memory allocated for the ClientRequest object
