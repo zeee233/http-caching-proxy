@@ -64,6 +64,7 @@
         "typeindex": "cpp",
         "variant": "cpp",
         "*.ipp": "cpp",
-        "strstream": "cpp"
+        "strstream": "cpp",
+        "set": "cpp"
     }
 }
