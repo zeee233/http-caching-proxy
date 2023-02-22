@@ -1,7 +1,7 @@
 #include "helper.h"
 #include <sstream>
 #include <pthread.h>
-pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
 std::ofstream logFile("proxy.log");
 std::vector<std::thread> threads;
 //pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
@@ -30,6 +30,8 @@ void* handle_request(void* arg) {
 
         connection(request, server_fd);
         close(server_fd);
+    } else if (request->method == "GET") {
+
     }
 
     // Free the memory allocated for the ClientRequest object
@@ -57,7 +59,7 @@ int main() {
         //cout<<"data_size received from client: "<<data_size1<<endl;
 
         // Allocate memory for a new ClientRequest object
-        pthread_mutex_lock(&lock);
+        pthread_mutex_lock(&plock);
         ClientRequest* request = new ClientRequest();
         
         // Parse the request and store the information in the ClientRequest object
@@ -68,7 +70,7 @@ int main() {
         request->ip_address=ip_address;
         request_id++;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
-        pthread_mutex_unlock(&lock);
+        pthread_mutex_unlock(&plock);
         // Create a new thread to handle the request
         pthread_t thread;
         pthread_create(&thread, NULL, handle_request, request);
