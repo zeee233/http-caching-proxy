@@ -37,11 +37,11 @@ void* handle_request(void* arg) {
 
         
         //cout<<"original: "<<request->socket_fd<<endl;
-        pthread_mutex_lock(&lock);
+        //pthread_mutex_lock(&lock);
         connection(request,client_fd);
-
         close(client_fd);
-        pthread_mutex_unlock(&lock);
+        
+        //pthread_mutex_unlock(&lock);
         //send()
         //send(client_fd, msg, strlen(msg), 0);
         //recv(client_fd,recv_msg,sizeof(recv_msg),0);
@@ -51,6 +51,7 @@ void* handle_request(void* arg) {
     // Free the memory allocated for the ClientRequest object
     delete request;
     close(request->socket_fd);
+    
     // Exit the thread
     pthread_exit(NULL);
 }

@@ -159,26 +159,24 @@ void connection(ClientRequest *request,int client_fd){
         FD_SET(request->socket_fd, &readfds);
         FD_SET(client_fd, &readfds); 
         select(max_fd, &readfds, NULL, NULL, NULL);
-        char message[60000];  
+        char message[60000]={0};  
         memset(message,0,sizeof(message));
         if (FD_ISSET(request->socket_fd, &readfds)){
-            int len = recv(request->socket_fd, message, sizeof(message), 0);
-            if (len<=0){
-                return ;
-            }
+            if(recv(request->socket_fd, message, sizeof(message), 0)<=0){
+                return;
+            } 
+
             else{
                 if(send(client_fd,message,sizeof(message),0)<=0){
-                    cerr<<"";
                     return;
                 }
             }
 
         }
+        memset(message,0,sizeof(message));
         if (FD_ISSET(client_fd, &readfds)){
-            int len = recv(client_fd, message, sizeof(message), 0);
-            if (len<=0){
-                return;
-            }
+            if(recv(client_fd, message, sizeof(message), 0)<=0) 
+            {return;}
             else{
                 if(send(client_fd,message,sizeof(message),0)<=0){
                     cerr<<"";
