@@ -1,5 +1,8 @@
 
 #include <string>
+#include <sstream>
+
+using namespace std;
 
 struct ClientRequest {
     int socket_fd;
@@ -11,3 +14,15 @@ struct ClientRequest {
     int ID;
     // Add any other relevant fields
 };
+
+std::string get_uri(ClientRequest* request) {
+    // Parse the first line to extract the URI
+    std::istringstream iss(request->first_line);
+    std::string method, uri, version;
+    iss >> method >> uri >> version;
+    cout << "************************************************this is URI: " << uri << endl;
+    return uri;
+}
+
+
+
