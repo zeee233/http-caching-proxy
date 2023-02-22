@@ -73,8 +73,6 @@ int main() {
         pthread_t thread;
         pthread_create(&thread, NULL, handle_request, request);
         //handle_request(request);
-
-
     }
     close(proxy_server_fd);
     return 0;

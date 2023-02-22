@@ -151,7 +151,7 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
 }
 
 void connection(ClientRequest * request, int server_fd) {
-// Step 2: Send a 200 OK response to the client
+    // Send a 200 OK response to the client
     const std::string response = "HTTP/1.1 200 Connection established\r\n\r\n";
     int bytes_sent = send(request->socket_fd, response.c_str(), response.length(), 0);
     if (bytes_sent < 0) {
@@ -160,7 +160,7 @@ void connection(ClientRequest * request, int server_fd) {
         pthread_exit(NULL);
     }
 
-    // Step 3: Forward data between the client and the server
+    // Forward data between the client and the server
     fd_set read_fds;
     int max_fd = std::max(request->socket_fd, server_fd) + 1;
     while (true) {
