@@ -149,43 +149,53 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
         port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
     }
 }
-void connection(ClientRequest * request,int client_fd){
-    fd_set readfds;
-    int max_fd;
-    if (request->socket_fd>client_fd)max_fd=request->socket_fd+1;
-    else max_fd=client_fd+1;
-    for(;;){
-        FD_ZERO(&readfds);
-        FD_SET(request->socket_fd, &readfds);
-        FD_SET(client_fd, &readfds); 
-        select(max_fd, &readfds, NULL, NULL, NULL);
-        char message[60000]={0};  
-        memset(message,0,sizeof(message));
-        if (FD_ISSET(request->socket_fd, &readfds)){
-            if(recv(request->socket_fd, message, sizeof(message), 0)<=0){
-                return;
-            } 
 
-            else{
-                if(send(client_fd,message,sizeof(message),0)<=0){
-                    return;
-                }
-            }
+void connection(ClientRequest * request, int server_fd) {
+    // Send a 200 OK response to the client
+    const std::string response = "HTTP/1.1 200 Connection established\r\n\r\n";
+    int bytes_sent = send(request->socket_fd, response.c_str(), response.length(), 0);
+    if (bytes_sent < 0) {
+        std::cerr << "Failed to send response to client" << std::endl;
+        close(server_fd);
+        pthread_exit(NULL);
+    }
 
-        }
-        memset(message,0,sizeof(message));
-        if (FD_ISSET(client_fd, &readfds)){
-            if(recv(client_fd, message, sizeof(message), 0)<=0) 
-            {return;}
-            else{
-                if(send(client_fd,message,sizeof(message),0)<=0){
-                    cerr<<"";
-                    return;
-                }
-            }
+    // Forward data between the client and the server
+    fd_set read_fds;
+    int max_fd = std::max(request->socket_fd, server_fd) + 1;
+    while (true) {
+        FD_ZERO(&read_fds);
+        FD_SET(request->socket_fd, &read_fds);
+        FD_SET(server_fd, &read_fds);
+        int num_ready = select(max_fd, &read_fds, NULL, NULL, NULL);
+        if (num_ready == -1) {
+            std::cerr << "select() failed" << std::endl;
+            break;
         }
 
+        if (FD_ISSET(request->socket_fd, &read_fds)) {
+            char buf[BUFSIZ];
+            int bytes_received = recv(request->socket_fd, buf, BUFSIZ, 0);
+            if (bytes_received <= 0) {
+                break;
+            }
+            int bytes_sent = send(server_fd, buf, bytes_received, 0);
+            if (bytes_sent < 0) {
+                break;
+            }
+        }
 
+        if (FD_ISSET(server_fd, &read_fds)) {
+            char buf[BUFSIZ];
+            int bytes_received = recv(server_fd, buf, BUFSIZ, 0);
+            if (bytes_received <= 0) {
+                break;
+            }
+            int bytes_sent = send(request->socket_fd, buf, bytes_received, 0);
+            if (bytes_sent < 0) {
+                break;
+            }
+        }
     }
 
 }

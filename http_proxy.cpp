@@ -18,36 +18,20 @@ void* handle_request(void* arg) {
     std::cout << "================================" << std::endl;
 
     // TODO: Implement the request handling logic
-    //cout<<"request->method"<<endl;
-    if (request->method == "CONNECT"){
-        //if (request->ip_address=="0.0.0.0") continue;
-        //char recv_msg[60000];
-        //memset(recv_msg,0,sizeof(recv_msg));
-        string port_str=to_string(request->port);
-        int client_fd=create_client(request->hostname.c_str(), port_str.c_str());
-        if (client_fd==-1){
-            cerr<<"cannot be the client from the web"<<endl;
-            exit(-1);
+    // handle connect request 
+    if (request->method == "CONNECT") {
+        // Step 1: Create a TCP connection to the destination server
+        std::string port_str = std::to_string(request->port);
+        int server_fd = create_client(request->hostname.c_str(), port_str.c_str());
+        if (server_fd == -1) {
+            std::cerr << "Failed to connect to server" << std::endl;
+            pthread_exit(NULL);
         }
-        cout<<"client_fd: "<<client_fd<<endl;
 
-        const string response = "HTTP/1.1 200 OK\r\n\r\n";
-        int size=send(request->socket_fd, &response,sizeof(response),0);
-        cout<<"size: "<<size<<endl;
-
-        
-        //cout<<"original: "<<request->socket_fd<<endl;
-        //pthread_mutex_lock(&lock);
-        connection(request,client_fd);
-        close(client_fd);
-        
-        //pthread_mutex_unlock(&lock);
-        //send()
-        //send(client_fd, msg, strlen(msg), 0);
-        //recv(client_fd,recv_msg,sizeof(recv_msg),0);
-        //cout<<recv_msg<<endl;
-
+        connection(request, server_fd);
+        close(server_fd);
     }
+
     // Free the memory allocated for the ClientRequest object
     delete request;
     close(request->socket_fd);
@@ -58,7 +42,7 @@ void* handle_request(void* arg) {
 
 
 int main() { 
-    int proxy_server_fd = create_server("8888");//need to change to the port "0"
+    int proxy_server_fd = create_server("9999");//need to change to the port "0"
     int request_id = 0;
     char host[200];
     gethostname(host,sizeof host);
@@ -89,8 +73,6 @@ int main() {
         pthread_t thread;
         pthread_create(&thread, NULL, handle_request, request);
         //handle_request(request);
-
-
     }
     close(proxy_server_fd);
     return 0;
