@@ -149,7 +149,7 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
         port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
     }
 }
-void connection(ClientRequest *request,int client_fd){
+void connection(ClientRequest * request,int client_fd){
     fd_set readfds;
     int max_fd;
     if (request->socket_fd>client_fd)max_fd=request->socket_fd+1;
