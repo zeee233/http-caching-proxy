@@ -23,9 +23,9 @@ struct CachedResponse {
 std::unordered_map<std::string, CachedResponse> cache;
 
 // Function to check if a cached response is expired
-bool is_expired(CachedResponse cached_response) {
+bool is_validate(CachedResponse cached_response) {
     std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    return cached_response.expiration_time <= current_time;
+    return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
 }
 
 // Function to fetch a response from the cache
