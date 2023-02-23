@@ -171,7 +171,7 @@ string extract_cache_control_header(const std::string& response) {
     std::string header_value = response.substr(header_pos + header_name.size(), end_pos - (header_pos + header_name.size()));
     return header_value;
 }
-void connection(ClientRequest * request, int server_fd) {
+void handle_connect(ClientRequest * request, int server_fd) {
     // Send a 200 OK response to the client
     const std::string response = "HTTP/1.1 200 Connection established\r\n\r\n";
     int bytes_sent = send(request->socket_fd, response.c_str(), response.length(), 0);

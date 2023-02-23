@@ -28,13 +28,13 @@ void* handle_request(void* arg) {
     // TODO: Implement the request handling logic
     // handle connect request 
     if (request->method == "CONNECT") {
-        connection(request, server_fd);
+        handle_connect(request, server_fd);
     } else if (request->method == "GET") {
         // get uri
         std::string request_uri = get_uri(request);
         //check if int cache and need revalidate 
         if(cache.count(request_uri) != 0) { 
-            if(is_validate(cache[request_uri])) {
+            if(is_expired(cache[request_uri])) {
                 revalidate(cache[request_uri],request_uri, server_fd);
             } 
             send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
@@ -45,27 +45,10 @@ void* handle_request(void* arg) {
             request_str += "Host: " + request->hostname + "\r\n";
             request_str += "User-Agent: MyProxy\r\n";
             request_str += "Connection: close\r\n\r\n";
-            int bytes_sent = send(server_fd, request_str.c_str(), request_str.length(), 0);
-            if (bytes_sent < 0) {
-                std::cerr << "Failed to send GET request to server" << std::endl;
-                close(server_fd);
-                pthread_exit(NULL);
-            }
+            send_request(server_fd, request_str);
 
-            // Step 3: Receive the response from the server
-            char buf[BUFSIZ];
-            std::string response_str;
-            int bytes_received;
-            do {
-                bytes_received = recv(server_fd, buf, BUFSIZ, 0);
-                if (bytes_received < 0) {
-                    std::cerr << "Failed to receive response from server" << std::endl;
-                    close(server_fd);
-                    pthread_exit(NULL);
-                }
-                //cout<<"one buf: "<<buf<<endl;
-                response_str.append(buf, bytes_received);
-            } while (bytes_received > 0);
+            // // Step 3: Receive the response from the server
+            std::string response_str = receive_response(server_fd);
 
             //create a cache response 
             CachedResponse cached_response;
