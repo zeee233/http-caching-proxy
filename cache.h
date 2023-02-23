@@ -4,6 +4,9 @@
 #include <ctime>
 #include <boost/regex.hpp>
 #include <regex>
+#include <boost/algorithm/string.hpp>
+#include <boost/lexical_cast.hpp>
+
 
 
 // Define a struct to represent the cached response
@@ -28,21 +31,6 @@ bool is_validate(CachedResponse cached_response) {
     return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
 }
 
-// Function to fetch a response from the cache
-std::string fetch_from_cache(std::string uri) {
-    if (cache.count(uri) == 0) {
-        // Cache miss
-        return "";
-    } else if (is_expired(cache[uri])) {
-        // Cache hit, but expired
-        cache.erase(uri);
-        return "";
-    } else {
-        // Cache hit
-        return cache[uri].response;
-    }
-}
-
 // Function to add a response to the cache
 void add_to_cache(std::string uri, std::string response, std::time_t expiration_time) {
     // Create a new CachedResponse and add it to the cache
@@ -50,37 +38,37 @@ void add_to_cache(std::string uri, std::string response, std::time_t expiration_
     cache[uri] = cached_response;
 }
 
-bool is_cacheable(const std::string& response_str) {
-    std::istringstream iss(response_str);
-    std::string line;
-    while (std::getline(iss, line)) {
-        // Check if the line contains the Cache-Control header
-        if (line.find("Cache-Control") != std::string::npos) {
-            // Check if the Cache-Control header contains any of the non-cacheable directives
-            if (line.find("no-cache") != std::string::npos ||
-                line.find("no-store") != std::string::npos ||
-                line.find("private") != std::string::npos) {
-                return false;
-            }
-            // Check if the Cache-Control header contains the max-age directive
-            size_t pos = line.find("max-age");
-            if (pos != std::string::npos) {
-                // Extract the max-age value and check if it's greater than 0
-                std::string max_age_str = line.substr(pos + 8);
-                int max_age = std::stoi(max_age_str);
-                if (max_age <= 0) {
-                    return false;
-                }
-            }
-            // Check if the Cache-Control header contains the must-revalidate or proxy-revalidate directive
-            if (line.find("must-revalidate") != std::string::npos ) {
-                return true;  // Need to revalidate the cached response
-            }
-            return true;  // Response is cacheable
-        }
-    }
-    return true;  // No Cache-Control header found, so response is cacheable by default
-}
+// bool is_cacheable(const std::string& response_str) {
+//     std::istringstream iss(response_str);
+//     std::string line;
+//     while (std::getline(iss, line)) {
+//         // Check if the line contains the Cache-Control header
+//         if (line.find("Cache-Control") != std::string::npos) {
+//             // Check if the Cache-Control header contains any of the non-cacheable directives
+//             if (line.find("no-cache") != std::string::npos ||
+//                 line.find("no-store") != std::string::npos ||
+//                 line.find("private") != std::string::npos) {
+//                 return false;
+//             }
+//             // Check if the Cache-Control header contains the max-age directive
+//             size_t pos = line.find("max-age");
+//             if (pos != std::string::npos) {
+//                 // Extract the max-age value and check if it's greater than 0
+//                 std::string max_age_str = line.substr(pos + 8);
+//                 int max_age = std::stoi(max_age_str);
+//                 if (max_age <= 0) {
+//                     return false;
+//                 }
+//             }
+//             // Check if the Cache-Control header contains the must-revalidate or proxy-revalidate directive
+//             if (line.find("must-revalidate") != std::string::npos ) {
+//                 return true;  // Need to revalidate the cached response
+//             }
+//             return true;  // Response is cacheable
+//         }
+//     }
+//     return true;  // No Cache-Control header found, so response is cacheable by default
+// }
 bool is_cacheable(CachedResponse & cached_response){
     if (cached_response.no_cache != true ||
         cached_response.no_store != true ||
@@ -95,6 +83,155 @@ bool is_cacheable(CachedResponse & cached_response){
     }
     return true;
 }
+
+int extract_status_code(const std::string& response_str) {
+    std::istringstream iss(response_str);
+    std::string line;
+    while (std::getline(iss, line)) {
+        // Check if the line contains the HTTP status line
+        if (line.find("HTTP/1.") != std::string::npos) {
+            // Extract the status code from the HTTP status line
+            int status_code = std::stoi(line.substr(9, 3));
+            return status_code;
+        }
+    }
+    // If we haven't found the status code, return -1 to indicate an error
+    return -1;
+}
+
+void parse_cache_control_directives(CachedResponse &cached_response) {
+
+    // Define the regular expressions for ETag and each cache control directive
+    const boost::regex etag_regex("ETag: \"(.+)\"");
+    const boost::regex last_modified_regex("Last-Modified: (.+)");
+    const boost::regex max_age_regex("max-age=(\\d+)");
+    const boost::regex must_revalidate_regex("must-revalidate");
+    const boost::regex no_cache_regex("no-cache");
+    const boost::regex no_store_regex("no-store");
+    const boost::regex is_private_regex("private");
+
+    // Initialize the cache control directive flags
+    cached_response.expiration_time= std::time_t(0);
+    cached_response.ETag="";
+    cached_response.Last_Modified = "";
+    cached_response.max_age=-1;
+    cached_response.must_revalidate = false;
+    cached_response.no_cache = false;
+    cached_response.no_store = false;
+    cached_response.is_private = false;
+
+    // Split the response header into lines
+    std::vector<std::string> lines;
+    boost::split(lines, cached_response.response, boost::is_any_of("\r\n"));
+    // Iterate over each line in the response header
+    for (const auto& line : lines) {
+        // Check if the line contains a cache control directive, ETag or Last-Modified
+        if (boost::istarts_with(line, "Cache-Control: ")) {
+            // Extract the cache control directives from the line
+            std::string directives = line.substr(16);
+
+            // Check for the max-age directive
+            boost::smatch max_age_match;
+            if (boost::regex_search(directives, max_age_match, max_age_regex)) {
+                cached_response.max_age = std::stoi(max_age_match[1]);
+                cached_response.expiration_time = std::time(nullptr) + cached_response.max_age;
+            }
+
+            // Check for the must-revalidate directive
+            if (boost::regex_search(directives, must_revalidate_regex)) {
+                cached_response.must_revalidate = true;
+            }
+
+            // Check for the no-cache directive
+            if (boost::regex_search(directives, no_cache_regex)) {
+                cached_response.no_cache = true;
+            }
+
+            // Check for the no-store directive
+            if (boost::regex_search(directives, no_store_regex)) {
+                cached_response.no_store = true;
+            }
+
+            // Check for the private directive
+            if (boost::regex_search(directives, is_private_regex)) {
+                cached_response.is_private = true;
+            }
+        } else if (boost::istarts_with(line, "ETag: ")) {
+            // Extract the ETag value from the line
+            boost::smatch etag_match;
+            if (boost::regex_search(line, etag_match, etag_regex)) {
+                cached_response.ETag = etag_match[1];
+            }
+        } else if (boost::istarts_with(line, "Last-Modified: ")) {
+            // Extract the Last-Modified value from the line
+            boost::smatch last_modified_match;
+            if (boost::regex_search(line, last_modified_match, last_modified_regex)) {
+                cached_response.Last_Modified = last_modified_match[1];
+            }
+        }
+    }
+}
+
+bool revalidate(CachedResponse& cached_response, const std::string& request_url, int server_fd) {
+    // Check if the cached response has an ETag or Last-Modified header
+    if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()) {
+        // Cannot revalidate without an ETag or Last-Modified header
+        return false;
+    }
+    // Create a new request with the appropriate headers for revalidation
+    std::string request;
+    if (!cached_response.ETag.empty()) {
+        request = "GET " + request_url + " HTTP/1.1\r\n"
+                  "If-None-Match: " + cached_response.ETag + "\r\n"
+                  "\r\n";
+    } else {
+        request = "GET " + request_url + " HTTP/1.1\r\n"
+                  "If-Modified-Since: " + cached_response.Last_Modified + "\r\n"
+                  "\r\n";
+    }
+    // Send the request and get the response status code
+    //int status_code = send_request(request);
+    int bytes_sent = send(server_fd, request.c_str(), request.length(), 0);
+    if (bytes_sent < 0) {
+        std::cerr << "Failed to send GET request to server" << std::endl;
+        close(server_fd);
+        pthread_exit(NULL);
+    }
+
+    // Receive the response from the server
+    char buffer[BUFSIZ];
+    std::string response_str;
+    int bytes_received;
+    do {
+        bytes_received = recv(server_fd, buffer, BUFSIZ - 1, 0);
+        if (bytes_received < 0) {
+            std::cerr << "Failed to receive response from server" << std::endl;
+            close(server_fd);
+            pthread_exit(NULL);
+        }
+        buffer[bytes_received] = '\0';
+        response_str += buffer;
+    } while (bytes_received > 0);
+
+    int status_code = extract_status_code(response_str);
+
+
+    // Handle the response based on the status code
+    if (status_code == 304) {
+        // The cached response is still valid
+        return true;
+    } else if (status_code == 200) {
+        // The cached response is invalid, update it with the new response
+        cached_response.response = response_str;
+        parse_cache_control_directives(cached_response);
+        return true;
+    } else {
+        // Handle other status codes as necessary
+        return false;
+    }
+}
+
+
 
 /*
 int main() {
