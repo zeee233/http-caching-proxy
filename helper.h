@@ -136,26 +136,34 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
     std::string url = tokens[1];
     first_line = lines[0];
 
-    // Extract the hostname and port number from the URL
+    // Host header 
+    std::regex host_regex("Host: ([^\\r\\n]+)");
+    std::smatch match;
+    if (std::regex_search(msg, match, host_regex)) {
+        hostname = match[1].str();
+    } 
+    size_t pos = hostname.find(":");
+
+    // New Version for connect 
     if (method=="CONNECT"){
-        size_t colon = url.find(':');
-        size_t slash = url.find('/');
-        if (colon == std::string::npos || colon > slash) {
-            // No port number in the URL
-            hostname = url.substr(0, slash);
+        // Find the position of the colon separator
+        if (pos == std::string::npos) {
             port = 80;
         } else {
-            // Port number in the URL
-            hostname = url.substr(0, colon);
-            port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
+            // Extract the host substring
+            size_t pos = hostname.find_last_of(":");
+            std::string port_str = hostname.substr(pos+1);
+            port = std::stoi(port_str);
+            hostname = hostname.substr(0, pos);
         }
-    } else if(method == "GET") {
+    } else if(method == "GET" || method == "POST") {
         string target="://";
         size_t get_pos=url.find("://")+target.length();
         size_t get_end_pos=url.find("/", get_pos);
-        //cout<<"url: "<<url.substr(get_pos, get_end_pos - get_pos)<<endl;
-        hostname = url.substr(get_pos, get_end_pos - get_pos);
         port = 80;
+        if(method == "GET" ) {
+            hostname = url.substr(get_pos, get_end_pos - get_pos);
+        } 
     }
 }
 string extract_cache_control_header(const std::string& response) {
@@ -229,7 +237,8 @@ void handle_get(ClientRequest * request, int server_fd) {
         if(should_revalidate(cache[request_uri])) {
             revalidate(cache[request_uri],request_uri, server_fd);
         } 
-        send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
+        send_request(request->socket_fd,cache[request_uri].response);
+        //send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
     } else { //requested data not in cache
         // Send the GET request to the server
         cout<<"if cache.count(request_uri) == 0"<<endl;
@@ -263,4 +272,14 @@ void handle_get(ClientRequest * request, int server_fd) {
     }
     printCache();
 }
+
+void handle_post(ClientRequest* request, int server_fd) {
+    // modify here
+    std::string request_str = request->first_line + "\r\n";
+    request_str += "Host: " + request->hostname + "\r\n";
+    send_request(server_fd, request_str);
+    std::string response_from_server = receive_response(server_fd);
+    send_request(request->socket_fd, response_from_server);
+}
+
 

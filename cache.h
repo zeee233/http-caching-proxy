@@ -238,14 +238,14 @@ bool revalidate(CachedResponse& cached_response, const std::string& request_url,
                   "If-Modified-Since: " + cached_response.Last_Modified + "\r\n"
                   "\r\n";
     }
-    // Send the request and get the response status code
-    //int status_code = send_request(request);
-    int bytes_sent = send(server_fd, request.c_str(), request.length(), 0);
-    if (bytes_sent < 0) {
-        std::cerr << "Failed to send GET request to server" << std::endl;
-        close(server_fd);
-        pthread_exit(NULL);
-    }
+    // // Send the request and get the response status code
+    // int bytes_sent = send(server_fd, request.c_str(), request.length(), 0);
+    // if (bytes_sent < 0) {
+    //     std::cerr << "Failed to send GET request to server" << std::endl;
+    //     close(server_fd);
+    //     pthread_exit(NULL);
+    // }
+    send_request(server_fd, request);
 
     // // Receive the response from the server
     // char buffer[BUFSIZ];
