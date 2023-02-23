@@ -141,7 +141,6 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
     std::smatch match;
     if (std::regex_search(msg, match, host_regex)) {
         hostname = match[1].str();
-        cout << "hostname draft:" << hostname <<endl;
     } 
     size_t pos = hostname.find(":");
 
@@ -166,8 +165,6 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
             hostname = url.substr(get_pos, get_end_pos - get_pos);
         } 
     }
-
-    cout<< "exist here2" <<endl;
 }
 string extract_cache_control_header(const std::string& response) {
     std::string header_name = "Cache-Control:";
