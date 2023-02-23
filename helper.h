@@ -156,46 +156,15 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
             std::string port_str = hostname.substr(pos+1);
             port = std::stoi(port_str);
             hostname = hostname.substr(0, pos);
-            std::cout << "Hostname: " << hostname << std::endl;
-            std::cout << "Port: " << port << std::endl;
-
-            cout<< "exist here1" <<endl;
         }
-    }
-        
-
-    // Extract the hostname and port number from the URL
-    // if (method=="C"){
-    //     size_t colon = url.find(':');
-    //     size_t slash = url.find('/');
-    //     if (colon == std::string::npos || colon > slash) {
-    //         // No port number in the URL
-    //         hostname = url.substr(0, slash);
-    //         port = 80;
-    //     } else {
-    //         // Port number in the URL
-    //         hostname = url.substr(0, colon);
-    //         port = boost::lexical_cast<int>(url.substr(colon + 1, slash - colon - 1));
-    //     }
-    // } else 
-    if(method == "GET" || method == "POST") {
+    } else if(method == "GET" || method == "POST") {
         string target="://";
         size_t get_pos=url.find("://")+target.length();
         size_t get_end_pos=url.find("/", get_pos);
         port = 80;
-        //cout<<"url: "<<url.substr(get_pos, get_end_pos - get_pos)<<endl;
         if(method == "GET" ) {
             hostname = url.substr(get_pos, get_end_pos - get_pos);
         } 
-        std::cout << "Hostname: " << hostname << std::endl;
-        std::cout << "Port: " << port << std::endl;
-        // else {
-        //     std::regex host_regex("Host: ([^\\r\\n]+)");
-        //     std::smatch match;
-        //     if (std::regex_search(msg, match, host_regex)) {
-        //         hostname = match[1];
-        //     }
-        // }
     }
 
     cout<< "exist here2" <<endl;
