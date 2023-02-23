@@ -30,58 +30,52 @@ void* handle_request(void* arg) {
     if (request->method == "CONNECT") {
         connection(request, server_fd);
     } else if (request->method == "GET") {
-        
-        get_uri(request);
-        // Step 2: Send the GET request to the server
-        cout<<request->first_line <<endl;
-        std::string request_str = request->first_line + "\r\n";
-        request_str += "Host: " + request->hostname + "\r\n";
-        request_str += "User-Agent: MyProxy\r\n";
-        request_str += "Connection: close\r\n\r\n";
-        int bytes_sent = send(server_fd, request_str.c_str(), request_str.length(), 0);
-        if (bytes_sent < 0) {
-            std::cerr << "Failed to send GET request to server" << std::endl;
-            close(server_fd);
-            pthread_exit(NULL);
-        }
-
-        // Step 3: Receive the response from the server
-        char buf[BUFSIZ];
-        std::string response_str;
-        int bytes_received;
-        do {
-            bytes_received = recv(server_fd, buf, BUFSIZ, 0);
-            if (bytes_received < 0) {
-                std::cerr << "Failed to receive response from server" << std::endl;
+        // get uri
+        std::string request_uri = get_uri(request);
+        //check if int cache and need revalidate 
+        if(cache.count(request_uri) != 0) { 
+            if(is_validate(cache[request_uri])) {
+                revalidate(cache[request_uri],request_uri, server_fd);
+            } 
+            send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
+        } else {
+            // Step 2: Send the GET request to the server
+            cout<<request->first_line <<endl;
+            std::string request_str = request->first_line + "\r\n";
+            request_str += "Host: " + request->hostname + "\r\n";
+            request_str += "User-Agent: MyProxy\r\n";
+            request_str += "Connection: close\r\n\r\n";
+            int bytes_sent = send(server_fd, request_str.c_str(), request_str.length(), 0);
+            if (bytes_sent < 0) {
+                std::cerr << "Failed to send GET request to server" << std::endl;
                 close(server_fd);
                 pthread_exit(NULL);
             }
-            //cout<<"one buf: "<<buf<<endl;
-            response_str.append(buf, bytes_received);
-        } while (bytes_received > 0);
-        //char buf[BUFSIZ];
-        send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
 
-        // Step 4: Extract cache control header from the response
-        cout << "response: " << response_str << endl<<"END NOW " <<endl;
-        std::string cache_control_header = extract_cache_control_header(response_str);
-        std::cout << "Cache-Control header: " << cache_control_header << std::endl;
+            // Step 3: Receive the response from the server
+            char buf[BUFSIZ];
+            std::string response_str;
+            int bytes_received;
+            do {
+                bytes_received = recv(server_fd, buf, BUFSIZ, 0);
+                if (bytes_received < 0) {
+                    std::cerr << "Failed to receive response from server" << std::endl;
+                    close(server_fd);
+                    pthread_exit(NULL);
+                }
+                //cout<<"one buf: "<<buf<<endl;
+                response_str.append(buf, bytes_received);
+            } while (bytes_received > 0);
 
-        // Step 5: Check if response can be cached
-        bool cacheable = is_cacheable(response_str);
-
-        if (cacheable) {
-            // Step 6: Add response to cache
-            std::string uri = get_uri(request);
-            std::lock_guard<std::mutex> lock(output_mutex);
-            //cache[uri] = response_str;
+            //create a cache response 
+            CachedResponse cached_response;
+            cached_response.response = response_str;
+            parse_cache_control_directives(cached_response);
+            if(is_cacheable(cached_response)) {
+                cache[request_uri] = cached_response;
+            }
+            send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
         }
-
-        // Step 7: Send response to client
-        send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
-
-
-        cout<< "what"<<endl;
     }
     close(server_fd);
     // Free the memory allocated for the ClientRequest object
