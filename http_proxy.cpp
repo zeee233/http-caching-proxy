@@ -54,7 +54,15 @@ void* handle_request(void* arg) {
             CachedResponse cached_response;
             cached_response.response = response_str;
             parse_cache_control_directives(cached_response);
+
+            // check cacheability 
             if(is_cacheable(cached_response)) {
+                // Perform FIFO if cache size exceeds 100
+                if (cache.size() > 100) {
+                    auto oldest_entry = cache.begin();
+                    cache.erase(oldest_entry);
+                }
+                // Add new response to cache
                 cache[request_uri] = cached_response;
             }
             send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
