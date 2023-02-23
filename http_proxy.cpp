@@ -76,6 +76,8 @@ void* handle_request(void* arg) {
             }
             send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
         }
+    } else if (request->method == "POST"){
+        
     }
     close(server_fd);
     // Free the memory allocated for the ClientRequest object

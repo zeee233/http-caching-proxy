@@ -4,6 +4,9 @@
 #include <ctime>
 #include <boost/regex.hpp>
 #include <regex>
+#include <boost/algorithm/string.hpp>
+#include <boost/lexical_cast.hpp>
+
 
 
 // Define a struct to represent the cached response
@@ -81,6 +84,94 @@ bool is_cacheable(CachedResponse & cached_response){
     return true;
 }
 
+int extract_status_code(const std::string& response_str) {
+    std::istringstream iss(response_str);
+    std::string line;
+    while (std::getline(iss, line)) {
+        // Check if the line contains the HTTP status line
+        if (line.find("HTTP/1.") != std::string::npos) {
+            // Extract the status code from the HTTP status line
+            int status_code = std::stoi(line.substr(9, 3));
+            return status_code;
+        }
+    }
+    // If we haven't found the status code, return -1 to indicate an error
+    return -1;
+}
+
+void parse_cache_control_directives(CachedResponse &cached_response) {
+
+    // Define the regular expressions for ETag and each cache control directive
+    const boost::regex etag_regex("ETag: \"(.+)\"");
+    const boost::regex last_modified_regex("Last-Modified: (.+)");
+    const boost::regex max_age_regex("max-age=(\\d+)");
+    const boost::regex must_revalidate_regex("must-revalidate");
+    const boost::regex no_cache_regex("no-cache");
+    const boost::regex no_store_regex("no-store");
+    const boost::regex is_private_regex("private");
+
+    // Initialize the cache control directive flags
+    cached_response.expiration_time= std::time_t(0);
+    cached_response.ETag="";
+    cached_response.Last_Modified = "";
+    cached_response.max_age=-1;
+    cached_response.must_revalidate = false;
+    cached_response.no_cache = false;
+    cached_response.no_store = false;
+    cached_response.is_private = false;
+
+    // Split the response header into lines
+    std::vector<std::string> lines;
+    boost::split(lines, cached_response.response, boost::is_any_of("\r\n"));
+    // Iterate over each line in the response header
+    for (const auto& line : lines) {
+        // Check if the line contains a cache control directive, ETag or Last-Modified
+        if (boost::istarts_with(line, "Cache-Control: ")) {
+            // Extract the cache control directives from the line
+            std::string directives = line.substr(16);
+
+            // Check for the max-age directive
+            boost::smatch max_age_match;
+            if (boost::regex_search(directives, max_age_match, max_age_regex)) {
+                cached_response.max_age = std::stoi(max_age_match[1]);
+                cached_response.expiration_time = std::time(nullptr) + cached_response.max_age;
+            }
+
+            // Check for the must-revalidate directive
+            if (boost::regex_search(directives, must_revalidate_regex)) {
+                cached_response.must_revalidate = true;
+            }
+
+            // Check for the no-cache directive
+            if (boost::regex_search(directives, no_cache_regex)) {
+                cached_response.no_cache = true;
+            }
+
+            // Check for the no-store directive
+            if (boost::regex_search(directives, no_store_regex)) {
+                cached_response.no_store = true;
+            }
+
+            // Check for the private directive
+            if (boost::regex_search(directives, is_private_regex)) {
+                cached_response.is_private = true;
+            }
+        } else if (boost::istarts_with(line, "ETag: ")) {
+            // Extract the ETag value from the line
+            boost::smatch etag_match;
+            if (boost::regex_search(line, etag_match, etag_regex)) {
+                cached_response.ETag = etag_match[1];
+            }
+        } else if (boost::istarts_with(line, "Last-Modified: ")) {
+            // Extract the Last-Modified value from the line
+            boost::smatch last_modified_match;
+            if (boost::regex_search(line, last_modified_match, last_modified_regex)) {
+                cached_response.Last_Modified = last_modified_match[1];
+            }
+        }
+    }
+}
+
 bool revalidate(CachedResponse& cached_response, const std::string& request_url, int server_fd) {
     // Check if the cached response has an ETag or Last-Modified header
     if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()) {
@@ -140,20 +231,6 @@ bool revalidate(CachedResponse& cached_response, const std::string& request_url,
     }
 }
 
-int extract_status_code(const std::string& response_str) {
-    std::istringstream iss(response_str);
-    std::string line;
-    while (std::getline(iss, line)) {
-        // Check if the line contains the HTTP status line
-        if (line.find("HTTP/1.") != std::string::npos) {
-            // Extract the status code from the HTTP status line
-            int status_code = std::stoi(line.substr(9, 3));
-            return status_code;
-        }
-    }
-    // If we haven't found the status code, return -1 to indicate an error
-    return -1;
-}
 
 
 /*
