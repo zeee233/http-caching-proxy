@@ -32,8 +32,7 @@ void* handle_request(void* arg) {
     } else if (request->method == "GET") {
         handle_get(request, server_fd);
     } else if (request->method == "POST"){
-        
-        
+        handle_post(request, server_fd);
     }
     close(server_fd);
     // Free the memory allocated for the ClientRequest object
@@ -59,7 +58,8 @@ int main() {
         char msg[65536] = {0} ;
         recv(new_socket, msg, sizeof(msg), 0);
         //cout<<"data_size received from client: "<<data_size1<<endl;
-        cout<<msg<<endl;
+        cout<<"==================msg================"
+        <<msg<< endl <<"========================================"<<endl;
         // Allocate memory for a new ClientRequest object
         pthread_mutex_lock(&plock);
         ClientRequest* request = new ClientRequest();
