@@ -33,13 +33,13 @@ void* handle_request(void* arg) {
         // get uri
         std::string request_uri = get_uri(request);
         //check if int cache and need revalidate 
-        if(cache.count(request_uri) != 0) { 
+        if(cache.count(request_uri) != 0) { //requested data exists in cache
             if(is_expired(cache[request_uri])) {
                 revalidate(cache[request_uri],request_uri, server_fd);
             } 
             send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
-        } else {
-            // Step 2: Send the GET request to the server
+        } else { //requested data not in cache
+            // Send the GET request to the server
             cout<<request->first_line <<endl;
             std::string request_str = request->first_line + "\r\n";
             request_str += "Host: " + request->hostname + "\r\n";
@@ -47,7 +47,7 @@ void* handle_request(void* arg) {
             request_str += "Connection: close\r\n\r\n";
             send_request(server_fd, request_str);
 
-            // // Step 3: Receive the response from the server
+            // Receive the response from the server
             std::string response_str = receive_response(server_fd);
 
             //create a cache response 
