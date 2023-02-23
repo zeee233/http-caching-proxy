@@ -225,12 +225,14 @@ void handle_get(ClientRequest * request, int server_fd) {
     std::string request_uri = get_uri(request);
     //check if request is in cache and needs revalidate 
     if(cache.count(request_uri) != 0) { //requested data exists in cache
-        if(is_expired(cache[request_uri])) {
+        cout<<"cache.count(request_uri) not equal to 0"<<endl;
+        if(should_revalidate(cache[request_uri])) {
             revalidate(cache[request_uri],request_uri, server_fd);
         } 
         send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
     } else { //requested data not in cache
         // Send the GET request to the server
+        cout<<"if cache.count(request_uri) == 0"<<endl;
         cout<<request->first_line <<endl;
         std::string request_str = request->first_line + "\r\n";
         request_str += "Host: " + request->hostname + "\r\n";
@@ -248,6 +250,7 @@ void handle_get(ClientRequest * request, int server_fd) {
 
         // check cacheability 
         if(is_cacheable(cached_response)) {
+            cout<<"the response is cacheble"<<endl;
             // Perform FIFO if cache size exceeds 100
             if (cache.size() > 100) {
                 auto oldest_entry = cache.begin();
@@ -258,5 +261,6 @@ void handle_get(ClientRequest * request, int server_fd) {
         }
         send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
     }
+    printCache();
 }
 

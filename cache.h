@@ -26,9 +26,21 @@ struct CachedResponse {
 std::unordered_map<std::string, CachedResponse> cache;
 
 // Function to check if a cached response is expired
-bool is_expired(CachedResponse cached_response) {
-    std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
+bool should_revalidate(CachedResponse cached_response) {
+    //must not use stored response without successful validation.
+    if (cached_response.no_cache) {
+        return true;
+    }
+    if (cached_response.must_revalidate){
+        std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+        return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
+    }
+    //if (cached_response.expiration_time == std::time_t(0)){
+    //    return false;
+    //}
+    return false;
+    //std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    //return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
 }
 
 // Function to add a response to the cache
@@ -96,15 +108,10 @@ std::string receive_response(int server_fd) {
 //     return true;  // No Cache-Control header found, so response is cacheable by default
 // }
 bool is_cacheable(CachedResponse & cached_response){
-    if (cached_response.no_cache != true ||
-        cached_response.no_store != true ||
-        cached_response.is_private != true) {
-        return false;
-    }
-    if (cached_response.max_age <= 0) {
-        return false;
-    }
-    if (cached_response.must_revalidate==true){
+    if (//cached_response.no_cache == true ||
+        cached_response.no_store == true ||
+        cached_response.is_private == true) {
+        std::cout<<"1111"<<std::endl;
         return false;
     }
     return true;
@@ -197,7 +204,23 @@ void parse_cache_control_directives(CachedResponse &cached_response) {
         }
     }
 }
-
+void printCache(){
+    std::cout<<"enter into the cache "<<std::endl;
+    for(auto &v :cache){
+        std::cout<<"url is: "<<v.first<<" content is as follows: "<<std::endl;
+        std::cout<<"expiration_time: "<<v.second.expiration_time<<std::endl;
+        std::cout<<"ETag: "<<v.second.ETag<<std::endl;
+        std::cout<<"Last_Modified: "<<v.second.Last_Modified<<std::endl;
+        std::cout<<"max_age: "<<v.second.max_age<<std::endl;
+        std::cout<<"must_revalidate: "<<v.second.must_revalidate<<std::endl;
+        std::cout<<"no_cache: "<<v.second.no_cache<<std::endl;
+        std::cout<<"no_store: "<<v.second.no_store<<std::endl;
+        std::cout<<"is_private: "<<v.second.is_private<<std::endl;
+        std::cout<<"content end!"<<std::endl;
+        std::cout<<"********************************************"<<std::endl;
+    }
+    std::cout<<"out of the cache "<<std::endl;
+}
 bool revalidate(CachedResponse& cached_response, const std::string& request_url, int server_fd) {
     // Check if the cached response has an ETag or Last-Modified header
     if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()) {

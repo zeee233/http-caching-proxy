@@ -20,7 +20,7 @@ std::string get_uri(ClientRequest* request) {
     std::istringstream iss(request->first_line);
     std::string method, uri, version;
     iss >> method >> uri >> version;
-    cout << "************************************************this is URI: " << uri << endl;
+    //cout << "************************************************this is URI: " << uri << endl;
     return uri;
 }
 
