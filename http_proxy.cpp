@@ -32,7 +32,7 @@ void* handle_request(void* arg) {
     } else if (request->method == "GET") {
         // get uri
         std::string request_uri = get_uri(request);
-        //check if int cache and need revalidate 
+        //check if request is in cache and needs revalidate 
         if(cache.count(request_uri) != 0) { //requested data exists in cache
             if(is_expired(cache[request_uri])) {
                 revalidate(cache[request_uri],request_uri, server_fd);
