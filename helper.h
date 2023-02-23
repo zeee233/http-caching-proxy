@@ -171,7 +171,7 @@ string extract_cache_control_header(const std::string& response) {
     std::string header_value = response.substr(header_pos + header_name.size(), end_pos - (header_pos + header_name.size()));
     return header_value;
 }
-void connection(ClientRequest * request, int server_fd) {
+void handle_connect(ClientRequest * request, int server_fd) {
     // Send a 200 OK response to the client
     const std::string response = "HTTP/1.1 200 Connection established\r\n\r\n";
     int bytes_sent = send(request->socket_fd, response.c_str(), response.length(), 0);
@@ -218,6 +218,45 @@ void connection(ClientRequest * request, int server_fd) {
             }
         }
     }
+}
 
+void handle_get(ClientRequest * request, int server_fd) {
+    // get uri
+    std::string request_uri = get_uri(request);
+    //check if request is in cache and needs revalidate 
+    if(cache.count(request_uri) != 0) { //requested data exists in cache
+        if(is_expired(cache[request_uri])) {
+            revalidate(cache[request_uri],request_uri, server_fd);
+        } 
+        send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
+    } else { //requested data not in cache
+        // Send the GET request to the server
+        cout<<request->first_line <<endl;
+        std::string request_str = request->first_line + "\r\n";
+        request_str += "Host: " + request->hostname + "\r\n";
+        request_str += "User-Agent: MyProxy\r\n";
+        request_str += "Connection: close\r\n\r\n";
+        send_request(server_fd, request_str);
+
+        // Receive the response from the server
+        std::string response_str = receive_response(server_fd);
+
+        //create a cache response 
+        CachedResponse cached_response;
+        cached_response.response = response_str;
+        parse_cache_control_directives(cached_response);
+
+        // check cacheability 
+        if(is_cacheable(cached_response)) {
+            // Perform FIFO if cache size exceeds 100
+            if (cache.size() > 100) {
+                auto oldest_entry = cache.begin();
+                cache.erase(oldest_entry);
+            }
+            // Add new response to cache
+            cache[request_uri] = cached_response;
+        }
+        send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
+    }
 }
 

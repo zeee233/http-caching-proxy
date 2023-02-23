@@ -26,7 +26,7 @@ struct CachedResponse {
 std::unordered_map<std::string, CachedResponse> cache;
 
 // Function to check if a cached response is expired
-bool is_validate(CachedResponse cached_response) {
+bool is_expired(CachedResponse cached_response) {
     std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
 }
@@ -36,6 +36,32 @@ void add_to_cache(std::string uri, std::string response, std::time_t expiration_
     // Create a new CachedResponse and add it to the cache
     CachedResponse cached_response = {response, expiration_time};
     cache[uri] = cached_response;
+}
+
+void send_request(int server_fd, std::string request) {
+    int bytes_sent = send(server_fd, request.c_str(), request.length(), 0);
+    if (bytes_sent < 0) {
+        std::cerr << "Failed to send GET request to server" << std::endl;
+        close(server_fd);
+        pthread_exit(NULL);
+    }
+}
+
+std::string receive_response(int server_fd) {
+    char buf[BUFSIZ];
+    std::string response_str;
+    int bytes_received;
+    do {
+        bytes_received = recv(server_fd, buf, BUFSIZ, 0);
+        if (bytes_received < 0) {
+            std::cerr << "Failed to receive response from server" << std::endl;
+            close(server_fd);
+            pthread_exit(NULL);
+        }
+        //cout<<"one buf: "<<buf<<endl;
+        response_str.append(buf, bytes_received);
+    } while (bytes_received > 0);
+    return response_str;
 }
 
 // bool is_cacheable(const std::string& response_str) {
@@ -198,23 +224,23 @@ bool revalidate(CachedResponse& cached_response, const std::string& request_url,
         pthread_exit(NULL);
     }
 
-    // Receive the response from the server
-    char buffer[BUFSIZ];
-    std::string response_str;
-    int bytes_received;
-    do {
-        bytes_received = recv(server_fd, buffer, BUFSIZ - 1, 0);
-        if (bytes_received < 0) {
-            std::cerr << "Failed to receive response from server" << std::endl;
-            close(server_fd);
-            pthread_exit(NULL);
-        }
-        buffer[bytes_received] = '\0';
-        response_str += buffer;
-    } while (bytes_received > 0);
+    // // Receive the response from the server
+    // char buffer[BUFSIZ];
+    // std::string response_str;
+    // int bytes_received;
+    // do {
+    //     bytes_received = recv(server_fd, buffer, BUFSIZ - 1, 0);
+    //     if (bytes_received < 0) {
+    //         std::cerr << "Failed to receive response from server" << std::endl;
+    //         close(server_fd);
+    //         pthread_exit(NULL);
+    //     }
+    //     buffer[bytes_received] = '\0';
+    //     response_str += buffer;
+    // } while (bytes_received > 0);
+    std::string response_str = receive_response(server_fd);
 
     int status_code = extract_status_code(response_str);
-
 
     // Handle the response based on the status code
     if (status_code == 304) {
