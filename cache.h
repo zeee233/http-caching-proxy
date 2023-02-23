@@ -2,11 +2,20 @@
 #include <unordered_map>
 #include <chrono>
 #include <ctime>
+#include <boost/regex.hpp>
+#include <regex>
+
 
 // Define a struct to represent the cached response
 struct CachedResponse {
     std::string response;
     std::time_t expiration_time;
+    string ETag;
+    int max_age, 
+    bool must_revalidate, 
+    bool no_cache, 
+    bool no_store, 
+    bool is_private
 };
 
 // Define a cache as an unordered map from URI to CachedResponse
@@ -40,6 +49,40 @@ void add_to_cache(std::string uri, std::string response, std::time_t expiration_
     cache[uri] = cached_response;
 }
 
+bool is_cacheable(const std::string& response_str) {
+    std::istringstream iss(response_str);
+    std::string line;
+    while (std::getline(iss, line)) {
+        // Check if the line contains the Cache-Control header
+        if (line.find("Cache-Control") != std::string::npos) {
+            // Check if the Cache-Control header contains any of the non-cacheable directives
+            if (line.find("no-cache") != std::string::npos ||
+                line.find("no-store") != std::string::npos ||
+                line.find("private") != std::string::npos) {
+                return false;
+            }
+            // Check if the Cache-Control header contains the max-age directive
+            size_t pos = line.find("max-age");
+            if (pos != std::string::npos) {
+                // Extract the max-age value and check if it's greater than 0
+                std::string max_age_str = line.substr(pos + 8);
+                int max_age = std::stoi(max_age_str);
+                if (max_age <= 0) {
+                    return false;
+                }
+            }
+            // Check if the Cache-Control header contains the must-revalidate or proxy-revalidate directive
+            if (line.find("must-revalidate") != std::string::npos ) {
+                return true;  // Need to revalidate the cached response
+            }
+            return true;  // Response is cacheable
+        }
+    }
+    return true;  // No Cache-Control header found, so response is cacheable by default
+}
+
+
+/*
 int main() {
     // Example usage
     std::string uri = "http://example.com/resource";
@@ -53,3 +96,4 @@ int main() {
     std::cout << "Response: " << response << std::endl;
     return 0;
 }
+*/

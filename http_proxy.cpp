@@ -1,9 +1,12 @@
 #include "helper.h"
 #include <sstream>
 #include <pthread.h>
+#include "cache.h"
 pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
 std::ofstream logFile("proxy.log");
 std::vector<std::thread> threads;
+std::mutex output_mutex;
+
 //pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
 
 void* handle_request(void* arg) {
@@ -29,6 +32,7 @@ void* handle_request(void* arg) {
         connection(request, server_fd);
     } else if (request->method == "GET") {
         
+        get_uri(request);
         // Step 2: Send the GET request to the server
         cout<<request->first_line <<endl;
         std::string request_str = request->first_line + "\r\n";
@@ -53,14 +57,30 @@ void* handle_request(void* arg) {
                 close(server_fd);
                 pthread_exit(NULL);
             }
+            //cout<<"one buf: "<<buf<<endl;
             response_str.append(buf, bytes_received);
         } while (bytes_received > 0);
-        //cout<<response_str<<endl;
-        int data1=send(request->socket_fd,response_str.c_str(),response_str.length(),0);
-        //cout<<"data1: "<<data1<<endl;
+        //char buf[BUFSIZ];
+        send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
+
         // Step 4: Extract cache control header from the response
+        cout << "response: " << response_str << endl<<"END NOW " <<endl;
         std::string cache_control_header = extract_cache_control_header(response_str);
         std::cout << "Cache-Control header: " << cache_control_header << std::endl;
+
+        // Step 5: Check if response can be cached
+        bool cacheable = is_cacheable(response_str);
+
+        if (cacheable) {
+            // Step 6: Add response to cache
+            std::string uri = get_uri(request);
+            std::lock_guard<std::mutex> lock(output_mutex);
+            //cache[uri] = response_str;
+        }
+
+        // Step 7: Send response to client
+        send(request->socket_fd, response_str.c_str(), response_str.length(), 0);
+
 
         cout<< "what"<<endl;
     }

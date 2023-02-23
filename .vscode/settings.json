@@ -65,6 +65,9 @@
         "variant": "cpp",
         "*.ipp": "cpp",
         "strstream": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "regex": "cpp",
+        "bitset": "cpp",
+        "shared_mutex": "cpp"
     }
 }

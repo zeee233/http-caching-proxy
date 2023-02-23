@@ -222,45 +222,61 @@ void connection(ClientRequest * request, int server_fd) {
 
 
 
-void parse_cache_control_directives(const std::string& cache_control_header, int& max_age, bool& must_revalidate, bool& no_cache, bool& no_store, bool& is_private) {
-    // Define regular expressions for matching the cache control directives
+void parse_cache_control_directives(CachedResponse cached_response) {
+
+    // Define the regular expressions for ETag and each cache control directive
+    const boost::regex etag_regex("ETag: \"(.+)\"");
     const boost::regex max_age_regex("max-age=(\\d+)");
-    const boost::regex max_stale_regex("max-stale(=(\\d+))?");
     const boost::regex must_revalidate_regex("must-revalidate");
     const boost::regex no_cache_regex("no-cache");
     const boost::regex no_store_regex("no-store");
-    const boost::regex private_regex("private");
-    const boost::regex public_regex("public");
+    const boost::regex is_private_regex("private");
 
-    // Split the cache control header into individual directives
-    std::vector<std::string> directives;
-    boost::split(directives, cache_control_header, boost::is_any_of(","));
+    // Initialize the cache control directive flags
+    cached_response.must_revalidate = false;
+    cached_response.no_cache = false;
+    cached_response.no_store = false;
+    cached_response.is_private = false;
 
-    // Process each directive
-    for (const auto& directive : directives) {
-        // Match the directive against each regex and take the appropriate action
-        boost::smatch match;
-        if (boost::regex_match(directive, match, max_age_regex)) {
-            // Set the maximum age for the cache entry
-            max_age = std::stoi(match[1]);
-        } else if (boost::regex_match(directive, max_stale_regex)) {
-            // Mark the entry as stale with a maximum staleness value, if present
-            // (Note: we don't need to do anything with this information in this example)
-        } else if (boost::regex_match(directive, must_revalidate_regex)) {
-            // Require revalidation for the cache entry
-            must_revalidate = true;
-        } else if (boost::regex_match(directive, no_cache_regex)) {
-            // Prohibit caching altogether
-            no_cache = true;
-        } else if (boost::regex_match(directive, no_store_regex)) {
-            // Prohibit storing the cache entry in any form
-            no_store = true;
-        } else if (boost::regex_match(directive, private_regex)) {
-            // Mark the cache entry as private (i.e., only cacheable by the user agent)
-            is_private = true;
-        } else if (boost::regex_match(directive, public_regex)) {
-            // Mark the cache entry as public (i.e., cacheable by any cache)
-            is_private = false;
+    // Iterate over each line in the response header
+    for (const auto& line : lines) {
+        // Check if the line contains a cache control directive or ETag
+        if (boost::istarts_with(line, "Cache-Control: ")) {
+            // Extract the cache control directives from the line
+            std::string directives = line.substr(16);
+
+            // Check for the max-age directive
+            boost::smatch max_age_match;
+            if (boost::regex_search(directives, max_age_match, max_age_regex)) {
+                cached_response.max_age = std::stoi(max_age_match[1]);
+                cached_response.expiration_time = std::time(nullptr) + cached_response.max_age;
+            }
+
+            // Check for the must-revalidate directive
+            if (boost::regex_search(directives, must_revalidate_regex)) {
+                cached_response.must_revalidate = true;
+            }
+
+            // Check for the no-cache directive
+            if (boost::regex_search(directives, no_cache_regex)) {
+                cached_response.no_cache = true;
+            }
+
+            // Check for the no-store directive
+            if (boost::regex_search(directives, no_store_regex)) {
+                cached_response.no_store = true;
+            }
+
+            // Check for the private directive
+            if (boost::regex_search(directives, is_private_regex)) {
+                cached_response.is_private = true;
+            }
+        } else if (boost::istarts_with(line, "ETag: ")) {
+            // Extract the ETag value from the line
+            boost::smatch etag_match;
+            if (boost::regex_search(line, etag_match, etag_regex)) {
+                cached_response.ETag = etag_match[1];
+            }
         }
     }
 }
