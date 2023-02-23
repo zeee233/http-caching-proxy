@@ -5,6 +5,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <unistd.h>
+#include "cache.h"
 #include "client_request.h"
 #include <netinet/in.h>
 #include <sys/types.h>
@@ -222,10 +223,11 @@ void connection(ClientRequest * request, int server_fd) {
 
 
 
-void parse_cache_control_directives(CachedResponse cached_response) {
+void parse_cache_control_directives(CachedResponse &cached_response) {
 
     // Define the regular expressions for ETag and each cache control directive
     const boost::regex etag_regex("ETag: \"(.+)\"");
+    const boost::regex last_modified_regex("Last-Modified: (.+)");
     const boost::regex max_age_regex("max-age=(\\d+)");
     const boost::regex must_revalidate_regex("must-revalidate");
     const boost::regex no_cache_regex("no-cache");
@@ -233,14 +235,21 @@ void parse_cache_control_directives(CachedResponse cached_response) {
     const boost::regex is_private_regex("private");
 
     // Initialize the cache control directive flags
+    cached_response.expiration_time= std::time_t(0);
+    cached_response.ETag="";
+    cached_response.Last_Modified = "";
+    cached_response.max_age=-1;
     cached_response.must_revalidate = false;
     cached_response.no_cache = false;
     cached_response.no_store = false;
     cached_response.is_private = false;
 
+    // Split the response header into lines
+    std::vector<std::string> lines;
+    boost::split(lines, cached_response.response, boost::is_any_of("\r\n"));
     // Iterate over each line in the response header
     for (const auto& line : lines) {
-        // Check if the line contains a cache control directive or ETag
+        // Check if the line contains a cache control directive, ETag or Last-Modified
         if (boost::istarts_with(line, "Cache-Control: ")) {
             // Extract the cache control directives from the line
             std::string directives = line.substr(16);
@@ -276,6 +285,12 @@ void parse_cache_control_directives(CachedResponse cached_response) {
             boost::smatch etag_match;
             if (boost::regex_search(line, etag_match, etag_regex)) {
                 cached_response.ETag = etag_match[1];
+            }
+        } else if (boost::istarts_with(line, "Last-Modified: ")) {
+            // Extract the Last-Modified value from the line
+            boost::smatch last_modified_match;
+            if (boost::regex_search(line, last_modified_match, last_modified_regex)) {
+                cached_response.Last_Modified = last_modified_match[1];
             }
         }
     }

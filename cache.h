@@ -10,12 +10,13 @@
 struct CachedResponse {
     std::string response;
     std::time_t expiration_time;
-    string ETag;
-    int max_age, 
-    bool must_revalidate, 
-    bool no_cache, 
-    bool no_store, 
-    bool is_private
+    std::string ETag;
+    std::string Last_Modified;
+    int max_age; 
+    bool must_revalidate;
+    bool no_cache;
+    bool no_store; 
+    bool is_private;
 };
 
 // Define a cache as an unordered map from URI to CachedResponse
@@ -80,7 +81,20 @@ bool is_cacheable(const std::string& response_str) {
     }
     return true;  // No Cache-Control header found, so response is cacheable by default
 }
-
+bool is_cacheable(CachedResponse & cached_response){
+    if (cached_response.no_cache != true ||
+        cached_response.no_store != true ||
+        cached_response.is_private != true) {
+        return false;
+    }
+    if (cached_response.max_age <= 0) {
+        return false;
+    }
+    if (cached_response.must_revalidate==true){
+        return false;
+    }
+    return true;
+}
 
 /*
 int main() {

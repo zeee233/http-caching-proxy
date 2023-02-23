@@ -1,7 +1,6 @@
 #include "helper.h"
 #include <sstream>
 #include <pthread.h>
-#include "cache.h"
 pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
 std::ofstream logFile("proxy.log");
 std::vector<std::thread> threads;
