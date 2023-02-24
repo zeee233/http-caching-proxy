@@ -211,11 +211,7 @@ void handle_connect(ClientRequest * request, int server_fd) {
             int bytes_sent = send(server_fd, buf, bytes_received, 0);
             if (bytes_sent < 0) {
                 break;
-            } else {
-                pthread_mutex_lock(&plock);
-                logFile << request->ID <<": Requesting " << request->first_line << " from "<< request->hostname <<std::endl;
-                pthread_mutex_unlock(&plock);
-            }
+            } 
         }
 
         if (FD_ISSET(server_fd, &read_fds)) {
@@ -258,6 +254,9 @@ void handle_get(ClientRequest * request, int server_fd) {
         request_str += "User-Agent: MyProxy\r\n";
         request_str += "Connection: close\r\n\r\n";
         send_request(server_fd, request_str);
+        pthread_mutex_lock(&plock);
+        logFile<<request->ID<<": Requesting " << '"' <<request->first_line << '"'<<" from " << request->hostname << std::endl;
+        pthread_mutex_unlock(&plock);
 
         // Receive the response from the server
         std::string response_str = receive_response(server_fd, request);
@@ -296,10 +295,10 @@ void handle_post(ClientRequest* request, int server_fd) {
     // modify here
     std::string request_str = request->first_line + "\r\n";
     request_str += "Host: " + request->hostname + "\r\n";
-    send_request(server_fd, request_str);
     pthread_mutex_lock(&plock);
-    logFile<<request->ID<<": Requesting "<< request_str << " from " << request->hostname << std::endl;
+    logFile<<request->ID<<": Requesting " << '"'<<request->first_line << '"'<<" from " << request->hostname << std::endl;
     pthread_mutex_unlock(&plock); 
+    send_request(server_fd, request_str);
     std::string response_from_server = receive_response(server_fd, request);
     send_request(request->socket_fd, response_from_server);
 }

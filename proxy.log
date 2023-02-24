@@ -1,44 +1,1 @@
-0: CONNECT outlook.office.com:443 HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:05 2023
-0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
-0: Receiving  from outlook.office.com
-0: Responding 
-0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
-0: Receiving  from outlook.office.com
-0: Responding 
-0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
-0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
-0: Receiving ∆⁄‰Ûs#„YNÂ¨…OUµCÅ6˛ïÍbì‹*YR÷∑Ôí_Øw{î_wÈóïØ8i™©+∂»ñ(±π^~R<ûÖpÖ`ôƒ¸‹3IWgY5jE÷"pEZë#b|é±…òF[=¯^å&%÷L«¸ƒ‚hı·_&Üúﬁ[ùÏT from outlook.office.com
-0: Responding 
-0: Receiving  from outlook.office.com
-0: Responding 
-0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
-0: Receiving  from outlook.office.com
-0: Responding 
-0: Receiving  from outlook.office.com
-0: Responding 
-1: CONNECT clients2.google.com:443 HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:05 2023
-1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
-1: Receiving  from clients2.google.com
-1: Responding 
-1: Receiving A;[utÔ¬5Íø¡Ç‹Õw=/‹È˜/¥£∞)8Âî®'A«èosl¢Ω˚9ëh'ß°OÅÓÎs¬B€&˙‘ÕBA4cÿÁ⁄å∞J≥6à|í˘xÆ3’1Ú_»Té˘‘S)Œ-%ûY Æ°•{^∞Æ€Öã"õáùW©≤Œ from clients2.google.com
-1: Responding 
-1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
-1: Receiving ÉrÁØÙ®◊‘"Ix!Œ∑Ù¨r˙˝∑Æß∑8:ÃSûíú‹\Sç%r∆úòõbRa¢&Xv∞≈≤ù¡2i÷RÑÕ˝ïÕ\œ=Rtﬂ(öG÷çç from clients2.google.com
-1: Responding 
-1: Receiving  from clients2.google.com
-1: Responding 
-1: Receiving Å∫ˆ®R¿†Ô—ÌÇä@πÂDo from clients2.google.com
-1: Responding 
-1: Receiving  from clients2.google.com
-1: Responding 
-1: Receiving  from clients2.google.com
-1: Responding 
-1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
-1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
-1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
-2: GET http://info.cern.ch/ HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:07 2023
-2: not in cache
-2: Receiving HTTP/1.1 200 OK from info.cern.ch
-2: cached, but requires re-validation
-3: GET http://info.cern.ch/ HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:08 2023
-3: in cache, valid
+0: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 16:50:02 2023
