@@ -12,6 +12,8 @@
 #include <sstream>
 #include <fstream>
 #include "client_request.h"
+#include <iomanip>
+
 
 std::ofstream logFile("proxy.log");
 pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
@@ -178,6 +180,26 @@ int extract_status_code(const std::string& response_str) {
     return -1;
 }
 
+std::time_t parse_date(const std::string& date_str) {
+    std::tm tm = {};
+    std::istringstream date_stream(date_str);
+    date_stream.imbue(std::locale("C"));
+    date_stream >> std::get_time(&tm, "%a, %d %b %Y %H:%M:%S %Z");
+    std::time_t time = std::mktime(&tm);
+    if (time == -1) {
+        throw std::runtime_error("Failed to convert date string to time_t");
+    }
+    return time;
+}
+
+std::time_t to_utc(std::time_t time) {
+    std::tm utc_tm = {};
+    if (!gmtime_r(&time, &utc_tm)) {
+        throw std::runtime_error("Failed to convert time_t to UTC");
+    }
+    return std::mktime(&utc_tm);
+}
+
 void parse_cache_control_directives(CachedResponse &cached_response,std::string response_str,int ID) {
 
     // Define the regular expressions for ETag and each cache control directive
@@ -209,17 +231,22 @@ void parse_cache_control_directives(CachedResponse &cached_response,std::string 
         if (boost::istarts_with(line, "Cache-Control: ")) {
             // Extract the cache control directives from the line
             std::string directives = line.substr(15);
-            cout << "directives: " << directives << endl;
             // Check for the max-age directive
             boost::smatch max_age_match;
             if (boost::regex_search(directives, max_age_match, max_age_regex)) {
                 cached_response.max_age = std::stoi(max_age_match[1]);
-                
-                std::time_t expiration_time_utc = std::time(nullptr) + cached_response.max_age;
-                std::tm expiration_time_tm = *std::gmtime(&expiration_time_utc);
-                cached_response.expiration_time = std::mktime(&expiration_time_tm);
+                std::regex date_regex(R"(Date:\s+(.*)\r\n)");
+                std::smatch match;
+                if (std::regex_search(response_str, match, date_regex)) {
+                    // Get the date string from the match
+                    std::string date_str = match[1].str();
+                    std::time_t time = parse_date(date_str);
+                    std::time_t utc_time = to_utc(time);
+                    std::time_t expiration_time_utc = utc_time + cached_response.max_age;
+                    cached_response.expiration_time = expiration_time_utc;
+                }
             }
-
+            
             // Check for the must-revalidate directive
             if (boost::regex_search(directives, must_revalidate_regex)) {
                 cached_response.must_revalidate = true;
@@ -350,3 +377,4 @@ int main() {
     return 0;
 }
 */
+
