@@ -124,7 +124,7 @@ int accept_server(int proxy_server_fd, string & ip_address) {
     return socket_fd_new;
 }
 
-void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port, std::string& first_line, int max_stale) {
+void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port, std::string& first_line, int &max_stale) {
     // Split the message into lines
     std::vector<std::string> lines;
     boost::split(lines, msg, boost::is_any_of("\r\n"));
@@ -245,7 +245,7 @@ void handle_get(ClientRequest * request, int server_fd) {
         //logFile<<request->ID<<": "
         //pthread_mutex_unlock(&plock);
         cache[request_uri].ID=request->ID;
-        if(should_revalidate(cache[request_uri])) {            
+        if(should_revalidate(cache[request_uri],request->max_stale)) {            
             revalidate(cache[request_uri],request_uri, server_fd, request);
         }
         send_request(request->socket_fd,cache[request_uri].response);

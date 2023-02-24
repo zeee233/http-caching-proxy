@@ -29,57 +29,68 @@ struct CachedResponse {
     bool no_store; 
     bool is_private;
     int ID;
+    bool is_chunk;
 };
 
 // Define a cache as an unordered map from URI to CachedResponse
 std::unordered_map<std::string, CachedResponse> cache;
 
-// Function to check if a cached response is expired
-bool should_revalidate(CachedResponse cached_response) {
-    //must not use stored response without successful validation.
-    if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()){
+bool compare_time(CachedResponse & cached_response){
+    std::time_t current_time = std::time(nullptr);
+    if (cached_response.expiration_time <= current_time){
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"in cache, but expired at "<<cached_response.expiration_time<<std::endl;
+        pthread_mutex_unlock(&plock);
+        return true;             
+    }
+    else{
         pthread_mutex_lock(&plock);
         logFile<<cached_response.ID<<": "<<"in cache, valid"<<std::endl;
-        pthread_mutex_unlock(&plock);
-        return false;
-    }
+        pthread_mutex_unlock(&plock); 
+        return false;           
+    }     
+}
+// Function to check if a cached response is expired
+bool should_revalidate(CachedResponse & cached_response, int max_stale) {
+    //must not use stored response without successful validation.
     if (cached_response.no_cache) {
         pthread_mutex_lock(&plock);
         logFile<<cached_response.ID<<": "<<"in cache, requires validation"<<std::endl;
         pthread_mutex_unlock(&plock);
         return true;
     }
-    if (cached_response.must_revalidate) {
-        std::time_t current_time = std::time(nullptr);
-        if (cached_response.expiration_time <= current_time){
-            pthread_mutex_lock(&plock);
-            logFile<<cached_response.ID<<": "<<"in cache, but expired at "<<cached_response.expiration_time<<std::endl;
-            pthread_mutex_unlock(&plock);             
-        }
-        else{//not expire
-            pthread_mutex_lock(&plock);
-            logFile<<cached_response.ID<<": "<<"in cache, valid"<<std::endl;
-            pthread_mutex_unlock(&plock);          
-        }
-        return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
+    
+    if(cached_response.expiration_time==std::time_t(0)){//implies there are both no Expires and no max-age
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"in cache, valid"<<std::endl;
+        pthread_mutex_unlock(&plock);            
+        return false;//then we don't need to revalidate
     }
-    //if (cached_response.expiration_time == std::time_t(0)){
-    //    return false;
-    //}
+    else{
+        if(cached_response.must_revalidate){//do not need to care for max-stale
+            return compare_time(cached_response);            
+        }
+        else{
+            if(max_stale==-1){//implies there is no max_stale
+                return compare_time(cached_response); 
+            }
+            else{//implies there is max_stale
+                cached_response.expiration_time+=max_stale;
+                return compare_time(cached_response); 
+            }                
+        }            
+    }
+    
+
     pthread_mutex_lock(&plock);
     logFile<<cached_response.ID<<": "<<"in cache, valid"<<std::endl;
     pthread_mutex_unlock(&plock);
-    return false;
+    return false;    
     //std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     //return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
 }
 
-// Function to add a response to the cache
-void add_to_cache(std::string uri, std::string response, std::time_t expiration_time) {
-    // Create a new CachedResponse and add it to the cache
-    CachedResponse cached_response = {response, expiration_time};
-    cache[uri] = cached_response;
-}
+
 
 void send_request(int server_fd, std::string request) {
     int bytes_sent = send(server_fd, request.c_str(), request.length(), 0);
@@ -158,6 +169,18 @@ bool is_cacheable(CachedResponse & cached_response){
         pthread_mutex_lock(&plock);
         logFile<<cached_response.ID<<": "<<"not cacheable because "<<"is private"<<std::endl;
         pthread_mutex_unlock(&plock);          
+        return false;
+    }
+    if(cached_response.ETag.empty() && cached_response.Last_Modified.empty()){
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"not cacheable because "<<"no ETag and no Last_Modified"<<std::endl;
+        pthread_mutex_unlock(&plock);  
+        return false;       
+    }
+    if(cached_response.is_chunk){//if it is chunked, then it is not cacheble
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"not cacheable because "<<"no ETag and no Last_Modified"<<std::endl;
+        pthread_mutex_unlock(&plock);        
         return false;
     }
     return true;
@@ -325,7 +348,7 @@ bool revalidate(CachedResponse& cached_response, const std::string& request_url,
     } else if (status_code == 200) {
         // The cached response is invalid, update it with the new response
         //cached_response.response = response_str;
-        parse_cache_control_directives(cached_response,response_str,cached_response.ID);
+        parse_cache_control_directives(cached_response,response_str,client->ID);
         return true;
     } else {
         // Handle other status codes as necessary
