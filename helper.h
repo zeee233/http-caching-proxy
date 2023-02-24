@@ -126,24 +126,16 @@ int accept_server(int proxy_server_fd, string & ip_address) {
 
 void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port, std::string& first_line) {
     // Split the message into lines
-    cout << "444444444444" << hostname <<endl;
     std::vector<std::string> lines;
     boost::split(lines, msg, boost::is_any_of("\r\n"));
 
     // Extract the method and target URL from the first line
-    cout << "5555555555555555" << hostname <<endl;
     std::vector<std::string> tokens;
-    cout << "5.1 5.1 5.1" << hostname <<endl;
     boost::split(tokens, lines[0], boost::is_any_of(" "));
-    cout << "5.2 5.2 5.2" << hostname <<endl;
     method = tokens[0];
-    cout << "5.3 5.3 5.3" << hostname <<endl;
-    //std::string url = tokens[1];
-    cout << "5.4 5.4 5.4" << hostname <<endl;
     first_line = lines[0];
 
     // Host header 
-    cout << "6666666666666666" << hostname <<endl;;
     std::regex host_regex("Host: ([^\\r\\n]+)");
     std::smatch match;
     if (std::regex_search(msg, match, host_regex)) {

@@ -1,30 +1,59 @@
-0: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:00 2023
-1: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:00 2023
+0: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:31:17 2023
+1: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:31:17 2023
+0: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
 1: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-2: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:01 2023
-3: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:03 2023
-4: Responding "HTTP/1.1 400 Bad Request"
-4: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:08 2023
-5: "CONNECT adservice.google.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:08 2023
-6: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:08 2023
-7: Responding "HTTP/1.1 400 Bad Request"
-7: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-8: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-9: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-10: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-11: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-12: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-13: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-14: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-15: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
-16: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:09 2023
+2: Responding "HTTP/1.1 400 Bad Request"
+2: Responding "HTTP/1.1 400 Bad Request"
+2: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:31:23 2023
+2: not in cache
+2: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+2: Receiving HTTP/1.1 200 OK from vcm-30805.vm.duke.edu
+2: cached, but requires re-validation
+3: "CONNECT spocs.getpocket.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:00 2023
+4: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:00 2023
+4: in cache, valid
+5: "POST http://ocsp.sca1b.amazontrust.com/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:00 2023
+5: Requesting "POST http://ocsp.sca1b.amazontrust.com/ HTTP/1.1" from ocsp.sca1b.amazontrust.com
+6: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:02 2023
+7: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:06 2023
+7: in cache, valid
+8: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:06 2023
+8: in cache, valid
+9: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:06 2023
+9: in cache, valid
+10: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:06 2023
+10: in cache, valid
+11: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:06 2023
+11: in cache, valid
+12: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:32:06 2023
+12: in cache, valid
+5: Responding "HTTP/1.1 502 Bad Gateway"
+5: Receiving  from ocsp.sca1b.amazontrust.com
+13: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:03 2023
+14: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:03 2023
 14: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-16: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-15: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-17: Responding "HTTP/1.1 400 Bad Request"
-17: Responding "HTTP/1.1 400 Bad Request"
+15: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:03 2023
+16: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:23 2023
+16: in cache, valid
+17: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:23 2023
+17: in cache, valid
+18: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:23 2023
+18: in cache, valid
+19: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:23 2023
+19: in cache, valid
 14: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
-17: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:29 2023
-18: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:29:29 2023
-17: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-18: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+20: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:23 2023
+20: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+20: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+21: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:33:43 2023
+21: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+21: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+22: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:34:03 2023
+22: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+22: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+23: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:34:23 2023
+23: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+23: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+24: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 17:34:44 2023
+24: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+24: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
