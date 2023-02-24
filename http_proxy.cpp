@@ -82,7 +82,7 @@ int main() {
         request->ip_address=ip_address;
         request_id++;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
-        logFile << request->ID << ": " <<request->first_line << " from " << request->ip_address << " @ "<<std::asctime(utc_time)<<std::endl;
+        logFile << request->ID << ": " <<request->first_line << " from " << request->ip_address << " @ "<<std::asctime(utc_time);
         pthread_mutex_unlock(&plock);
 
         // Create a new thread to handle the request

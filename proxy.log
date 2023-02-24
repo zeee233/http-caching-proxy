@@ -1,250 +1,44 @@
-0: CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:41 2023
-
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Receiving  from incoming.telemetry.mozilla.org
+0: CONNECT outlook.office.com:443 HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:05 2023
+0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
+0: Receiving  from outlook.office.com
 0: Responding 
-0: Receiving ÂD;[Ó½§œB•ş'‚´@·°Lê`˜øAFìà8¶>œ…½éÔĞufì¯Ø>pÿ from incoming.telemetry.mozilla.org
+0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
+0: Receiving  from outlook.office.com
 0: Responding 
-1: POST http://ocsp.digicert.com/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:41 2023
-
-2: CONNECT www.google.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:42 2023
-
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving P”°¤èšwÛ¡·±Dù@—ì•MĞ„ĞÀş^¹L¾ú ©Cw\RŒµ6–¹^Şv!~*°&(¹­AŞûÂ„•Òoá8â'ûƒ_VŸOdì‰[‚"nóZ7ÇÌG\ÊãôõK|h€¦‡ìíp/†e²éªg from www.google.com
-2: Responding 
-3: POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:42 2023
-
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Receiving çÑış¬ËˆıÅÀè˜Ä:Ê·úTôâ"~‰ê jFØ½|3×_­,”×q~9I‰…D†jó“Ém`ûT>§u*Ü—×/¹å	Èïmkú<ÔÍ#^¶iàŸ{¤“zè ^:úEß `±šÿàcbJw× Qg{w5TşõÜ from incoming.telemetry.mozilla.org
+0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
+0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
+0: Receiving ÆÚäós#ãYNå¬ÉOUµC6ş•êb“Ü*YRÖ·ï’_¯w{”_wé—•¯8iª©+¶È–(±¹^~R<…p…`™ÄüÜ3IWgY5jEÖ"pEZ‘#b|±É˜F[=ø^Œ&%ğÖLÇüÄâhõá_&†œŞ[ìT from outlook.office.com
 0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
+0: Receiving  from outlook.office.com
 0: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Receiving ¼ø'.üÒMm–X¿Z2îy6ÿ)˜ £é<<¡Œ/“.kD©¬v0¿Õ from incoming.telemetry.mozilla.org
+0: Requesting CONNECT outlook.office.com:443 HTTP/1.1 from outlook.office.com
+0: Receiving  from outlook.office.com
 0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
+0: Receiving  from outlook.office.com
 0: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
-
-5: CONNECT spocs.getpocket.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
-
-4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
-5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
-4: Receiving  from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving Xü4QiJùáÓd#¤(v¨ü'³§d½¼°ibQ9Œ¬ßİãB÷ÕTÿÂMÎ[·÷ from getpocket.cdn.mozilla.net
-4: Responding 
-5: Receiving  from spocs.getpocket.com
-5: Responding 
-5: Receiving Q from spocs.getpocket.com
-5: Responding 
-5: Receiving bÈG‰¨`˜œ³WMPc^JÈPK½Æ÷ÏyGÔ/dË[áo¿hYL”ÆîÃo%Q09“ÁÓ•ñ[ÿÈ£8q&YH¼Ñ from spocs.getpocket.com
-5: Responding 
-5: Receiving M from spocs.getpocket.com
-5: Responding 
-5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
-6: POST http://ocsp.sca1b.amazontrust.com/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
-
-5: Receiving  from spocs.getpocket.com
-5: Responding 
-7: POST http://r3.o.lencr.org/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
-
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving #?q“ÊõøK0Úåvw from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving >'ÜlzÉv3X­ from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving ŸıÄı[œ from www.google.com
-2: Responding 
-2: Receiving sb­vÔÿææú|æ ·éa•S¸–	}} ‘yºş[ù¤Kèü@ùµéWwòÛ›” nH×©}	¾‘æaåÄe´û}+åpÿA from www.google.com
-2: Responding 
-2: Receiving svZ€ñ@ÁNb–f3ÔfÓò#’1™a”º•mÅ›&[Ø±•|Ò”¾¸o¶´ºcLQòÀ_n€’Ì¿‡­5¯ƒlE from www.google.com
-2: Responding 
-2: Receiving s)¥‡3r'4Gä`PªAŠ¬(*°àŒEYë_#Ï|”[j0‹ãXšÂ”U<v"0t`æêíIùåÁv…dË”nD£Î ÒÍEAîƒ.´V°{çÔ˜ from www.google.com
-2: Responding 
-2: Receiving ==³JWÕ]ú…0ªt•Ê-Ê—M~ÖBĞ˜ĞG$ÛüJÇNªe?A	.4Âx°»U÷½rÊâıæ¸Ngkİ'±Dyµª¢ÛÕú3¹Fd¶Íöú@ÍY0àj*|xD ÊÚ¶UY§GÙƒd7(<$™ ŠÑß"li¸5ßzåhOØÁÑ€)’Áeİ´;© from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving s‹S¶³€XMfØ+‘t_‹òMDŸáä²zä#k³={=+6Õ•ÊêV8k| øvuWîpÈ$U=†zJcÛš,°-Éáä{Üb£ø”¶dôB+@T’KB;›ö—ı—#›ÿA˜ìE(Æ8¢ôô´á‘Lö0¯K	uÎô§Îb½X—¨ó`ˆşŒÏÅæPpLrôZ7ğßLòû/Ÿu‰G from www.google.com
-2: Responding 
-2: Receiving s©"öé@{Ú=à€yÑÈâ}t½„†ğ^=¹`‚¦,rZÿ€åªCÒj.ŠjØÕëæ³‰»›Ş÷ÄgšLÆ%™^k¡á]BÑBZ2bÌ'A±åÂ,.ˆßßÆ0Ã’8äÃVïGZ: Í_õÜÉ¬æxhßD²q from www.google.com
-2: Responding 
-2: Receiving sÙ¹kÃ¢§*ªñ—g”…{pW%Rş>…mSô`¸&œ‡[é¼ğ´~ÿy˜’j1·ÑÅcó_ÊĞ‚;;j/»îæè£¬fi%OËeyMš8ÁKbãÊi²±ŸíîJ ¡dkÌˆŞù from www.google.com
-2: Responding 
-2: Receiving s{ã from www.google.com
-2: Responding 
-2: Receiving sİŞ îéè-"$<Á%)_\œ1®…ían,¦xGìB9ĞÊëãœEª·sˆÍ‘wNMH4‡n©¾‡ï¿¸UQZ`·f¥·R§üèFaOK˜,;6,.‹¾ò3Ö¸Fï0ßCkäØÈĞ6Œˆ»ô!z¯kTdO*ÍO¢Lx…ÎüÄÉuÅoNcÁ„2PxĞ“$«­Fõ*\Ÿg"J–Éşì=q¸A½p`)èÖb3ğìÈARëğ/ø¬éÒ§ĞÍØÊíÆÍU†–Vu¥Ş2óø¢“L–·_ˆ h„ad)AõKÏlDG·É‰Š™æ“¼e=k=.àMÿ“|ÎÁ]o8Á´>øó£†óë9L"©À# from www.google.com
-2: Responding 
-2: Receiving s•àğßÉ^3^Ò2tŞô×–‘¯Árz¹îùIc‚ââ„rı•¦XÔPUÌ½³a¨ünùYMúÙä÷_Ç÷"Ix`lç}<ßfÁti`i¬¸½8Ä÷z°ŠÒpä-~]ç†¨~­ŸØ¦ÆØº[Ëò'¹Àº.ï&T¶”÷ÃñøíË”»Ğã¦T•ÍÊÉ@pô£^iL$¦%¦zÌƒ#Ğ!ÕşpEÍy¦ÔY"– from www.google.com
-2: Responding 
-2: Receiving sôjßx‚€Pq¸Z]§í&‰ÏªÏ©e¤Aó?ŠˆìkoûT¿‰H	¤{D”É™xx•Ç@ŞÆ	4óÒ¼ˆİĞù‘jš³©îU from www.google.com
-2: Responding 
-2: Receiving své?@ƒI›u# from www.google.com
-2: Responding 
-2: Receiving syæÛı(ÁµK¹4ê~ù+Gg1‰ zTVìw+ from www.google.com
-2: Responding 
-2: Receiving s	ğNÜOŞğ/ wŞ¬9DşÂz9xiÔÙA	©ôˆI¹;G«”ç%Z¾r2+ÄõyCbJ%QÇœ„\ú‰˜ ò†=xÎ 2<¤ä{~Ë8Zƒ< /ÛaÅ¹®¡Å^rwSşhøew6œùõ­rWÄz»*çÉX.©p—k from www.google.com
-2: Responding 
-2: Receiving s}NšÌÚ{…IÊ¢â7ˆøÓâæ†ù¤"œúå¿V­`r‰A.´ç9²…^j$ËÄÚ„×ÿNU]è¹‡VĞ‘ÒÂ7ë÷÷ åÑPZ­½’ıı"nş2S<"ìPı-êrF9ç6NáœÆÕoúCHÎ¾iB£„D+Ï„«ÚSlâé0è from www.google.com
-2: Responding 
-2: Receiving sÿŒÔÎ\âA£uñ§3÷¦” from www.google.com
-2: Responding 
-2: Receiving sŸÖ.„xC¥\øŒ²§Õ¡p™{.ød½ª6jM³£ù¢Ğ†lš,0ä~ÖV–t2“­Øö[ç¾&¾'\§u„KèÆû¸/i3îªç@KoÎ\r from www.google.com
-2: Responding 
-2: Receiving skC±Æ°,êÿ4ÂŞ‰êŠåwÛ×XÒâËŠõ„àŠx¦¬¸¼2ï„Ër»¦¤— from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving s!Ã<RäPÊºK¯‘IıèNs«Œşkœ¨lÿ from www.google.com
-2: Responding 
-2: Receiving s`-rŸC/	ds¢@ÛÎ›{¼bşjõÅñÂQL<kirual¼ÇÌêå!q\ÜaõÜém`™ãYÀ&šêû%1±t2-0°kËIiY3 from www.google.com
-2: Responding 
-2: Receiving ä'ò­kc~4K%8Šğvf×ßÎ¸ı ¸ü«ğ@íKa¨˜b¸qÁ’AGOİù™W·1ëi‰n}±^=¼±(#(Âqv%§¾Rd·Üî•NœĞµC×¥ÿ¼Û£VË¾iïÉ{ÍíS?ÑáìXb%le/ÓO1z*°í×´Å\ ÊV‡«HT±œˆ"pš|N_º8¶ÜóÛtC%~!ûml"•İ»I+íÊ‡ÀAø„z™› 8¢…ßµŞKf}vÏêœ×ŞB­Yi5]fN\şÅô· from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving š®.1v¤ßÄsb*}*ZYkƒBJÍ»‹ from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving Ly.OÁÔšº&‘à”>6„rWû¥ëñ!OÑúM©k=¡‰¬QÉƒÁN`Eêî(cóI5H}We7gø¬2+$Ó‘k?÷şÓØ¶Ì‘ìP\©†›un from www.google.com
-2: Responding 
-2: Receiving sï‚8c“ Ó^äÔ|\Z¯;±§¦3Àúë—*•[ÉèJõyèôƒ½-ŠÌ%Ûcpı&ï^;ñoÆLZ(|v°Ä!¤ña« Z”)²m‰°ºKÙ!ç±j«Ì`/7–ƒ¨Iî…V}Œ>BKO.ÉÉ’0İ€©¿ê’‚Ë from www.google.com
-2: Responding 
-2: Receiving sz from www.google.com
-2: Responding 
-2: Receiving õÊ½ÿöÊƒM·§rízŒŸ“	«³(üi6û¶,ñ¼õ¿1*{•ÎÃ©öİéb‚§Û_Úšşö™¯I1¾éœmÕ'³q¤Dîhdk± ôhÉ$5]LÖê	«³˜S’ÿ±ö}ÿ8uWåÌèpaõü›G¬Åº from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
-5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
-5: Receiving  from spocs.getpocket.com
-5: Responding 
-4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
-4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
-5: Receiving å from spocs.getpocket.com
-5: Responding 
-4: Receiving çÙæB8vÙJîªåÁ­O¶¼|“¹æ–ß›¬ßW5­yQ	¯$Ì3=S÷<@ŸL{ÉŒ_÷$İğ¹&F.1î.4_—¶´Q±İƒ~…‰MåBÂ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
-4: Receiving  from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving Æ(Ïı«vtÍÀ~‹Oâ	¬í from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving s` from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sÕT]ª]úš¹ñ+¦HºÄ"¸ğuàøÃ¾F/Ğ•õöPŞîî^,²v0Ä‡0æSÁ'™8wHj3¨*7ÚÒ-å¾¼VÁÈ×%‡É%ƒÕ¶‰`Œ#šÃè£TaX\?§ÙõæHtL¤—™1>©·ÿ00ª$ß:¹"Ñ€Mímô7ŞŸ3Ó)–šïµlCêõ¹‘­!±\E›!	ğªÙôøŸ;&’ÚÌ‡´K×#Šá}7J÷ì×)ğã£“Ô£´ÄHún´ùAQƒ;‘™ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sƒ'K]Jd¨£ÓxÊ¹w7‘”cÙ€óvl£*Şx˜ÂK5¸\{¿qB×?afjê0õâ¢Íš}ÚN5¡‡k]è:©néç9¿¤ØÉz^‡ Ó:N¬	Ê‡˜:‡ï[	µÔ/¹f™ñu»™Ã¥/ÛzŒ€å3"	Àíg­v!ë›æÀÖdQUºÀ\,£^ULşŠpBÃLÛ³ŸC×ysrgÇÙ—é46Âƒ(lè„åòvís_‘ôª@"'säZ°1-Ôõ'´q;ìR‰Q[^|ûkìé3|ıÇ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sÚJCÂ.®“êXş¹,ø˜Ê{çh	C~Ø?:—-óø¬¾ùªÚê!íºøşõ…N˜dw†‘Ş¹”t…ªKànÛ´zn¹w7^êEĞî.èz›°T©õ…×¡QùZìZµŸI„.#PÁÖˆõÜÏî	 óÌÙNRŠÎBÑ¥kñÊŞ94ê=PÊÿ™[İ“=·,şgW|ôì¬iá}ò0úŠCèÚr from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving s!ê/*¼ëãîxĞ…Ê”&Âöı†+S§%_æºı®ès#{-N(-×<şDó¶”ŒÉoÁ˜Ñ˜&ãÒ©Ê”æ¶å`ù‚ ŞóÜ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving s‰¿¸(ÿyc¼hÄK·%gÇ_ÌPE®a#¿“öo¤àr¸"öÂÍç—Å*FgÂgÖèŸ%º	tÜà;	p™cs¡r+gÖÊä½T­?'•a¹š™R3Ô@ª‡P!Î|Ø-[ÖJ¯G-óm(†ï!î“o‘p’I á?l?/ZäàİL<UµCÒZræióÆFh)%ªØ˜î•î€é¬ÙõhÅ\,ƒoÃïz^O*µâPÉÅ17´ÖBYñ€)Yß‰EC8qİ ¤Œ±2Æÿ7RÍ+q@æn!Ş’“ŠÁæÖ0¦z{†ñÊ`?ğzˆÚ ¯!„C%Ã÷·“TåE?‡ÔÖvÎeŞ*õ‰MŸä±Î;sw«}:áXhŒ¸?ã×V™²Û¥·Í\u²§‡3jmÏBwzµ¬bÅ¨u×;È”öv„²®¯üÚæğ‰–zš’õßgv@û=iµ€”ö­Äæ­¶½şÊ<?Ø=,€g7ü,Œ`D0}Rhä@ËÂ`İ	ÚvòS;k¯U•~Çn€–Ís¹i®\i§f<w­ô(¡•1[6Mîû“>t¦¾¼OëË from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sªUxEÆå<¾cO3¦é{Ù2P]èBû¹QmúôMr—N‹ÁŞ¼Ô_yèéŸúm¼7äcş˜2Á‰ÆÛ×e¿FÓírÜšÙiCìXjo—Wy°=ä°æâÒïW$Ş ïlğ×µ¿Bº¸úƒ)ˆnÚ8#gœò¡ï3‡ıvîO aEªA{ñNÃFiòê-/èëB˜Šüàûj from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sŸÜ?¡¸öÓ9û"³ùY„:ª§“—Hx'cİŸM‡>Gv.KO÷§nÂ]ı9N¾ÙÄC¾×Ş´ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving s`‡´¼—UV«úE(èD|çœÚîî+¿°Š from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sÆ€× x}UÏ'C+$©âì Eÿdxø±òµ³!ÂıÍiÆ¡r]Óœ*¡\|ùµø8›Èş¥>ro£9±d@£­¡#™$ÒÁv¿eğyUĞR›¬èe]ÜS£OZBÜUbüI–ÓFÁPÆ”l«L®Ç–P±?Ì¦ŞR3jLÄKzØ÷§ó´‚>yOiOád§5=¥X«ñÚëµz¿6ÆÒârÄ6Û»ÁÒk°8¬ÂOÖL—šƒÒh•dŞXÊ.ãh™²\Û]ÔĞ°ëìÿ?ÅLtá,ğ]ÿOôd;w from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sd<†“Ÿ¹~Jt¦òú‹eiºıÈ¼+zˆçgCìS×İ½ƒz,N:CaÔÉ“ÚÛ§WJLtú”úM(å¸¸b(^^Éü/›aú€ÜíZÁ™§Œ„[k:¶ÑÅ#®¹áwHÔ±+ÚªÜzy­æ´ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sm_ëaµõÙá,gº`‡„í`º€q¼ßäŠPC.ƒzù“dó“`Cf„×¿¸GgvÃaFbœ¼Æaw¨¶+ƒ»_NòÁo‘’R›‘[-L´&õ!?ò’7İÒõÎ”“±uˆ³ø from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sƒÆ“l+_ÒíFI~|Ìr=[ÂêZm×CO’ˆİ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving s6Äv/5Xšf„f¥õF=g_¡È$d\räØù©@÷äTZ.ötWÖ.¯s‘´²åŞˆÎôLøo¢“ÄNx¶–ùŠ½Ó6ñõùÃÛî®j¡\h from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving sáø from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving s½Ñ]ÿ	~·òªì@N±°t¿,¹±€b”K<„‹UFw¼fg"àzğ:bhAde*èFü from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving UJŒ-·O from getpocket.cdn.mozilla.net
-4: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-4: Receiving õT»²{Ç&¤ from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving ¥Z™•ıS¶-•t— from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving ãÌd9ZRî™‹ ğ˜üIŸÌ$¹Ğ«¼ºyÎÅûŒŸØ:°Éwù# from getpocket.cdn.mozilla.net
-4: Responding 
-4: Receiving <åzè½ÛëôD1Úµw2¶b§|G<g@†®¥„¿ÁKc©Ö8¥A»ä_ïººßşûù® from getpocket.cdn.mozilla.net
-4: Responding 
-4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Receiving  from www.google.com
-2: Responding 
-2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
+1: CONNECT clients2.google.com:443 HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:05 2023
+1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
+1: Receiving  from clients2.google.com
+1: Responding 
+1: Receiving A;[utïÂ5ê¿Á‚ÜÍw=/Üé÷/´£°)8å”¨'AÇosl¢½û9‘h'§¡OîësÂBÛ&úÔÍBA4cØçÚŒ°J³6ˆ|’ùx®3Õ1ò_ÈTùÔS)Î-%YÊ®¡¥{^°®Û…‹"›‡W©²Î from clients2.google.com
+1: Responding 
+1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
+1: Receiving ƒrç¯ô¨×Ô"Ix!Î·ô¬rúı·®§·8:ÌS’œÜ\S%rÆœ˜›bRa¢&Xv°Å²Á2iÖR„Íı•Í\Ï=Rtß(šGÖ from clients2.google.com
+1: Responding 
+1: Receiving  from clients2.google.com
+1: Responding 
+1: Receiving ºö¨RÀ ïÑí‚Š@¹åDo from clients2.google.com
+1: Responding 
+1: Receiving  from clients2.google.com
+1: Responding 
+1: Receiving  from clients2.google.com
+1: Responding 
+1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
+1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
+1: Requesting CONNECT clients2.google.com:443 HTTP/1.1 from clients2.google.com
+2: GET http://info.cern.ch/ HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:07 2023
+2: not in cache
+2: Receiving HTTP/1.1 200 OK from info.cern.ch
+2: cached, but requires re-validation
+3: GET http://info.cern.ch/ HTTP/1.1 from 10.197.199.52 @ Fri Feb 24 03:06:08 2023
+3: in cache, valid
