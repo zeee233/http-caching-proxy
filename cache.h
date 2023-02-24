@@ -23,6 +23,7 @@ pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
 struct CachedResponse {
     std::string response;
     std::time_t expiration_time;
+    std::time_t request_expire;
     std::string ETag;
     std::string Last_Modified;
     int max_age; 
@@ -31,6 +32,7 @@ struct CachedResponse {
     bool no_store; 
     bool is_private;
     int ID;
+    bool is_chunk;
 };
 
 // Define a cache as an unordered map from URI to CachedResponse
@@ -180,28 +182,20 @@ int extract_status_code(const std::string& response_str) {
     return -1;
 }
 
-std::time_t parse_date(const std::string& date_str) {
+std::time_t to_utc(const std::string& date_str) {
+    // Parse the date string into a tm struct
     std::tm tm = {};
     std::istringstream date_stream(date_str);
-    date_stream.imbue(std::locale("C"));
     date_stream >> std::get_time(&tm, "%a, %d %b %Y %H:%M:%S %Z");
-    std::time_t time = std::mktime(&tm);
-    if (time == -1) {
-        throw std::runtime_error("Failed to convert date string to time_t");
-    }
-    return time;
-}
 
-std::time_t to_utc(std::time_t time) {
-    std::tm utc_tm = {};
-    if (!gmtime_r(&time, &utc_tm)) {
-        throw std::runtime_error("Failed to convert time_t to UTC");
-    }
-    return std::mktime(&utc_tm);
+    // Convert the tm struct to a local time_t value
+    std::time_t utc_time = std::mktime(&tm);
+    return utc_time;
 }
 
 void parse_cache_control_directives(CachedResponse &cached_response,std::string response_str,int ID) {
 
+    cout << "response string: " << response_str << endl; 
     // Define the regular expressions for ETag and each cache control directive
     const boost::regex etag_regex("ETag: \"(.+)\"");
     const boost::regex last_modified_regex("Last-Modified: (.+)");
@@ -222,9 +216,21 @@ void parse_cache_control_directives(CachedResponse &cached_response,std::string 
     cached_response.no_store = false;
     cached_response.is_private = false;
     cached_response.ID = ID;
+    cached_response.is_chunk = false;
     // Split the response header into lines
     std::vector<std::string> lines;
     boost::split(lines, cached_response.response, boost::is_any_of("\r\n"));
+
+    size_t chunked_pos = response_str.find("Transfer-Encoding: chunked\r\n");
+        if (chunked_pos != std::string::npos) {
+            // The response is chunked
+            cached_response.is_chunk = true;
+        } else {
+            // The response is not chunked
+            cached_response.is_chunk - false;
+        }
+
+
     // Iterate over each line in the response header
     for (const auto& line : lines) {
         // Check if the line contains a cache control directive, ETag or Last-Modified
@@ -240,10 +246,21 @@ void parse_cache_control_directives(CachedResponse &cached_response,std::string 
                 if (std::regex_search(response_str, match, date_regex)) {
                     // Get the date string from the match
                     std::string date_str = match[1].str();
-                    std::time_t time = parse_date(date_str);
-                    std::time_t utc_time = to_utc(time);
+                    std::time_t utc_time = to_utc(date_str);
                     std::time_t expiration_time_utc = utc_time + cached_response.max_age;
                     cached_response.expiration_time = expiration_time_utc;
+                }
+            } else {
+                size_t expires_pos = response_str.find("Expires: ");
+                if (expires_pos != std::string::npos) {
+                    // Expires header is present
+                    std::string expires_str = response_str.substr(expires_pos + 9);
+                    // do something with the expires_str
+                    std::time_t expire_utc_time = to_utc(expires_str);
+                    cached_response.expiration_time = expire_utc_time;
+                    cout << "THis is the part with expire header" << endl;
+                    std::cout<< "UTC time: " << std::asctime(std::gmtime(&expire_utc_time));
+                    cout << "--------------------------" <<endl;
                 }
             }
             
@@ -285,7 +302,14 @@ void printCache(){
     std::cout<<"enter into the cache "<<std::endl;
     for(auto &v :cache){
         std::cout<<"url is: "<<v.first<<" content is as follows: "<<std::endl;
-        std::cout<<"expiration_time: "<<v.second.expiration_time<<std::endl;
+
+        std::time_t utc_time = v.second.expiration_time;
+        std::cout<<"expiration_time: "<< "UTC time: " << std::asctime(std::gmtime(&utc_time));
+        // Convert to GMT
+        std::tm* gmt_tm = std::gmtime(&utc_time);
+        std::time_t gmt_time = std::mktime(gmt_tm);
+        std::cout << "GMT time: " << std::asctime(std::gmtime(&gmt_time));
+
         std::cout<<"ETag: "<<v.second.ETag<<std::endl;
         std::cout<<"Last_Modified: "<<v.second.Last_Modified<<std::endl;
         std::cout<<"max_age: "<<v.second.max_age<<std::endl;
@@ -293,6 +317,7 @@ void printCache(){
         std::cout<<"no_cache: "<<v.second.no_cache<<std::endl;
         std::cout<<"no_store: "<<v.second.no_store<<std::endl;
         std::cout<<"is_private: "<<v.second.is_private<<std::endl;
+        std::cout<<"is_chunk: "<<v.second.is_chunk<<std::endl;
         std::cout<<"content end!"<<std::endl;
         std::cout<<"********************************************"<<std::endl;
     }

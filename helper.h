@@ -59,7 +59,7 @@ int create_server(const char *port) {
         cerr << "Error: cannot bind socket" << endl;
         cerr << "  (" << hostname << "," << port << ")" << endl;
         return -1;
-    } //if
+    } //if 
 
     status = listen(socket_fd, 100);
     if (status == -1) {
@@ -146,6 +146,7 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
     // Check for the "max-stale" directive in the request
     std::regex max_stale_regex("max-stale=([0-9]+)");
     if (std::regex_search(msg, match, max_stale_regex)) {
+        cout<<"max stale: "<<endl;
         max_stale = std::stoi(match[1].str());
     } else {
         max_stale = -1;
