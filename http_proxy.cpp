@@ -17,6 +17,7 @@ void* handle_request(void* arg) {
     std::cout << "Hostname: " << request->hostname << std::endl;
     std::cout << "IP: " << request->ip_address << std::endl;
     std::cout << "Port: " << request->port << std::endl;
+    std::cout << "max stale: " <<request->max_stale <<std::endl;
     std::cout << "================================" << std::endl;
     
     std::string port_str = std::to_string(request->port);
@@ -82,7 +83,7 @@ int main() {
         request->socket_fd = new_socket;
         request->ip_address=ip_address;
         request_id++;
-        parse_request(msg, request->method, request->hostname, request->port, request->first_line);
+        parse_request(msg, request->method, request->hostname, request->port, request->first_line, request->max_stale);
         logFile << request->ID << ": " << '"'<<request->first_line << '"' <<" from " << request->ip_address << " @ "<<std::asctime(utc_time);
         pthread_mutex_unlock(&plock);
 

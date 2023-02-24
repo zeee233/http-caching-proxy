@@ -208,12 +208,13 @@ void parse_cache_control_directives(CachedResponse &cached_response,std::string 
         // Check if the line contains a cache control directive, ETag or Last-Modified
         if (boost::istarts_with(line, "Cache-Control: ")) {
             // Extract the cache control directives from the line
-            std::string directives = line.substr(16);
-
+            std::string directives = line.substr(15);
+            cout << "directives: " << directives << endl;
             // Check for the max-age directive
             boost::smatch max_age_match;
             if (boost::regex_search(directives, max_age_match, max_age_regex)) {
                 cached_response.max_age = std::stoi(max_age_match[1]);
+                
                 std::time_t expiration_time_utc = std::time(nullptr) + cached_response.max_age;
                 std::tm expiration_time_tm = *std::gmtime(&expiration_time_utc);
                 cached_response.expiration_time = std::mktime(&expiration_time_tm);

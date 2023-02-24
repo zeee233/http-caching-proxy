@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0: "CONNECT optimizationguide-pa.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Fri Feb 24 18:46:43 2023
 1: "CONNECT safebrowsing.google.com:443 HTTP/1.1" from 10.197.199.52 @ Fri Feb 24 18:46:43 2023
 2: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 10.197.199.52 @ Fri Feb 24 18:46:43 2023
@@ -5,3 +6,64 @@
 2: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
 2: Receiving 0 from www.httpwatch.com
 2: not cacheable because no_store
+=======
+0: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:55:33 2023
+0: not in cache
+0: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+0: Receiving Hello, world!OK from vcm-30805.vm.duke.edu
+0: not cacheable because no_store
+1: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:55:41 2023
+1: not in cache
+1: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+1: Receiving HTTP/1.1 200 OK from vcm-30805.vm.duke.edu
+1: not cacheable because no_store
+2: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:56:35 2023
+3: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:56:35 2023
+3: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+3: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+4: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:56:55 2023
+4: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+4: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+5: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:57:15 2023
+5: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+6: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:57:25 2023
+6: not in cache
+6: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+6: Receiving Hello, world!OK from vcm-30805.vm.duke.edu
+6: not cacheable because no_store
+7: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:57:25 2023
+7: not in cache
+7: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+7: Receiving Hello, world!OK from vcm-30805.vm.duke.edu
+7: not cacheable because no_store
+8: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:57:25 2023
+8: not in cache
+8: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+8: Receiving Hello, world!OK from vcm-30805.vm.duke.edu
+8: not cacheable because no_store
+9: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:57:26 2023
+9: not in cache
+9: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+9: Receiving Hello, world!OK from vcm-30805.vm.duke.edu
+9: not cacheable because no_store
+10: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:57:26 2023
+10: not in cache
+10: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+10: Receiving Hello, world!OK from vcm-30805.vm.duke.edu
+10: not cacheable because no_store
+11: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:57:26 2023
+11: not in cache
+11: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+11: Receiving Hello, world!OK from vcm-30805.vm.duke.edu
+11: not cacheable because no_store
+5: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+12: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:58:53 2023
+12: not in cache
+12: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+12: Receiving HTTP/1.1 200 OK from vcm-30805.vm.duke.edu
+12: cached, but requires re-validation
+13: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:58:53 2023
+13: in cache, valid
+14: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 18:58:53 2023
+14: in cache, valid
+>>>>>>> 179c369c205fa6288f56e82b5f5e05c81e04fda5

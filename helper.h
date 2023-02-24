@@ -124,7 +124,7 @@ int accept_server(int proxy_server_fd, string & ip_address) {
     return socket_fd_new;
 }
 
-void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port, std::string& first_line) {
+void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port, std::string& first_line, int max_stale) {
     // Split the message into lines
     std::vector<std::string> lines;
     boost::split(lines, msg, boost::is_any_of("\r\n"));
@@ -143,7 +143,13 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
     } 
     size_t pos = hostname.find(":");
     cout << "hostname: " << hostname <<endl;;
-
+    // Check for the "max-stale" directive in the request
+    std::regex max_stale_regex("max-stale=([0-9]+)");
+    if (std::regex_search(msg, match, max_stale_regex)) {
+        max_stale = std::stoi(match[1].str());
+    } else {
+        max_stale = -1;
+    }
     // New Version for connect 
     if (method=="CONNECT" ||method == "GET" || method == "POST"){
         // Find the position of the colon separator
@@ -156,7 +162,8 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
             port = std::stoi(port_str);
             hostname = hostname.substr(0, pos);
         }
-    } 
+    }
+
     // else if(method == "GET" || method == "POST") {
     //     string target="://";
     //     size_t get_pos=url.find("://")+target.length();
@@ -261,11 +268,16 @@ void handle_get(ClientRequest * request, int server_fd) {
 
         // Receive the response from the server
         std::string response_str = receive_response(server_fd, request);
+        cout << "(((((((((((((((((())))))))))))))))))"<<endl;
+        cout << "response: "<< response_str <<endl;
+        
 
         //create a cache response 
         CachedResponse cached_response;
         //cached_response.response = response_str;
+      
         parse_cache_control_directives(cached_response,response_str,request->ID);
+        cout << "(((((((((((((((((())))))))))))))))))"<<endl;
 
         // check cacheability 
         if(is_cacheable(cached_response)) {
