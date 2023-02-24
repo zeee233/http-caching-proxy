@@ -236,6 +236,7 @@ void handle_get(ClientRequest * request, int server_fd) {
         //pthread_mutex_lock(&plock);
         //logFile<<request->ID<<": "
         //pthread_mutex_unlock(&plock);
+        cache[request_uri].ID=request->ID;
         if(should_revalidate(cache[request_uri])) {            
             revalidate(cache[request_uri],request_uri, server_fd);
         }
@@ -264,7 +265,16 @@ void handle_get(ClientRequest * request, int server_fd) {
 
         // check cacheability 
         if(is_cacheable(cached_response)) {
-            cout<<"the response is cacheble"<<endl;
+            if( cached_response.max_age!=-1){
+                pthread_mutex_lock(&plock);
+                logFile<<cached_response.ID<<": "<<"cached, expires at "<<cached_response.expiration_time<<std::endl;
+                pthread_mutex_unlock(&plock);                   
+            }
+            else{
+                pthread_mutex_lock(&plock);
+                logFile<<cached_response.ID<<": "<<"cached, but requires re-validation"<<std::endl;
+                pthread_mutex_unlock(&plock);                  
+            }
             // Perform FIFO if cache size exceeds 100
             if (cache.size() > 100) {
                 auto oldest_entry = cache.begin();

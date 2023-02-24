@@ -135,9 +135,16 @@ std::string receive_response(int server_fd) {
 //     return true;  // No Cache-Control header found, so response is cacheable by default
 // }
 bool is_cacheable(CachedResponse & cached_response){
-    if (//cached_response.no_cache == true ||
-        cached_response.no_store == true ||
-        cached_response.is_private == true) {
+    if (cached_response.no_store == true){
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"not cacheable because "<<"no_store"<<std::endl;
+        pthread_mutex_unlock(&plock);         
+        return false;
+    }
+    if(cached_response.is_private == true)   {
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"not cacheable because "<<"is private"<<std::endl;
+        pthread_mutex_unlock(&plock);          
         return false;
     }
     return true;
