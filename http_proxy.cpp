@@ -56,27 +56,38 @@ int main() {
         int new_socket = accept_server(proxy_server_fd, ip_address);
 
         char msg[65536] = {0} ;
-        recv(new_socket, msg, sizeof(msg), 0);
+        int bytes_received = recv(new_socket, msg, sizeof(msg), 0);
+        if (bytes_received <= 0) {
+            // Send a 400 error code to the client
+            const char* response = "HTTP/1.1 400 Bad Request\r\n\r\n";
+            send_request(new_socket, response);
+            pthread_mutex_lock(&plock);
+            logFile << request_id <<": Responding " << response << std::endl;
+            pthread_mutex_unlock(&plock);
+        }
         //cout<<"data_size received from client: "<<data_size1<<endl;
         cout<<"==================msg================"
         <<msg<< endl <<"========================================"<<endl;
         // Allocate memory for a new ClientRequest object
         pthread_mutex_lock(&plock);
         ClientRequest* request = new ClientRequest();
+      
+        // Get the current time in UTC
+        std::time_t now = std::time(nullptr);
+        std::tm* utc_time  = std::gmtime(&now);
         
         // Parse the request and store the information in the ClientRequest object
         request->ID = request_id;
-        //request->ip_address = ip_address;
         request->socket_fd = new_socket;
-        //int data_size2=send(request->socket_fd,&response,sizeof(response),0);
         request->ip_address=ip_address;
         request_id++;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
+        logFile << request->ID << ": " <<request->first_line << " from " << request->ip_address << " @ "<<std::asctime(utc_time)<<std::endl;
         pthread_mutex_unlock(&plock);
+
         // Create a new thread to handle the request
         pthread_t thread;
         pthread_create(&thread, NULL, handle_request, request);
-        //handle_request(request);
     }
     close(proxy_server_fd);
     return 0;
