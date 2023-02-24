@@ -1,8 +1,7 @@
 #include "helper.h"
 #include <sstream>
 #include <pthread.h>
-pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
-std::ofstream logFile("proxy.log");
+
 std::vector<std::thread> threads;
 std::mutex output_mutex;
 
@@ -63,20 +62,23 @@ int main() {
         // Allocate memory for a new ClientRequest object
         pthread_mutex_lock(&plock);
         ClientRequest* request = new ClientRequest();
+      
+        // Get the current time in UTC
+        std::time_t now = std::time(nullptr);
+        std::tm* utc_time  = std::gmtime(&now);
         
         // Parse the request and store the information in the ClientRequest object
         request->ID = request_id;
-        //request->ip_address = ip_address;
         request->socket_fd = new_socket;
-        //int data_size2=send(request->socket_fd,&response,sizeof(response),0);
         request->ip_address=ip_address;
         request_id++;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
+        logFile << request->ID << ": " <<request->first_line << " from " << request->ip_address << " @ "<<std::asctime(utc_time)<<std::endl;
         pthread_mutex_unlock(&plock);
+
         // Create a new thread to handle the request
         pthread_t thread;
         pthread_create(&thread, NULL, handle_request, request);
-        //handle_request(request);
     }
     close(proxy_server_fd);
     return 0;

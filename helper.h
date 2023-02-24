@@ -6,7 +6,6 @@
 #include <netdb.h>
 #include <unistd.h>
 #include "cache.h"
-#include "client_request.h"
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <ctime>
@@ -15,6 +14,7 @@
 #include <thread>
 #include <fstream>
 #include <vector>
+#include <iomanip>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
@@ -207,10 +207,14 @@ void handle_connect(ClientRequest * request, int server_fd) {
             int bytes_received = recv(request->socket_fd, buf, BUFSIZ, 0);
             if (bytes_received <= 0) {
                 break;
-            }
+            } 
             int bytes_sent = send(server_fd, buf, bytes_received, 0);
             if (bytes_sent < 0) {
                 break;
+            } else {
+                pthread_mutex_lock(&plock);
+                logFile << request->ID <<": Requesting " << request->first_line << " from "<< request->hostname <<std::endl;
+                pthread_mutex_unlock(&plock);
             }
         }
 
@@ -219,10 +223,21 @@ void handle_connect(ClientRequest * request, int server_fd) {
             int bytes_received = recv(server_fd, buf, BUFSIZ, 0);
             if (bytes_received <= 0) {
                 break;
+            } else {
+                // Split the message into lines
+                pthread_mutex_lock(&plock);
+                std::vector<std::string> lines;
+                boost::split(lines, buf, boost::is_any_of("\r\n"));
+                logFile << request->ID <<": Receiving " << lines[0] << " from "<< request->hostname <<std::endl;
+                pthread_mutex_unlock(&plock);
             }
             int bytes_sent = send(request->socket_fd, buf, bytes_received, 0);
             if (bytes_sent < 0) {
                 break;
+            } else {
+                pthread_mutex_lock(&plock);
+                logFile << request->ID <<": Responding " <<std::endl;
+                pthread_mutex_unlock(&plock);
             }
         }
     }
@@ -235,7 +250,7 @@ void handle_get(ClientRequest * request, int server_fd) {
     if(cache.count(request_uri) != 0) { //requested data exists in cache
         cout<<"cache.count(request_uri) not equal to 0"<<endl;
         if(should_revalidate(cache[request_uri])) {
-            revalidate(cache[request_uri],request_uri, server_fd);
+            revalidate(cache[request_uri],request_uri, server_fd, request);
         } 
         send_request(request->socket_fd,cache[request_uri].response);
         //send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
@@ -250,7 +265,7 @@ void handle_get(ClientRequest * request, int server_fd) {
         send_request(server_fd, request_str);
 
         // Receive the response from the server
-        std::string response_str = receive_response(server_fd);
+        std::string response_str = receive_response(server_fd, request);
 
         //create a cache response 
         CachedResponse cached_response;
@@ -278,7 +293,7 @@ void handle_post(ClientRequest* request, int server_fd) {
     std::string request_str = request->first_line + "\r\n";
     request_str += "Host: " + request->hostname + "\r\n";
     send_request(server_fd, request_str);
-    std::string response_from_server = receive_response(server_fd);
+    std::string response_from_server = receive_response(server_fd, request);
     send_request(request->socket_fd, response_from_server);
 }
 
