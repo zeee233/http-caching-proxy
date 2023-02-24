@@ -206,6 +206,12 @@ void handle_connect(ClientRequest * request, int server_fd) {
             char buf[BUFSIZ];
             int bytes_received = recv(request->socket_fd, buf, BUFSIZ, 0);
             if (bytes_received <= 0) {
+                // Send a 400 error code to the client
+                const char* response = "HTTP/1.1 400 Bad Request\r\n\r\n";
+                send_request(request->socket_fd, response);
+                pthread_mutex_lock(&plock);
+                logFile << request->ID <<": Responding " << response << std::endl;
+                pthread_mutex_unlock(&plock);
                 break;
             } 
             int bytes_sent = send(server_fd, buf, bytes_received, 0);
@@ -222,6 +228,13 @@ void handle_connect(ClientRequest * request, int server_fd) {
             char buf[BUFSIZ];
             int bytes_received = recv(server_fd, buf, BUFSIZ, 0);
             if (bytes_received <= 0) {
+                // Send a 502 error code to the client
+                // Log the error message or return an error code to the client
+                const char* response = "HTTP/1.1 502 Bad Gateway\r\n\r\n";
+                send_request(request->socket_fd, response);
+                pthread_mutex_lock(&plock);
+                logFile << request->ID <<": Responding " << response << std::endl;
+                pthread_mutex_unlock(&plock);
                 break;
             } else {
                 // Split the message into lines
@@ -248,19 +261,13 @@ void handle_get(ClientRequest * request, int server_fd) {
     std::string request_uri = get_uri(request);
     //check if request is in cache and needs revalidate 
     if(cache.count(request_uri) != 0) { //requested data exists in cache
-<<<<<<< HEAD
-        cout<<"cache.count(request_uri) not equal to 0"<<endl;
-        if(should_revalidate(cache[request_uri])) {
-            revalidate(cache[request_uri],request_uri, server_fd, request);
-        } 
-=======
         //pthread_mutex_lock(&plock);
         //logFile<<request->ID<<": "
         //pthread_mutex_unlock(&plock);
+        cache[request_uri].ID=request->ID;
         if(should_revalidate(cache[request_uri])) {            
-            revalidate(cache[request_uri],request_uri, server_fd);
+            revalidate(cache[request_uri],request_uri, server_fd, request);
         }
->>>>>>> main
         send_request(request->socket_fd,cache[request_uri].response);
         //send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
     } else { //requested data not in cache

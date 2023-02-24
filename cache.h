@@ -8,19 +8,13 @@
 #include <pthread.h>
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
-<<<<<<< HEAD
-#include "client_request.h"
-#include <fstream>
-
-pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
-std::ofstream logFile("proxy.log");
-=======
 #include <pthread.h>
 #include <sstream>
 #include <fstream>
+#include "client_request.h"
+
 std::ofstream logFile("proxy.log");
 pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
->>>>>>> main
 
 
 // Define a struct to represent the cached response
@@ -103,9 +97,12 @@ std::string receive_response(int server_fd, ClientRequest * client) {
     do {
         bytes_received = recv(server_fd, buf, BUFSIZ, 0);
         if (bytes_received < 0) {
-            std::cerr << "Failed to receive response from server" << std::endl;
-            close(server_fd);
-            pthread_exit(NULL);
+            const char* response = "HTTP/1.1 502 Bad Gateway\r\n\r\n";
+            send_request(client->socket_fd, response);
+            pthread_mutex_lock(&plock);
+            logFile << client->ID <<": Responding " << response << std::endl;
+            pthread_mutex_unlock(&plock);
+            break;
         }
         //cout<<"one buf: "<<buf<<endl;
         response_str.append(buf, bytes_received);
@@ -266,7 +263,7 @@ void printCache(){
     }
     std::cout<<"out of the cache "<<std::endl;
 }
-bool revalidate(CachedResponse& cached_response, const std::string& request_url, int server_fd, ClientRequest * client) {
+bool revalidate(CachedResponse& cached_response, const std::string& request_url, int server_fd, ClientRequest* client) {
     // Check if the cached response has an ETag or Last-Modified header
 /*     if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()) {
         // Cannot revalidate without an ETag or Last-Modified header
