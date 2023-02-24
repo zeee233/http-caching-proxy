@@ -59,9 +59,9 @@ int main() {
         int bytes_received = recv(new_socket, msg, sizeof(msg), 0);
         if (bytes_received <= 0) {
             // Send a 400 error code to the client
+            pthread_mutex_lock(&plock);
             const char* response = "HTTP/1.1 400 Bad Request\r\n\r\n";
             send_request(new_socket, response);
-            pthread_mutex_lock(&plock);
             logFile << request_id <<": Responding " << response << std::endl;
             pthread_mutex_unlock(&plock);
         }

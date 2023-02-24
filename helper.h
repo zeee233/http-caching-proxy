@@ -222,30 +222,12 @@ void handle_connect(ClientRequest * request, int server_fd) {
             char buf[BUFSIZ];
             int bytes_received = recv(server_fd, buf, BUFSIZ, 0);
             if (bytes_received <= 0) {
-                // Send a 502 error code to the client
-                // Log the error message or return an error code to the client
-                const char* response = "HTTP/1.1 502 Bad Gateway\r\n\r\n";
-                send_request(request->socket_fd, response);
-                pthread_mutex_lock(&plock);
-                logFile << request->ID <<": Responding " << response << std::endl;
-                pthread_mutex_unlock(&plock);
                 break;
-            } else {
-                // Split the message into lines
-                pthread_mutex_lock(&plock);
-                std::vector<std::string> lines;
-                boost::split(lines, buf, boost::is_any_of("\r\n"));
-                logFile << request->ID <<": Receiving " << lines[0] << " from "<< request->hostname <<std::endl;
-                pthread_mutex_unlock(&plock);
-            }
+            } 
             int bytes_sent = send(request->socket_fd, buf, bytes_received, 0);
             if (bytes_sent < 0) {
                 break;
-            } else {
-                pthread_mutex_lock(&plock);
-                logFile << request->ID <<": Responding " <<std::endl;
-                pthread_mutex_unlock(&plock);
-            }
+            } 
         }
     }
 }
@@ -315,6 +297,9 @@ void handle_post(ClientRequest* request, int server_fd) {
     std::string request_str = request->first_line + "\r\n";
     request_str += "Host: " + request->hostname + "\r\n";
     send_request(server_fd, request_str);
+    pthread_mutex_lock(&plock);
+    logFile<<request->ID<<": Requesting "<< request_str << " from " << request->hostname << std::endl;
+    pthread_mutex_unlock(&plock); 
     std::string response_from_server = receive_response(server_fd, request);
     send_request(request->socket_fd, response_from_server);
 }
