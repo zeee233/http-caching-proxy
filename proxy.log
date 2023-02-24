@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+=======
+0: "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 23:12:12 2023
+0: not in cache
+0: Requesting "GET http://vcm-30805.vm.duke.edu:5000/ HTTP/1.1" from vcm-30805.vm.duke.edu
+0: Receiving HTTP/1.1 200 OK from vcm-30805.vm.duke.edu
+0: cached, but requires re-validation
+1: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 23:12:56 2023
+2: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Fri Feb 24 23:12:56 2023
+2: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+>>>>>>> 1985095b2f87a7dbb8d3e48c18815eec2426c37a
