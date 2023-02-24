@@ -261,11 +261,16 @@ void handle_get(ClientRequest * request, int server_fd) {
 
         // Receive the response from the server
         std::string response_str = receive_response(server_fd, request);
+        cout << "(((((((((((((((((())))))))))))))))))"<<endl;
+        cout << "response: "<< response_str <<endl;
+        
 
         //create a cache response 
         CachedResponse cached_response;
         //cached_response.response = response_str;
+      
         parse_cache_control_directives(cached_response,response_str,request->ID);
+        cout << "(((((((((((((((((())))))))))))))))))"<<endl;
 
         // check cacheability 
         if(is_cacheable(cached_response)) {
