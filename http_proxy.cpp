@@ -1,8 +1,8 @@
 #include "helper.h"
-#include <sstream>
+
 #include <pthread.h>
-pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
-std::ofstream logFile("proxy.log");
+//pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
+
 std::vector<std::thread> threads;
 std::mutex output_mutex;
 
