@@ -126,26 +126,34 @@ int accept_server(int proxy_server_fd, string & ip_address) {
 
 void parse_request(const std::string& msg, std::string& method, std::string& hostname, int& port, std::string& first_line) {
     // Split the message into lines
+    cout << "444444444444" << hostname <<endl;
     std::vector<std::string> lines;
     boost::split(lines, msg, boost::is_any_of("\r\n"));
 
     // Extract the method and target URL from the first line
+    cout << "5555555555555555" << hostname <<endl;
     std::vector<std::string> tokens;
+    cout << "5.1 5.1 5.1" << hostname <<endl;
     boost::split(tokens, lines[0], boost::is_any_of(" "));
+    cout << "5.2 5.2 5.2" << hostname <<endl;
     method = tokens[0];
-    std::string url = tokens[1];
+    cout << "5.3 5.3 5.3" << hostname <<endl;
+    //std::string url = tokens[1];
+    cout << "5.4 5.4 5.4" << hostname <<endl;
     first_line = lines[0];
 
     // Host header 
+    cout << "6666666666666666" << hostname <<endl;;
     std::regex host_regex("Host: ([^\\r\\n]+)");
     std::smatch match;
     if (std::regex_search(msg, match, host_regex)) {
         hostname = match[1].str();
     } 
     size_t pos = hostname.find(":");
+    cout << "hostname: " << hostname <<endl;;
 
     // New Version for connect 
-    if (method=="CONNECT"){
+    if (method=="CONNECT" ||method == "GET" || method == "POST"){
         // Find the position of the colon separator
         if (pos == std::string::npos) {
             port = 80;
@@ -156,15 +164,16 @@ void parse_request(const std::string& msg, std::string& method, std::string& hos
             port = std::stoi(port_str);
             hostname = hostname.substr(0, pos);
         }
-    } else if(method == "GET" || method == "POST") {
-        string target="://";
-        size_t get_pos=url.find("://")+target.length();
-        size_t get_end_pos=url.find("/", get_pos);
-        port = 80;
-        if(method == "GET" ) {
-            hostname = url.substr(get_pos, get_end_pos - get_pos);
-        } 
-    }
+    } 
+    // else if(method == "GET" || method == "POST") {
+    //     string target="://";
+    //     size_t get_pos=url.find("://")+target.length();
+    //     size_t get_end_pos=url.find("/", get_pos);
+    //     port = 80;
+    //     if(method == "GET" ) {
+    //         hostname = url.substr(get_pos, get_end_pos - get_pos);
+    //     } 
+    // }
 }
 string extract_cache_control_header(const std::string& response) {
     std::string header_name = "Cache-Control:";

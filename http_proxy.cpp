@@ -62,11 +62,12 @@ int main() {
             pthread_mutex_lock(&plock);
             const char* response = "HTTP/1.1 400 Bad Request\r\n\r\n";
             send_request(new_socket, response);
-            logFile << request_id <<": Responding " << response << std::endl;
+            logFile << request_id <<": Responding " << '"' <<"HTTP/1.1 400 Bad Request" <<'"' << std::endl;
             pthread_mutex_unlock(&plock);
+            continue;
         }
         //cout<<"data_size received from client: "<<data_size1<<endl;
-        cout<<"==================msg================"
+        cout<<"==================msg================"<<endl
         <<msg<< endl <<"========================================"<<endl;
         // Allocate memory for a new ClientRequest object
         pthread_mutex_lock(&plock);
@@ -77,11 +78,14 @@ int main() {
         std::tm* utc_time  = std::gmtime(&now);
         
         // Parse the request and store the information in the ClientRequest object
+        cout<<"11111111111111111111" <<endl;
         request->ID = request_id;
         request->socket_fd = new_socket;
         request->ip_address=ip_address;
         request_id++;
+        cout<<"2222222222222" <<endl;
         parse_request(msg, request->method, request->hostname, request->port, request->first_line);
+        cout<<"333333333333" <<endl;
         logFile << request->ID << ": " << '"'<<request->first_line << '"' <<" from " << request->ip_address << " @ "<<std::asctime(utc_time);
         pthread_mutex_unlock(&plock);
 

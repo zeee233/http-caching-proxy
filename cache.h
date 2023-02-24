@@ -100,7 +100,7 @@ std::string receive_response(int server_fd, ClientRequest * client) {
             const char* response = "HTTP/1.1 502 Bad Gateway\r\n\r\n";
             send_request(client->socket_fd, response);
             pthread_mutex_lock(&plock);
-            logFile << client->ID <<": Responding " << '"'<<response << '"'<<std::endl;
+            logFile << client->ID <<": Responding " << '"'<<"HTTP/1.1 502 Bad Gateway" << '"'<< std::endl;
             pthread_mutex_unlock(&plock);
             break;
         }
