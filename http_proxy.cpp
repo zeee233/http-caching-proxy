@@ -56,7 +56,15 @@ int main() {
         int new_socket = accept_server(proxy_server_fd, ip_address);
 
         char msg[65536] = {0} ;
-        recv(new_socket, msg, sizeof(msg), 0);
+        int bytes_received = recv(new_socket, msg, sizeof(msg), 0);
+        if (bytes_received <= 0) {
+            // Send a 400 error code to the client
+            const char* response = "HTTP/1.1 400 Bad Request\r\n\r\n";
+            send_request(new_socket, response);
+            pthread_mutex_lock(&plock);
+            logFile << request_id <<": Responding " << response << std::endl;
+            pthread_mutex_unlock(&plock);
+        }
         //cout<<"data_size received from client: "<<data_size1<<endl;
         cout<<"==================msg================"
         <<msg<< endl <<"========================================"<<endl;

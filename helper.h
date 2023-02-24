@@ -206,12 +206,6 @@ void handle_connect(ClientRequest * request, int server_fd) {
             char buf[BUFSIZ];
             int bytes_received = recv(request->socket_fd, buf, BUFSIZ, 0);
             if (bytes_received <= 0) {
-                // Send a 400 error code to the client
-                const char* response = "HTTP/1.1 400 Bad Request\r\n\r\n";
-                send_request(request->socket_fd, response);
-                pthread_mutex_lock(&plock);
-                logFile << request->ID <<": Responding " << response << std::endl;
-                pthread_mutex_unlock(&plock);
                 break;
             } 
             int bytes_sent = send(server_fd, buf, bytes_received, 0);

@@ -1,525 +1,250 @@
-0: CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
+0: CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:41 2023
 
 0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
 0: Receiving  from incoming.telemetry.mozilla.org
 0: Responding 
-0: Receiving ÇâˆÏ© ÙÔ½|Øºj))şEÕRÚ2/üıöÌô‰»KÆ¼gyÜ+®b÷ÙÊ§¦‡Sr÷¥¥p‹å	aG ˜eq·ô»®oÍÚg‘e¸ÕeØõ`ß from incoming.telemetry.mozilla.org
+0: Receiving ÂD;[Ó½§œB•ş'‚´@·°Lê`˜øAFìà8¶>œ…½éÔĞufì¯Ø>pÿ from incoming.telemetry.mozilla.org
 0: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-1: CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
+1: POST http://ocsp.digicert.com/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:41 2023
 
-0: Receiving ,°e´š6@í5Ù<mÊÇ^v ñ=¹’ from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-2: CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
+2: CONNECT www.google.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:42 2023
 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-2: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-3: CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
-
-4: CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
-
-5: CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
-
-6: CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
-
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Receiving f from img-getpocket.cdn.mozilla.net
-1: Responding 
-2: Receiving  from img-getpocket.cdn.mozilla.net
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving  from www.google.com
 2: Responding 
-2: Receiving q” 0ºò„Q›¨` from img-getpocket.cdn.mozilla.net
+2: Receiving P”°¤èšwÛ¡·±Dù@—ì•MĞ„ĞÀş^¹L¾ú ©Cw\RŒµ6–¹^Şv!~*°&(¹­AŞûÂ„•Òoá8â'ûƒ_VŸOdì‰[‚"nóZ7ÇÌG\ÊãôõK|h€¦‡ìíp/†e²éªg from www.google.com
 2: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-2: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-2: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-2: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-3: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-6: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-5: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving ç‚ÑÛu}	_¨„‹äÕa¢ğd(T©ßdtB'oÔIúıŒ>3Ù4Fº±åĞéúâéæ›Ô;áıì²œÃ;Ì*©Şw:,7Ê“¾¯ğ~å(~ø¸yµ«lL‡”Õ~œdˆdiK¹ÂŞ°àSãñB®‰d4lîş°¦¦üu—‚—ø‚ã\¸³°rs‡	*ãÚÀL–•vÿ¡yVpv“§84Y¨½³H-áãWà÷Ì'&Î[âtİ<M<ú¼CZûô¤¹­½ã'”bÿÈ-ÓN‡úæSYJæ5·5„³\úM:/…Ú2 from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-2: Receiving ç"Îœò¯ßWmcY’ö±šş¨”Â<»hğÕóO"†e· from img-getpocket.cdn.mozilla.net
+3: POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:42 2023
+
+0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
+0: Receiving çÑış¬ËˆıÅÀè˜Ä:Ê·úTôâ"~‰ê jFØ½|3×_­,”×q~9I‰…D†jó“Ém`ûT>§u*Ü—×/¹å	Èïmkú<ÔÍ#^¶iàŸ{¤“zè ^:úEß `±šÿàcbJw× Qg{w5TşõÜ from incoming.telemetry.mozilla.org
+0: Responding 
+0: Receiving  from incoming.telemetry.mozilla.org
+0: Responding 
+0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
+0: Receiving ¼ø'.üÒMm–X¿Z2îy6ÿ)˜ £é<<¡Œ/“.kD©¬v0¿Õ from incoming.telemetry.mozilla.org
+0: Responding 
+0: Receiving  from incoming.telemetry.mozilla.org
+0: Responding 
+0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
+4: CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
+
+5: CONNECT spocs.getpocket.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
+
+4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
+5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
+4: Receiving  from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving Xü4QiJùáÓd#¤(v¨ü'³§d½¼°ibQ9Œ¬ßİãB÷ÕTÿÂMÎ[·÷ from getpocket.cdn.mozilla.net
+4: Responding 
+5: Receiving  from spocs.getpocket.com
+5: Responding 
+5: Receiving Q from spocs.getpocket.com
+5: Responding 
+5: Receiving bÈG‰¨`˜œ³WMPc^JÈPK½Æ÷ÏyGÔ/dË[áo¿hYL”ÆîÃo%Q09“ÁÓ•ñ[ÿÈ£8q&YH¼Ñ from spocs.getpocket.com
+5: Responding 
+5: Receiving M from spocs.getpocket.com
+5: Responding 
+5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
+6: POST http://ocsp.sca1b.amazontrust.com/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
+
+5: Receiving  from spocs.getpocket.com
+5: Responding 
+7: POST http://r3.o.lencr.org/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 02:38:44 2023
+
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving #?q“ÊõøK0Úåvw from www.google.com
 2: Responding 
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-2: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-3: Receiving  from img-getpocket.cdn.mozilla.net
-3: Responding 
-3: Receiving ¶–qü[:\Ê<Í÷Ëct<Ã7»‡“ÎbXwfg\øS¯KqAC¾N~Å¯kÔmœ’¥ıƒ-dê\ from img-getpocket.cdn.mozilla.net
-3: Responding 
-6: Receiving  from img-getpocket.cdn.mozilla.net
-6: Responding 
-6: Receiving e˜ûÒ‚©Z×;gOF€5¨1«™"Ó†‚ÔS"zeéâ§ÏtúÔiÅø"Ëô…8-â—@%Ş«4Ö©Æ•„eæ€$EıiØ×–¦Ü0±c¸<¯ÏYzQü0àÉúÍAJ from img-getpocket.cdn.mozilla.net
-6: Responding 
-5: Receiving  from img-getpocket.cdn.mozilla.net
-5: Responding 
-5: Receiving û²ë—ë¾;ç‘DÓbğ}TÄ/0ş´C"İ|À¤¨–xzWÊ„ük,1X from img-getpocket.cdn.mozilla.net
-5: Responding 
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-2: Receiving  from img-getpocket.cdn.mozilla.net
+2: Receiving  from www.google.com
 2: Responding 
-3: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-2: Receiving  from img-getpocket.cdn.mozilla.net
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving >'ÜlzÉv3X­ from www.google.com
 2: Responding 
-6: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-6: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-6: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-5: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-5: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving 5êv:›×áWnİ=îàİm§tæ»js.€ıãl Y^›sÀMúBÂŒc‚ÅİA±åës%Æ¶oäjñ from incoming.telemetry.mozilla.org
-4: Responding 
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-6: Receiving çüÁ–¤ï¸À[}%]ş–ïë›mÜ.û£EÀ‰'SÊƒâp’¤š±+;*eÿùáQ‡¯Œâæàé™­ó¢°3™Ä,jòÔÆ8Vj;|]ª÷x†?šó\ÃZ[B¹èı!Éığ¢ë•<9PkfTÄIø{êÛú+Ç6¾¢|é_<æŸÒDàt/.ğD’2œóÛnTHæ	ëj±qˆˆb from img-getpocket.cdn.mozilla.net
-6: Responding 
-3: Receiving Ë#q` from img-getpocket.cdn.mozilla.net
-3: Responding 
-5: Receiving ç³ÎšXû<}¼K½ûşs•ÍkÏ$ö35ûÉŸêôGzîv)@ü(IÊÔx1G<!íœzæ–F§g‚ˆ­¿ĞÛ8dÒ¯¤Wå´-¡c(HA|ı+!Q({'ô?iµ`^ˆÙÉR=¦Ü=9©ówÈÆ14¨o4«ŠB­pFa5ÎµãM’vpîùJÙnx®q0#S6ˆ|1 r*rc¸SÍ8F×w3$ÿaĞE¢D{8=xÛe¬^*Ucô‹æâÅ‰DÆÄìŒyê˜§Ö™‹z¶‘“ØYÆ¸!Ö¸¤7³ø!èUWâOx£ƒˆ4C$6	¯OB‘ŞÍG from img-getpocket.cdn.mozilla.net
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving ŸıÄı[œ from www.google.com
+2: Responding 
+2: Receiving sb­vÔÿææú|æ ·éa•S¸–	}} ‘yºş[ù¤Kèü@ùµéWwòÛ›” nH×©}	¾‘æaåÄe´û}+åpÿA from www.google.com
+2: Responding 
+2: Receiving svZ€ñ@ÁNb–f3ÔfÓò#’1™a”º•mÅ›&[Ø±•|Ò”¾¸o¶´ºcLQòÀ_n€’Ì¿‡­5¯ƒlE from www.google.com
+2: Responding 
+2: Receiving s)¥‡3r'4Gä`PªAŠ¬(*°àŒEYë_#Ï|”[j0‹ãXšÂ”U<v"0t`æêíIùåÁv…dË”nD£Î ÒÍEAîƒ.´V°{çÔ˜ from www.google.com
+2: Responding 
+2: Receiving ==³JWÕ]ú…0ªt•Ê-Ê—M~ÖBĞ˜ĞG$ÛüJÇNªe?A	.4Âx°»U÷½rÊâıæ¸Ngkİ'±Dyµª¢ÛÕú3¹Fd¶Íöú@ÍY0àj*|xD ÊÚ¶UY§GÙƒd7(<$™ ŠÑß"li¸5ßzåhOØÁÑ€)’Áeİ´;© from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving s‹S¶³€XMfØ+‘t_‹òMDŸáä²zä#k³={=+6Õ•ÊêV8k| øvuWîpÈ$U=†zJcÛš,°-Éáä{Üb£ø”¶dôB+@T’KB;›ö—ı—#›ÿA˜ìE(Æ8¢ôô´á‘Lö0¯K	uÎô§Îb½X—¨ó`ˆşŒÏÅæPpLrôZ7ğßLòû/Ÿu‰G from www.google.com
+2: Responding 
+2: Receiving s©"öé@{Ú=à€yÑÈâ}t½„†ğ^=¹`‚¦,rZÿ€åªCÒj.ŠjØÕëæ³‰»›Ş÷ÄgšLÆ%™^k¡á]BÑBZ2bÌ'A±åÂ,.ˆßßÆ0Ã’8äÃVïGZ: Í_õÜÉ¬æxhßD²q from www.google.com
+2: Responding 
+2: Receiving sÙ¹kÃ¢§*ªñ—g”…{pW%Rş>…mSô`¸&œ‡[é¼ğ´~ÿy˜’j1·ÑÅcó_ÊĞ‚;;j/»îæè£¬fi%OËeyMš8ÁKbãÊi²±ŸíîJ ¡dkÌˆŞù from www.google.com
+2: Responding 
+2: Receiving s{ã from www.google.com
+2: Responding 
+2: Receiving sİŞ îéè-"$<Á%)_\œ1®…ían,¦xGìB9ĞÊëãœEª·sˆÍ‘wNMH4‡n©¾‡ï¿¸UQZ`·f¥·R§üèFaOK˜,;6,.‹¾ò3Ö¸Fï0ßCkäØÈĞ6Œˆ»ô!z¯kTdO*ÍO¢Lx…ÎüÄÉuÅoNcÁ„2PxĞ“$«­Fõ*\Ÿg"J–Éşì=q¸A½p`)èÖb3ğìÈARëğ/ø¬éÒ§ĞÍØÊíÆÍU†–Vu¥Ş2óø¢“L–·_ˆ h„ad)AõKÏlDG·É‰Š™æ“¼e=k=.àMÿ“|ÎÁ]o8Á´>øó£†óë9L"©À# from www.google.com
+2: Responding 
+2: Receiving s•àğßÉ^3^Ò2tŞô×–‘¯Árz¹îùIc‚ââ„rı•¦XÔPUÌ½³a¨ünùYMúÙä÷_Ç÷"Ix`lç}<ßfÁti`i¬¸½8Ä÷z°ŠÒpä-~]ç†¨~­ŸØ¦ÆØº[Ëò'¹Àº.ï&T¶”÷ÃñøíË”»Ğã¦T•ÍÊÉ@pô£^iL$¦%¦zÌƒ#Ğ!ÕşpEÍy¦ÔY"– from www.google.com
+2: Responding 
+2: Receiving sôjßx‚€Pq¸Z]§í&‰ÏªÏ©e¤Aó?ŠˆìkoûT¿‰H	¤{D”É™xx•Ç@ŞÆ	4óÒ¼ˆİĞù‘jš³©îU from www.google.com
+2: Responding 
+2: Receiving své?@ƒI›u# from www.google.com
+2: Responding 
+2: Receiving syæÛı(ÁµK¹4ê~ù+Gg1‰ zTVìw+ from www.google.com
+2: Responding 
+2: Receiving s	ğNÜOŞğ/ wŞ¬9DşÂz9xiÔÙA	©ôˆI¹;G«”ç%Z¾r2+ÄõyCbJ%QÇœ„\ú‰˜ ò†=xÎ 2<¤ä{~Ë8Zƒ< /ÛaÅ¹®¡Å^rwSşhøew6œùõ­rWÄz»*çÉX.©p—k from www.google.com
+2: Responding 
+2: Receiving s}NšÌÚ{…IÊ¢â7ˆøÓâæ†ù¤"œúå¿V­`r‰A.´ç9²…^j$ËÄÚ„×ÿNU]è¹‡VĞ‘ÒÂ7ë÷÷ åÑPZ­½’ıı"nş2S<"ìPı-êrF9ç6NáœÆÕoúCHÎ¾iB£„D+Ï„«ÚSlâé0è from www.google.com
+2: Responding 
+2: Receiving sÿŒÔÎ\âA£uñ§3÷¦” from www.google.com
+2: Responding 
+2: Receiving sŸÖ.„xC¥\øŒ²§Õ¡p™{.ød½ª6jM³£ù¢Ğ†lš,0ä~ÖV–t2“­Øö[ç¾&¾'\§u„KèÆû¸/i3îªç@KoÎ\r from www.google.com
+2: Responding 
+2: Receiving skC±Æ°,êÿ4ÂŞ‰êŠåwÛ×XÒâËŠõ„àŠx¦¬¸¼2ï„Ër»¦¤— from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving s!Ã<RäPÊºK¯‘IıèNs«Œşkœ¨lÿ from www.google.com
+2: Responding 
+2: Receiving s`-rŸC/	ds¢@ÛÎ›{¼bşjõÅñÂQL<kirual¼ÇÌêå!q\ÜaõÜém`™ãYÀ&šêû%1±t2-0°kËIiY3 from www.google.com
+2: Responding 
+2: Receiving ä'ò­kc~4K%8Šğvf×ßÎ¸ı ¸ü«ğ@íKa¨˜b¸qÁ’AGOİù™W·1ëi‰n}±^=¼±(#(Âqv%§¾Rd·Üî•NœĞµC×¥ÿ¼Û£VË¾iïÉ{ÍíS?ÑáìXb%le/ÓO1z*°í×´Å\ ÊV‡«HT±œˆ"pš|N_º8¶ÜóÛtC%~!ûml"•İ»I+íÊ‡ÀAø„z™› 8¢…ßµŞKf}vÏêœ×ŞB­Yi5]fN\şÅô· from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving š®.1v¤ßÄsb*}*ZYkƒBJÍ»‹ from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving Ly.OÁÔšº&‘à”>6„rWû¥ëñ!OÑúM©k=¡‰¬QÉƒÁN`Eêî(cóI5H}We7gø¬2+$Ó‘k?÷şÓØ¶Ì‘ìP\©†›un from www.google.com
+2: Responding 
+2: Receiving sï‚8c“ Ó^äÔ|\Z¯;±§¦3Àúë—*•[ÉèJõyèôƒ½-ŠÌ%Ûcpı&ï^;ñoÆLZ(|v°Ä!¤ña« Z”)²m‰°ºKÙ!ç±j«Ì`/7–ƒ¨Iî…V}Œ>BKO.ÉÉ’0İ€©¿ê’‚Ë from www.google.com
+2: Responding 
+2: Receiving sz from www.google.com
+2: Responding 
+2: Receiving õÊ½ÿöÊƒM·§rízŒŸ“	«³(üi6û¶,ñ¼õ¿1*{•ÎÃ©öİéb‚§Û_Úšşö™¯I1¾éœmÕ'³q¤Dîhdk± ôhÉ$5]LÖê	«³˜S’ÿ±ö}ÿ8uWåÌèpaõü›G¬Åº from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
+5: Requesting CONNECT spocs.getpocket.com:443 HTTP/1.1 from spocs.getpocket.com
+5: Receiving  from spocs.getpocket.com
 5: Responding 
-3: Receiving  from img-getpocket.cdn.mozilla.net
-3: Responding 
-6: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-3: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-5: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-3: Receiving  from img-getpocket.cdn.mozilla.net
-3: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-0: Receiving ¼HŒp´‰z“D?~§™€’Uø’Û²†Ç¤ùé¦³™øK»êÕ²eYmºoj€t)è¡Åá«CT(™ì6Ûü™uış½‡C;NÉ}¯|’­—…ËÌRëQ from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-6: Receiving  from img-getpocket.cdn.mozilla.net
-6: Responding 
-5: Receiving  from img-getpocket.cdn.mozilla.net
+4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
+4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
+5: Receiving å from spocs.getpocket.com
 5: Responding 
-6: Receiving  from img-getpocket.cdn.mozilla.net
-6: Responding 
-5: Receiving  from img-getpocket.cdn.mozilla.net
-5: Responding 
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving çÙæB8vÙJîªåÁ­O¶¼|“¹æ–ß›¬ßW5­yQ	¯$Ì3=S÷<@ŸL{ÉŒ_÷$İğ¹&F.1î.4_—¶´Q±İƒ~…‰MåBÂ from getpocket.cdn.mozilla.net
 4: Responding 
-2: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-3: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-5: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-6: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-6: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-5: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Receiving Ã from incoming.telemetry.mozilla.org
+4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
+4: Receiving  from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving Æ(Ïı«vtÍÀ~‹Oâ	¬í from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving s` from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving ' from incoming.telemetry.mozilla.org
+4: Receiving sÕT]ª]úš¹ñ+¦HºÄ"¸ğuàøÃ¾F/Ğ•õöPŞîî^,²v0Ä‡0æSÁ'™8wHj3¨*7ÚÒ-å¾¼VÁÈ×%‡É%ƒÕ¶‰`Œ#šÃè£TaX\?§ÙõæHtL¤—™1>©·ÿ00ª$ß:¹"Ñ€Mímô7ŞŸ3Ó)–šïµlCêõ¹‘­!±\E›!	ğªÙôøŸ;&’ÚÌ‡´K×#Šá}7J÷ì×)ğã£“Ô£´ÄHún´ùAQƒ;‘™ from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving sƒ'K]Jd¨£ÓxÊ¹w7‘”cÙ€óvl£*Şx˜ÂK5¸\{¿qB×?afjê0õâ¢Íš}ÚN5¡‡k]è:©néç9¿¤ØÉz^‡ Ó:N¬	Ê‡˜:‡ï[	µÔ/¹f™ñu»™Ã¥/ÛzŒ€å3"	Àíg­v!ë›æÀÖdQUºÀ\,£^ULşŠpBÃLÛ³ŸC×ysrgÇÙ—é46Âƒ(lè„åòvís_‘ôª@"'säZ°1-Ôõ'´q;ìR‰Q[^|ûkìé3|ıÇ from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving sÚJCÂ.®“êXş¹,ø˜Ê{çh	C~Ø?:—-óø¬¾ùªÚê!íºøşõ…N˜dw†‘Ş¹”t…ªKànÛ´zn¹w7^êEĞî.èz›°T©õ…×¡QùZìZµŸI„.#PÁÖˆõÜÏî	 óÌÙNRŠÎBÑ¥kñÊŞ94ê=PÊÿ™[İ“=·,şgW|ôì¬iá}ò0úŠCèÚr from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving s!ê/*¼ëãîxĞ…Ê”&Âöı†+S§%_æºı®ès#{-N(-×<şDó¶”ŒÉoÁ˜Ñ˜&ãÒ©Ê”æ¶å`ù‚ ŞóÜ from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving , from incoming.telemetry.mozilla.org
+4: Receiving s‰¿¸(ÿyc¼hÄK·%gÇ_ÌPE®a#¿“öo¤àr¸"öÂÍç—Å*FgÂgÖèŸ%º	tÜà;	p™cs¡r+gÖÊä½T­?'•a¹š™R3Ô@ª‡P!Î|Ø-[ÖJ¯G-óm(†ï!î“o‘p’I á?l?/ZäàİL<UµCÒZræióÆFh)%ªØ˜î•î€é¬ÙõhÅ\,ƒoÃïz^O*µâPÉÅ17´ÖBYñ€)Yß‰EC8qİ ¤Œ±2Æÿ7RÍ+q@æn!Ş’“ŠÁæÖ0¦z{†ñÊ`?ğzˆÚ ¯!„C%Ã÷·“TåE?‡ÔÖvÎeŞ*õ‰MŸä±Î;sw«}:áXhŒ¸?ã×V™²Û¥·Í\u²§‡3jmÏBwzµ¬bÅ¨u×;È”öv„²®¯üÚæğ‰–zš’õßgv@û=iµ€”ö­Äæ­¶½şÊ<?Ø=,€g7ü,Œ`D0}Rhä@ËÂ`İ	ÚvòS;k¯U•~Çn€–Ís¹i®\i§f<w­ô(¡•1[6Mîû“>t¦¾¼OëË from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving sªUxEÆå<¾cO3¦é{Ù2P]èBû¹QmúôMr—N‹ÁŞ¼Ô_yèéŸúm¼7äcş˜2Á‰ÆÛ×e¿FÓírÜšÙiCìXjo—Wy°=ä°æâÒïW$Ş ïlğ×µ¿Bº¸úƒ)ˆnÚ8#gœò¡ï3‡ıvîO aEªA{ñNÃFiòê-/èëB˜Šüàûj from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving . from incoming.telemetry.mozilla.org
+4: Receiving sŸÜ?¡¸öÓ9û"³ùY„:ª§“—Hx'cİŸM‡>Gv.KO÷§nÂ]ı9N¾ÙÄC¾×Ş´ from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving s`‡´¼—UV«úE(èD|çœÚîî+¿°Š from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving sÆ€× x}UÏ'C+$©âì Eÿdxø±òµ³!ÂıÍiÆ¡r]Óœ*¡\|ùµø8›Èş¥>ro£9±d@£­¡#™$ÒÁv¿eğyUĞR›¬èe]ÜS£OZBÜUbüI–ÓFÁPÆ”l«L®Ç–P±?Ì¦ŞR3jLÄKzØ÷§ó´‚>yOiOád§5=¥X«ñÚëµz¿6ÆÒârÄ6Û»ÁÒk°8¬ÂOÖL—šƒÒh•dŞXÊ.ãh™²\Û]ÔĞ°ëìÿ?ÅLtá,ğ]ÿOôd;w from getpocket.cdn.mozilla.net
 4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
+4: Receiving sd<†“Ÿ¹~Jt¦òú‹eiºıÈ¼+zˆçgCìS×İ½ƒz,N:CaÔÉ“ÚÛ§WJLtú”úM(å¸¸b(^^Éü/›aú€ÜíZÁ™§Œ„[k:¶ÑÅ#®¹áwHÔ±+ÚªÜzy­æ´ from getpocket.cdn.mozilla.net
 4: Responding 
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-7: CONNECT push.services.mozilla.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:53 2023
-
-7: Requesting CONNECT push.services.mozilla.com:443 HTTP/1.1 from push.services.mozilla.com
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-7: Receiving  from push.services.mozilla.com
-7: Responding 
-7: Receiving ™†rp`°¯2µ1İ÷àÁîx½:Ñ9}`]ÀÉocµ’9 from push.services.mozilla.com
-7: Responding 
-7: Requesting CONNECT push.services.mozilla.com:443 HTTP/1.1 from push.services.mozilla.com
-7: Receiving  from push.services.mozilla.com
-7: Responding 
-7: Requesting CONNECT push.services.mozilla.com:443 HTTP/1.1 from push.services.mozilla.com
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-7: Receiving  from push.services.mozilla.com
-7: Responding 
-7: Requesting CONNECT push.services.mozilla.com:443 HTTP/1.1 from push.services.mozilla.com
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-7: Receiving  from push.services.mozilla.com
-7: Responding 
-8: CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:54 2023
-
-8: Requesting CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1 from firefox.settings.services.mozilla.com
-8: Receiving  from firefox.settings.services.mozilla.com
-8: Responding 
-8: Receiving ®ü#XŞPs/|‚jNVLı«^Š- ûÃı#~öZÂ " from firefox.settings.services.mozilla.com
-8: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-8: Requesting CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1 from firefox.settings.services.mozilla.com
-9: POST http://r3.o.lencr.org/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:54 2023
-
-8: Receiving  from firefox.settings.services.mozilla.com
-8: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
+4: Receiving sm_ëaµõÙá,gº`‡„í`º€q¼ßäŠPC.ƒzù“dó“`Cf„×¿¸GgvÃaFbœ¼Æaw¨¶+ƒ»_NòÁo‘’R›‘[-L´&õ!?ò’7İÒõÎ”“±uˆ³ø from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving sƒÆ“l+_ÒíFI~|Ìr=[ÂêZm×CO’ˆİ from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving s6Äv/5Xšf„f¥õF=g_¡È$d\räØù©@÷äTZ.ötWÖ.¯s‘´²åŞˆÎôLøo¢“ÄNx¶–ùŠ½Ó6ñõùÃÛî®j¡\h from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving sáø from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving s½Ñ]ÿ	~·òªì@N±°t¿,¹±€b”K<„‹UFw¼fg"àzğ:bhAde*èFü from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving UJŒ-·O from getpocket.cdn.mozilla.net
+4: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+4: Receiving õT»²{Ç&¤ from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving ¥Z™•ıS¶-•t— from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving ãÌd9ZRî™‹ ğ˜üIŸÌ$¹Ğ«¼ºyÎÅûŒŸØ:°Éwù# from getpocket.cdn.mozilla.net
+4: Responding 
+4: Receiving <åzè½ÛëôD1Úµw2¶b§|G<g@†®¥„¿ÁKc©Ö8¥A»ä_ïººßşûù® from getpocket.cdn.mozilla.net
+4: Responding 
+4: Requesting CONNECT getpocket.cdn.mozilla.net:443 HTTP/1.1 from getpocket.cdn.mozilla.net
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Receiving  from www.google.com
+2: Responding 
+2: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
 0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
 0: Receiving  from incoming.telemetry.mozilla.org
 0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
 0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-10: CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:55 2023
-
-11: CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:55 2023
-
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-11: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-10: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-11: Receiving  from contile-images.services.mozilla.com
-11: Responding 
-11: Receiving ‹:I×wÓRô£ª+ã¶ú8`¶£ÜÄÆ÷›àJ“¥`ğãÊ;›öìãdHò§‰Nã…ĞÃ5=õ>T´Y¸, from contile-images.services.mozilla.com
-11: Responding 
-10: Receiving  from contile-images.services.mozilla.com
-10: Responding 
-10: Receiving ùÔrvdİçò >ùUz¿‘2“,Z!XHE€ÂÄ \şìğ›çÀ‘•Ár1DÈu,Ü@Æ+¥Ll°ØõñN»0ì¯m¦å£aŠÛñ¢&|O¢e½ from contile-images.services.mozilla.com
-10: Responding 
-12: POST http://r3.o.lencr.org/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:55 2023
-
-13: POST http://r3.o.lencr.org/ HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:55 2023
-
-14: CONNECT www.google.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:55 2023
-
-14: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-14: Receiving  from www.google.com
-14: Responding 
-14: Receiving «ë){ù¾G9}…ÔŠZÂ€â›ej@0—©%ÿ÷ëWøç©¿ from www.google.com
-14: Responding 
-15: POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:56 2023
-
-16: CONNECT www.google.com:443 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:56 2023
-
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving Û0«ÛIîºŸ§Uå£‚Ñ&zú°p¼|]Ç?•4¦'O$	TŸŞİÅ°:|Òhciæ8GpÊk2öW7>©êğ1ŸóÏğ from www.google.com
-16: Responding 
-17: POST http://ocsp.pki.goog/gts1c3 HTTP/1.1 from 10.197.192.103 @ Fri Feb 24 01:53:56 2023
-
-11: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-10: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-10: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-10: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-11: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-11: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-11: Receiving ç_Ï`ç‹E3Í«4 U|ç_2E).´¼îÌ±wåe`,{ H5Ó©”éõ72ßæd from contile-images.services.mozilla.com
-10: Receiving çÏNÓüëÔ× [ñnbÅÚlxªÜü¥lğ–œ) Ê|qŸˆ¯¬‚8±–ÉÛp‡Ü{F;aån@òÛC„"ª_uà!XroAjÛUëä>jÑ"	†qÀhì7.ç~IŠÿ®Ç9NUJêÌB<IÅX¸Ï¨‘m};©ù|›ÅHòNQËÜ from contile-images.services.mozilla.com
-11: Responding 
-10: Responding 
-11: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-10: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-11: Receiving  from contile-images.services.mozilla.com
-11: Responding 
-10: Receiving  from contile-images.services.mozilla.com
-10: Responding 
-10: Receiving  from contile-images.services.mozilla.com
-10: Responding 
-11: Receiving  from contile-images.services.mozilla.com
-11: Responding 
-10: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-11: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-10: Requesting CONNECT contile-images.services.mozilla.com:443 HTTP/1.1 from contile-images.services.mozilla.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Receiving #¯ÇÒ#‘'`½/k2.!gBß¾›† from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Receiving ŸuŠ¼	 from www.google.com
-16: Responding 
-16: Receiving sOh from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving sê†rÆ»|ÙŞÒ2€<lÏ from www.google.com
-16: Responding 
-16: Receiving s$œ´És Kncü›ù'1Ú€_ØDö€sñº<¢¶@4ë^œÿd­ªøw¦ôã#àœrag;Ê1ØİG5A)õÖ4ÇT·(¼TbN^÷uKå•=,êÃˆ±¤y\¥òµŞ{ÿ]O3ÿèbÿ†À´ôB¿ù¢Š{sÑ~‰›+Ú+A”ˆÛZ²ÉZvq™›‡º,²˜æQËÌhC9æã~ßÁ²¡Ï'Û"‰¸¤ØÆù?µÔ}” from www.google.com
-16: Responding 
-16: Receiving shÄ from www.google.com
-16: Responding 
-16: Receiving sù.4Şó \Ğ*’£$S;ÏÏÁ†GÚa¤î2Ib=ÀÇƒH¸üQ]üîz§Oà}¯»M¥óC¶®&Uuc¤e|Œßğ””iÿìŸ°ß.Íº]Ã¨°6(‡kAa6­A8á*9ö/§½{ü³ØO«Ğ¢‹œÌ j÷õÙ¢9«*µĞ‰ö„Zzı¸«° ÂJ. from www.google.com
-16: Responding 
-16: Receiving s¦üşÊS-Ù·9Âóà¹Ò)™I>4'cfcğ#î>Ã=«oA„K9G÷U from www.google.com
-16: Responding 
-16: Receiving s¼è-2Ñ·;'‹ë¡}–È‰' }Du¿{:œÅæ«ä· from www.google.com
-16: Responding 
-16: Receiving s!²ñF"‡Ò¬ºÒòµYû¨RÅc‡ Qˆã:>øqİ>%Ûşıß(S-„7J€àëNŞoµQ6æ from www.google.com
-16: Responding 
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-16: Receiving s„b&}ğ-Öæe*$Ë_0t«ÁEiı_€ÿ}K^”FïeØûké¦^ from www.google.com
-16: Responding 
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-16: Receiving sÕ’IêÇ}8q^Ïv¿}ÇC from www.google.com
-16: Responding 
-16: Receiving s+aA¡X from www.google.com
-16: Responding 
-16: Receiving s_,Æ¯Ç]|®óP>eilkUåƒr–œŠIV§b˜­-Æ"wm½3;ß|¢‹ü7“d'd4bGë7,:Ô?«*’\‹o´Rî#ız3(Ìrß9ûî“9L«|©"~­rjj/Õ(§Áéé$ËËrúìj¢UäIkA0Ã¹)äÃóòºSÁõ“ from www.google.com
-16: Responding 
-16: Receiving sO[.m‰ØÆùvììZ_õ©…÷X£Åé¦ p™Ò`õºz¹ô§ªFNvZÑ from www.google.com
-16: Responding 
-16: Receiving s¥–Ğªù$/L…òw~<·ÏqĞí0¢é¼vD•rIZß°N¡!­×©H’ÊPÊ£“Sââÿ ˜+Òñ!œílqêR‡Ë«uÒjF*Úk=b7×lR~¦¹æ°Tå;>»¶•_‚=ËÚW3ì£Ë°œ from www.google.com
-16: Responding 
-16: Receiving sÅÃ„Ÿh{/Øcl¹@¯ö"ŞsÂ‡Æéå³1Æí-ğƒEØßÖ˜ÓÿÔœVt?ÒÇ¤ìŞÊà\Ã^:ñ"Í¥qRÍyzAo from www.google.com
-16: Responding 
-16: Receiving s!œÛ:êñ/«­=¤Š from www.google.com
-16: Responding 
-16: Receiving s”"öFUú2ìŞYÏ•Ê¥æÑİpÌgÂËo5“hB Rúóvßù/(–•© from www.google.com
-16: Responding 
-16: Receiving s~şd”“Ç=$¦š—|ÍpWº¶á?Š¥&uPıæ!ASa”Ó÷“¯ìwùG5ÛÒ¢	1A’Rö!jçïÛâˆì3˜i|ùwÚ0ÂLÙEƒD(‡õ*„¡¾ó×“ÇÜğjÚl=n¬¨c–E‘0ŒLâ®RÜõ~ÌfT5Ä(ÓñâJ»{³P=äH®ùE˜y)&_3ÄŞæ¦¦uá·D!Gî¦0·`æÁî>¢!`C–B2'ı~oˆe·´ĞÄ”Õå8™4_²i¤ÿiŒ÷vxq#q®˜Î:´Á½õlÉÁL·hÕäÏ 4¼÷U¬&“8”n^x’‚ëæ4IËñ 	t&ßF9t Ô¯¢ˆ5×*PVuã from www.google.com
-16: Responding 
-16: Receiving Œ–pC%çd*9‚TÉ¬YL}§˜R&áf´¾¾–%m—d1,°°å…½D\„ŠK from www.google.com
-16: Responding 
-16: Receiving Ñ„*G<¯ø›7Œ·êÑ:™;4«nC¬	‚C`aMR9Ë	©ÿıÉV9ˆğVÍ¤¬TDi÷ªˆ~TN‚L º­ÀÙ¬P“q“\ã•Ü¿ÚÚ“pUIöö·é"—¾ôÖš2Ñ:1X5šXòdâU÷ü”FÏ from www.google.com
-16: Responding 
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-0: Receiving  from incoming.telemetry.mozilla.org
-0: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-4: Receiving  from incoming.telemetry.mozilla.org
-4: Responding 
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-4: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-0: Requesting CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1 from incoming.telemetry.mozilla.org
-16: Receiving ›“–.„‡Ğé•ÍÏCK>²è»S«›kZ)!¦G¶eon>ÿa7R¯—*ù¦åÉ/í¶È–8ÛVÿNrtUÁ àÒğ®d9?²¾Ú*ßäZ@¥¥ğ…İ<–)ìDQ	8 PMC¯REÖ3-tk…ÎYÎø¾˜jÑ¬—sOãâlJtŒøıĞKË!#QAµë:ø0P¯ 0H×Ë—ö†yò_´Œ|Ec½údÁx]ÈgwY from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Receiving K)Ûğ¼JW)†}^ê×iï–Ø§Be3a\•|èãúÉGSòs}”!I«°èÇŞ/ÛÃñD×ÜÆ—pLâ¸í‰µz»œQÅ¹H>Õ)ÌO9áŒÔ x from www.google.com
-16: Responding 
-16: Receiving sÆ`K"€6©+îı½´‡x¦^Î³kk'Ë:oYRß	f:•KUÎ^i/œ7	2~aS]m¼F) from www.google.com
-16: Responding 
-16: Receiving _Bä;“`³á7£Ts	˜½œ—.lÄFù¼3íÃ:Ë±ë-4'—ªCZEF%~¢7µNÂŒÙBÕ¿=OQŸv	6¾,pOòn[Ø{¾9Äß$¡k7rG}}@ã¤´<û¨)~Š&äoÒËÏ—k´ÙøQ…ê from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Receiving ²#9ó{M˜Ç×ğvc`¬¡‘Ö()‚k²v¿¸m?.Æçï6 from www.google.com
-16: Responding 
-16: Receiving séDÄ4iÿ@¶—©ÖL³ôü[ËÄ8îÑö$·Á`ùj—|Í·½ªãËÛe¥%µb˜NLîRsYÂ;î^˜2†õIÈ5!Êû|¯úi‘ª from www.google.com
-16: Responding 
-16: Receiving süÄãE‰kÓËi from www.google.com
-16: Responding 
-16: Receiving s³¹^=Òl†6‰ç‹óìàÆŠÿîd³U€ Ó×œ‘¥‰ÈMzñ¿`¢*ø‰¾vş‚Ì"¯´Æÿ¡u…pë°œ;Æÿ®x%yZ/Îå>2¾0ÃÒƒá5ü+¿óeã‡ò	×tÆ<÷¥B§Áˆt°\Gs=Qõ$I¾E^Ÿ from www.google.com
-16: Responding 
-16: Receiving s¦¢3»Ö —\«è1ëğEÔ)¢°ì‰k.ŠAd{9,sú>†0{] from www.google.com
-16: Responding 
-16: Receiving ˆ\ã¹;1DÙ{ô4<Ø‰ÙI[nKòøä÷t”ÉÔ¬+rWáïTFEë buWç»¸fÄù7(ÚªYEëu`¬QÀğ¬©–K™;‰Âëù˜æëÏZ<½ ª(,ÿXDß|ìCŞ›Hµx`iù+Æ«²¦AdŸz2AÙ!ĞÓ	Vil‘FıÜÃ2ƒ´Š­ËS1ñ^‰°?8åqJÂJ7.Pfëá«"g^&.j0+]W˜¶;ÆŒ¤mË£c	lßÊëóš2Ê°`‡‰‘›—«RB 0‡ù.D[ Ä°iş˜²e…8nD2˜0ºBÏ™Sù	X?KÍ-›\#ÅÁe› from www.google.com
-16: Responding 
-16: Receiving ¿r[ ï¬Pü:%³êGÜE­ZU¨0qË}8’ççK&ÙJSabK	ÍáÈL·D~› from www.google.com
-16: Responding 
-16: Receiving b”•ã¾ÂlK1+nF£ª›,¦É`[èš•Ü“29ÆI¯ from www.google.com
-16: Responding 
-16: Receiving pè÷“MF©M[pæ6Èëq¸!×±„îx­Fiò4J´1ô<·¨ÏBëÕä´¹Íš,æ¹ĞÏxŠûÉœÏ-õ}{ëâÅ¾ÛFtœ:J;¶,¥ÅHÌ-à©lÔÿõz¼»¹ŒÓ)šÛf¢ú¼éÓv‡¦m·°Lq­B‰E¯äT:ùOgr3–ÔëüõfÕ(@öÂw(¯Ó…­500	ÿi÷9u€fª€=£â®b$Ô/âÃ from www.google.com
-16: Responding 
-16: Receiving ğIznVŞÜ¨­K±ÁÀÄÔgä°DñÌ1£MY	Ãú³Üğ¨°b¸Mr^{ŠYş¤<ÈW­j from www.google.com
-16: Responding 
-16: Receiving :/¢°AĞôc<kÜ‰àªp.ğR|)§ÕÚ•Y{Ş´G from www.google.com
-16: Responding 
-16: Receiving ƒOˆüüx™`	+y­i‡ŞR+NŠËÅ(U¬#ÈŸ+ãÕ‰"i$"Z&¿{“ÉÂ«†•Õœìªğø5AÄ\xPÎ°‹ŞÑP½ëÙR8jGİf¸ÿÕ¥…Ì(®ûJ£#hv—&–É35²wÇŞtÜÑŒ	¾¡İèÔ¢ˆÚïj©Rƒ)MŠ€<À€Ëdú from www.google.com
-16: Responding 
-16: Receiving ²ùºô›Í™7Œş¡ª´ä4oÜ|µÔ”dÉ3`Ø—Ñ=Ş¬Ü±zA.bşü:C—İã|AÿÂòû%Ş from www.google.com
-16: Responding 
-16: Receiving Ø\½	<fŸ÷±"*º­)»KO³ÂHwÉô&=â‰‚Õ_UÀ—34t÷œÆWX<Y¢‹W“â$µ3Sb–¿ĞÓÎ¹7²°_üu;”“ı]İÁbú1e3Rì¢ü	•Û²oü from www.google.com
-16: Responding 
-16: Receiving dAÜøˆÿgöè€¸xetYbÓ¥<¾E‹òõÕ vO›æ¤j–±ª&‡L*† Àúì¾•¨û»1É 2şğt}ä!@¹ø ö\øBÃ?°Ş5;Ø¯€õ;[Ä‹Ó4)úÛ­AµD‚º5S¸¤ñ/q¿Œ¨ÉÚ˜ßê@Ñõ`*úGJ{¼mËê!ø'š)1ƒLH¼Ùøóuñ£¦*‹ßšíJ4ã¸•Z–íS3)Äeäw›8©$L]ß7cfÀä	4Ø"5. óx…nx‘e©»÷’¤İáwÆ from www.google.com
-16: Responding 
-16: Receiving ‹¿n©úÿµâ[Éàİ‡EÁx»FJOiÂ("æQß˜ëÈz{#rnVŞÈªA’Û÷çÿ„î¨¯È‰)GÏn¬ğ•˜A6>İ9Àè¼¶?c.¨ºãsjÕp¨@Îè´Å'Å™ ´@Ï¶œ!­ü?úØõGJ×.±X}…Y‰#Ö from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving 'œÖilÈ@wr‘—€c§R ô§Ylğv•ãõz@—%®ZTG`GAh#!J»èÆÀË"Ç”kVg+î¦7S‘¬^¨]èŸõ0¬¦¹£)8,e¥.¥bˆ3ŒwÒ8ÉÑ‚¶B[€®WQè`ækÄÛdê*öL9 ¬2hÖÈ from www.google.com
-16: Responding 
-16: Receiving /×@›©t°pHwôÍùz)ß˜ from www.google.com
-16: Responding 
-16: Receiving Ë}µ S‘(Á¶xÏËjˆÂÀš´éaÅ¯±VñÅÓWöû],1v´8£î¼¼1~Ï˜ from www.google.com
-16: Responding 
-16: Receiving è£s—ogÆüPœ¤Z¨”cXeØt7½SÁkhƒ030Î±tÏy£(4}á©^× from www.google.com
-16: Responding 
-16: Receiving ÄjÌ¤Ò!®ş\Îg‹¼L#K÷\0uöHüŸN^n	[K)¼p­ëP*ë¢O‹Ç)=”.Æš‹ßmùúä\« from www.google.com
-16: Responding 
-16: Receiving ë±ZÜ»®sÇ‚¬BZû Şøƒ from www.google.com
-16: Responding 
-16: Receiving á(›ğg<«™Ï°ïÄI gbİö/›ˆ%¢ï¥ƒV˜IĞóe}·")^©ëÒ%Šr)Óëp¨ïı>½]Å#L¾æXåf•kjÂ@ı=ñàÅLu¨oëèò=6\ç#<ğLC€íCIŞd„Œ9ºP’²xH³°	*o-v¼şÂ¦eq from www.google.com
-16: Responding 
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-16: Receiving  from www.google.com
-16: Responding 
-16: Receiving  from www.google.com
-16: Responding 
-16: Requesting CONNECT www.google.com:443 HTTP/1.1 from www.google.com
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
-1: Receiving  from img-getpocket.cdn.mozilla.net
-1: Responding 
-1: Requesting CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1 from img-getpocket.cdn.mozilla.net
