@@ -248,14 +248,26 @@ void handle_get(ClientRequest * request, int server_fd) {
     std::string request_uri = get_uri(request);
     //check if request is in cache and needs revalidate 
     if(cache.count(request_uri) != 0) { //requested data exists in cache
+<<<<<<< HEAD
         cout<<"cache.count(request_uri) not equal to 0"<<endl;
         if(should_revalidate(cache[request_uri])) {
             revalidate(cache[request_uri],request_uri, server_fd, request);
         } 
+=======
+        //pthread_mutex_lock(&plock);
+        //logFile<<request->ID<<": "
+        //pthread_mutex_unlock(&plock);
+        if(should_revalidate(cache[request_uri])) {            
+            revalidate(cache[request_uri],request_uri, server_fd);
+        }
+>>>>>>> main
         send_request(request->socket_fd,cache[request_uri].response);
         //send(request->socket_fd, cache[request_uri].response.c_str(), cache[request_uri].response.length(), 0);
     } else { //requested data not in cache
         // Send the GET request to the server
+        pthread_mutex_lock(&plock);
+        logFile<<request->ID<<": not in cache"<<endl;
+        pthread_mutex_unlock(&plock);
         cout<<"if cache.count(request_uri) == 0"<<endl;
         cout<<request->first_line <<endl;
         std::string request_str = request->first_line + "\r\n";
@@ -269,8 +281,8 @@ void handle_get(ClientRequest * request, int server_fd) {
 
         //create a cache response 
         CachedResponse cached_response;
-        cached_response.response = response_str;
-        parse_cache_control_directives(cached_response);
+        //cached_response.response = response_str;
+        parse_cache_control_directives(cached_response,response_str,request->ID);
 
         // check cacheability 
         if(is_cacheable(cached_response)) {

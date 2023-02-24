@@ -1,6 +1,10 @@
 #include "helper.h"
-#include <sstream>
+
 #include <pthread.h>
+<<<<<<< HEAD
+=======
+//pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
+>>>>>>> main
 
 std::vector<std::thread> threads;
 std::mutex output_mutex;

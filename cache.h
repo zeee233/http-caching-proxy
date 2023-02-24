@@ -8,11 +8,19 @@
 #include <pthread.h>
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
+<<<<<<< HEAD
 #include "client_request.h"
 #include <fstream>
 
 pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
 std::ofstream logFile("proxy.log");
+=======
+#include <pthread.h>
+#include <sstream>
+#include <fstream>
+std::ofstream logFile("proxy.log");
+pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
+>>>>>>> main
 
 
 // Define a struct to represent the cached response
@@ -26,6 +34,7 @@ struct CachedResponse {
     bool no_cache;
     bool no_store; 
     bool is_private;
+    int ID;
 };
 
 // Define a cache as an unordered map from URI to CachedResponse
@@ -34,16 +43,38 @@ std::unordered_map<std::string, CachedResponse> cache;
 // Function to check if a cached response is expired
 bool should_revalidate(CachedResponse cached_response) {
     //must not use stored response without successful validation.
+    if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()){
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"in cache, valid"<<std::endl;
+        pthread_mutex_unlock(&plock);
+        return false;
+    }
     if (cached_response.no_cache) {
+        pthread_mutex_lock(&plock);
+        logFile<<cached_response.ID<<": "<<"in cache, requires validation"<<std::endl;
+        pthread_mutex_unlock(&plock);
         return true;
     }
-    if (cached_response.must_revalidate){
-        std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    if (cached_response.must_revalidate) {
+        std::time_t current_time = std::time(nullptr);
+        if (cached_response.expiration_time <= current_time){
+            pthread_mutex_lock(&plock);
+            logFile<<cached_response.ID<<": "<<"in cache, but expired at "<<cached_response.expiration_time<<std::endl;
+            pthread_mutex_unlock(&plock);             
+        }
+        else{//not expire
+            pthread_mutex_lock(&plock);
+            logFile<<cached_response.ID<<": "<<"in cache, valid"<<std::endl;
+            pthread_mutex_unlock(&plock);          
+        }
         return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
     }
     //if (cached_response.expiration_time == std::time_t(0)){
     //    return false;
     //}
+    pthread_mutex_lock(&plock);
+    logFile<<cached_response.ID<<": "<<"in cache, valid"<<std::endl;
+    pthread_mutex_unlock(&plock);
     return false;
     //std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
     //return (cached_response.expiration_time <= current_time) && cached_response.must_revalidate;
@@ -123,7 +154,6 @@ bool is_cacheable(CachedResponse & cached_response){
     if (//cached_response.no_cache == true ||
         cached_response.no_store == true ||
         cached_response.is_private == true) {
-        std::cout<<"1111"<<std::endl;
         return false;
     }
     return true;
@@ -144,7 +174,7 @@ int extract_status_code(const std::string& response_str) {
     return -1;
 }
 
-void parse_cache_control_directives(CachedResponse &cached_response) {
+void parse_cache_control_directives(CachedResponse &cached_response,std::string response_str,int ID) {
 
     // Define the regular expressions for ETag and each cache control directive
     const boost::regex etag_regex("ETag: \"(.+)\"");
@@ -156,6 +186,7 @@ void parse_cache_control_directives(CachedResponse &cached_response) {
     const boost::regex is_private_regex("private");
 
     // Initialize the cache control directive flags
+    cached_response.response = response_str;
     cached_response.expiration_time= std::time_t(0);
     cached_response.ETag="";
     cached_response.Last_Modified = "";
@@ -164,7 +195,7 @@ void parse_cache_control_directives(CachedResponse &cached_response) {
     cached_response.no_cache = false;
     cached_response.no_store = false;
     cached_response.is_private = false;
-
+    cached_response.ID = ID;
     // Split the response header into lines
     std::vector<std::string> lines;
     boost::split(lines, cached_response.response, boost::is_any_of("\r\n"));
@@ -179,7 +210,9 @@ void parse_cache_control_directives(CachedResponse &cached_response) {
             boost::smatch max_age_match;
             if (boost::regex_search(directives, max_age_match, max_age_regex)) {
                 cached_response.max_age = std::stoi(max_age_match[1]);
-                cached_response.expiration_time = std::time(nullptr) + cached_response.max_age;
+                std::time_t expiration_time_utc = std::time(nullptr) + cached_response.max_age;
+                std::tm expiration_time_tm = *std::gmtime(&expiration_time_utc);
+                cached_response.expiration_time = std::mktime(&expiration_time_tm);
             }
 
             // Check for the must-revalidate directive
@@ -235,10 +268,13 @@ void printCache(){
 }
 bool revalidate(CachedResponse& cached_response, const std::string& request_url, int server_fd, ClientRequest * client) {
     // Check if the cached response has an ETag or Last-Modified header
-    if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()) {
+/*     if (cached_response.ETag.empty() && cached_response.Last_Modified.empty()) {
         // Cannot revalidate without an ETag or Last-Modified header
+        pthread_mutex_lock(&plock);
+        logFile<<request->ID<<": "<<"in cache, valid"<<endl;
+        pthread_mutex_unlock(&plock);
         return false;
-    }
+    } */
     // Create a new request with the appropriate headers for revalidation
     std::string request;
     if (!cached_response.ETag.empty()) {
@@ -283,8 +319,8 @@ bool revalidate(CachedResponse& cached_response, const std::string& request_url,
         return true;
     } else if (status_code == 200) {
         // The cached response is invalid, update it with the new response
-        cached_response.response = response_str;
-        parse_cache_control_directives(cached_response);
+        //cached_response.response = response_str;
+        parse_cache_control_directives(cached_response,response_str,cached_response.ID);
         return true;
     } else {
         // Handle other status codes as necessary
