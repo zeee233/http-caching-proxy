@@ -30,6 +30,9 @@ void* handle_request(void* arg) {
     // handle connect request 
     if (request->method == "CONNECT") {
         handle_connect(request, server_fd);
+        pthread_mutex_lock(&plock);
+        logFile<<request->ID<<": Tunnel closed" << std::endl;
+        pthread_mutex_unlock(&plock);
     } else if (request->method == "GET") {
         handle_get(request, server_fd);
     } else if (request->method == "POST"){
