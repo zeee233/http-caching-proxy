@@ -284,7 +284,7 @@ void handle_get(ClientRequest * request, int server_fd) {
         if(is_cacheable(cached_response)) {
             if( cached_response.max_age!=-1){
                 pthread_mutex_lock(&plock);
-                logFile<<cached_response.ID<<": "<<"cached, expires at "<<std::asctime(std::gmtime(&cached_response.expiration_time))<<std::endl;
+                logFile<<cached_response.ID<<": "<<"cached, expires at "<<std::asctime(std::gmtime(&cached_response.expiration_time));
                 pthread_mutex_unlock(&plock);                   
             }
             else{
