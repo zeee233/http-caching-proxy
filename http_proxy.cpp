@@ -49,7 +49,7 @@ void* handle_request(void* arg) {
 
 
 int main() { 
-    int proxy_server_fd = create_server("8800");//need to change to the port "0"
+    int proxy_server_fd = create_server("8888");//need to change to the port "0"
     int request_id = 0;
     char host[200];
     gethostname(host,sizeof host);

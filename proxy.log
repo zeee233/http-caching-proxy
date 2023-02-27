@@ -1,27 +1,89 @@
-0: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-1: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-2: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-3: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-4: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-5: "POST http://ocsp.digicert.com/ HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-6: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-4: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-5: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
-7: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:47 2023
-7: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-6: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-8: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:48 2023
-9: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:48 2023
-9: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+0: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:05 2023
+1: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:05 2023
+2: "CONNECT img-getpocket.cdn.mozilla.net:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:05 2023
+3: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:06 2023
+4: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:06 2023
+5: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:06 2023
+3: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+4: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+5: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+0: Tunnel closed
+1: Tunnel closed
+6: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+7: "GET http://httpbin.org/forms/post HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+7: not in cache
+7: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+7: Receiving <!DOCTYPE html> from httpbin.org
+7: not cacheable because no ETag and no Last_Modified
+8: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+9: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+10: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+11: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+11: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+12: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+13: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+12: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+13: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+14: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+15: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:08 2023
+14: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+16: "POST http://ocsp.digicert.com/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:09 2023
+16: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+9: Tunnel closed
 8: Tunnel closed
-10: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:48 2023
-11: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:49 2023
-11: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-12: Responding "HTTP/1.1 400 Bad Request"
-12: Responding "HTTP/1.1 400 Bad Request"
-12: "CONNECT adservice.google.com:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:57 2023
-13: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:57 2023
-13: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
-14: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:59 2023
-15: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 10.197.192.103 @ Sat Feb 25 00:45:59 2023
-15: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+17: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:11 2023
+15: Tunnel closed
+17: not in cache
+17: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+17: Receiving 0 from www.httpwatch.com
+17: not cacheable because no_store
+18: Responding "HTTP/1.1 400 Bad Request"
+18: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:25 2023
+19: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:25 2023
+19: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+18: Tunnel closed
+20: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:25 2023
+21: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:25 2023
+21: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+3: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+4: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+5: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
+22: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:26 2023
+23: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:26 2023
+24: "POST http://r3.o.lencr.org/ HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:26 2023
+24: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+22: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+23: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+25: "CONNECT www.google.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:28 2023
+26: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:29 2023
+26: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+27: Responding "HTTP/1.1 400 Bad Request"
+27: "CONNECT www.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:36 2023
+28: "CONNECT id.google.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:36 2023
+29: Responding "HTTP/1.1 400 Bad Request"
+29: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+30: "CONNECT play.google.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+29: Tunnel closed
+31: Responding "HTTP/1.1 400 Bad Request"
+31: "CONNECT www.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+32: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+33: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+33: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+32: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+34: "CONNECT play.google.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+31: Tunnel closed
+35: "CONNECT adservice.google.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+36: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+37: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+38: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+39: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+40: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+41: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:39 2023
+41: Tunnel closed
+36: Tunnel closed
+38: Tunnel closed
+39: Tunnel closed
+37: Tunnel closed
+42: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:40 2023
+43: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 174.99.35.126 @ Sun Feb 26 22:02:40 2023
+43: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
