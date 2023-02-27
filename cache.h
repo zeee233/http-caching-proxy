@@ -39,10 +39,16 @@ struct CachedResponse {
 std::unordered_map<std::string, CachedResponse> cache;
 
 bool compare_time(CachedResponse & cached_response){
-    std::time_t current_time = std::time(nullptr);
+    std::chrono::system_clock::time_point now = std::chrono::system_clock::now(); 
+    std::time_t time = std::chrono::system_clock::to_time_t(now);
+    //cout<<"before comparing: "<<std::asctime(std::gmtime(&time))<<endl;
+    std::tm* utc_tm = std::gmtime(&time);
+    std::time_t current_time = std::mktime(utc_tm);
+    //cout<<"after comparing: "<<std::asctime(std::gmtime(&current_time))<<endl;
+    //cout<<"current expiration time: "<<std::asctime(std::gmtime(&current_time));
     if (cached_response.expiration_time <= current_time){
         pthread_mutex_lock(&plock);
-        logFile<<cached_response.ID<<": "<<"in cache, but expired at "<<cached_response.expiration_time<<std::endl;
+        logFile<<cached_response.ID<<": "<<"in cache, but expired at "<<std::asctime(std::gmtime(&cached_response.expiration_time));
         pthread_mutex_unlock(&plock);
         return true;             
     }
@@ -204,15 +210,15 @@ int extract_status_code(const std::string& response_str) {
     return -1;
 }
 
-std::time_t to_utc(const std::string& date_str) {
+std::time_t to_utc(const std::string & date_str) {
     // Parse the date string into a tm struct
-    std::tm tm = {};
-    std::istringstream date_stream(date_str);
-    date_stream >> std::get_time(&tm, "%a, %d %b %Y %H:%M:%S %Z");
-
-    // Convert the tm struct to a local time_t value
-    std::time_t utc_time = std::mktime(&tm);
-    return utc_time;
+    //cout<<"the date string is: "<<date_str<<endl;
+    std::tm tm; 
+    std::stringstream ss(date_str); 
+    ss >> std::get_time(&tm, "%a, %d %b %Y %H:%M:%S %Z"); 
+    std::time_t t = std::mktime(&tm);
+    //cout<<"in utfc where: "<<std::asctime(std::gmtime(tm));
+    return t;
 }
 
 void parse_cache_control_directives(CachedResponse &cached_response,std::string response_str,int ID) {
@@ -271,6 +277,7 @@ void parse_cache_control_directives(CachedResponse &cached_response,std::string 
                     std::time_t utc_time = to_utc(date_str);
                     std::time_t expiration_time_utc = utc_time + cached_response.max_age;
                     cached_response.expiration_time = expiration_time_utc;
+                    //cout<<"max age expiration time: "<<std::asctime(std::gmtime(&expiration_time_utc));
                 }
             } else {
                 size_t expires_pos = response_str.find("Expires: ");
@@ -280,9 +287,9 @@ void parse_cache_control_directives(CachedResponse &cached_response,std::string 
                     // do something with the expires_str
                     std::time_t expire_utc_time = to_utc(expires_str);
                     cached_response.expiration_time = expire_utc_time;
-                    cout << "THis is the part with expire header" << endl;
-                    std::cout<< "UTC time: " << std::asctime(std::gmtime(&expire_utc_time));
-                    cout << "--------------------------" <<endl;
+                    //cout << "THis is the part with expire header" << endl;
+                    //std::cout<< "UTC time: " << std::asctime(std::gmtime(&expire_utc_time));
+                    //cout << "--------------------------" <<endl;
                 }
             }
             
