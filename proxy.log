@@ -1,16 +1,32 @@
-0: "CONNECT beacons2.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:35 2023
-1: "CONNECT beacons.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:35 2023
-2: "CONNECT beacons2.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:35 2023
-3: "GET http://www.httpwatch.com/favicon.ico HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:36 2023
-3: not in cache
-3: Requesting "GET http://www.httpwatch.com/favicon.ico HTTP/1.1" from www.httpwatch.com
-3: Receiving ˜ from www.httpwatch.com
-3: cached, expires at Mon Feb 27 23:34:36 2023
-4: "GET http://www.httpwatch.com/favicon.ico HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:37 2023
-4: in cache, valid
-5: "GET http://www.httpwatch.com/favicon.ico HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:38 2023
-5: in cache, valid
-6: "GET http://www.httpwatch.com/favicon.ico HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:38 2023
-7: "GET http://www.httpwatch.com/favicon.ico HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 18:34:38 2023
-7: in cache, valid
+0: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:44 2023
+0: not in cache
+0: Requesting "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from vcm-31143.vm.duke.edu
+0: Receiving Hello, world!OK from vcm-31143.vm.duke.edu
+0: cached, expires at Tue Feb 28 02:03:54 2023
+1: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:51 2023
+2: "CONNECT www.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:51 2023
+3: "CONNECT safebrowsing.google.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:51 2023
+4: "CONNECT d27xxe7juh1us6.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:51 2023
+5: "CONNECT exo.nel.measure.office.net:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:51 2023
+1: in cache, valid
+6: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:51 2023
 6: in cache, valid
+7: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:58 2023
+7: in cache, but expired at Tue Feb 28 02:03:54 2023
+7: Receiving Hello, world!OK from vcm-31143.vm.duke.edu
+8: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:58 2023
+8: in cache, valid
+9: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:58 2023
+9: in cache, valid
+10: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:58 2023
+11: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:03:58 2023
+10: in cache, valid
+11: in cache, valid
+5: Tunnel closed
+12: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:04:20 2023
+13: "GET http://vcm-31143.vm.duke.edu:8000/ HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:04:20 2023
+14: "CONNECT clients4.google.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 21:04:20 2023
+12: in cache, but expired at Tue Feb 28 02:04:08 2023
+13: in cache, but expired at Tue Feb 28 02:04:08 2023
+13: Receiving HTTP/1.1 200 OK from vcm-31143.vm.duke.edu
+12: Receiving Hello, world!OK from vcm-31143.vm.duke.edu
