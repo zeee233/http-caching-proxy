@@ -1,18 +1,75 @@
-0: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 10.197.192.103 @ Mon Feb 27 19:08:17 2023
-1: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Mon Feb 27 19:08:18 2023
-1: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-2: Responding "HTTP/1.1 400 Bad Request"
-1: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
-2: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Mon Feb 27 19:08:38 2023
-2: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-2: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
-3: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Mon Feb 27 19:09:03 2023
-3: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-3: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
-4: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Mon Feb 27 19:09:23 2023
-4: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-4: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
-5: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Mon Feb 27 19:09:43 2023
-5: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
-5: Receiving HTTP/1.0 408 Request Time-out from r3.o.lencr.org
-6: "POST http://r3.o.lencr.org/ HTTP/1.1" from 10.197.192.103 @ Mon Feb 27 19:10:03 2023
+0: "CONNECT outlook.office.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:42 2023
+1: "GET http://httpbin.org/forms/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:43 2023
+2: "CONNECT beacons3.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:43 2023
+3: "CONNECT beacons3.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:43 2023
+4: "CONNECT beacons5.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:43 2023
+1: not in cache
+1: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+5: "CONNECT beacons4.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:43 2023
+6: "CONNECT beacons2.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:43 2023
+7: "CONNECT beacons3.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:43 2023
+1: Receiving <!DOCTYPE html> from httpbin.org
+1: not cacheable because no ETag and no Last_Modified
+8: "GET http://httpbin.org/favicon.ico HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:48 2023
+9: "CONNECT beacons3.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:48 2023
+10: "CONNECT beacons5.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:48 2023
+11: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:48 2023
+8: not in cache
+8: Requesting "GET http://httpbin.org/favicon.ico HTTP/1.1" from httpbin.org
+8: Receiving HTTP/1.1 404 NOT FOUND from httpbin.org
+8: not cacheable because no ETag and no Last_Modified
+12: "CONNECT www.linkedin.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:54 2023
+11: Tunnel closed
+13: "CONNECT clients4.google.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:35:59 2023
+14: "CONNECT d27xxe7juh1us6.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:36:05 2023
+15: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:36:17 2023
+15: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+7: Tunnel closed
+10: Tunnel closed
+9: Tunnel closed
+15: Receiving  from httpbin.org
+16: Responding "HTTP/1.1 400 Bad Request"
+16: "CONNECT femetrics.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:37:24 2023
+17: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:37:24 2023
+18: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:37:24 2023
+19: "CONNECT f-log-extension.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:37:24 2023
+20: "CONNECT f-log-extension.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:37:24 2023
+21: "CONNECT beacons2.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:37:24 2023
+18: Tunnel closed
+17: Tunnel closed
+19: Tunnel closed
+22: "CONNECT beacons.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:37:25 2023
+23: "CONNECT i2-vjaenfksugyhjieixozbzrthtpngni.init.cedexis-radar.net:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:08 2023
+23: Tunnel closed
+24: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:15 2023
+24: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+20: Tunnel closed
+25: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:26 2023
+26: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:26 2023
+26: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+25: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+27: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:27 2023
+28: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:27 2023
+28: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+27: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+29: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:28 2023
+29: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+30: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:28 2023
+30: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+31: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:28 2023
+31: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+32: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:28 2023
+32: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+33: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:30 2023
+33: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+34: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:30 2023
+34: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+35: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:30 2023
+35: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+36: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:30 2023
+36: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+37: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:31 2023
+37: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+38: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:56 2023
+39: "CONNECT beacons.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Mon Feb 27 22:38:56 2023
+38: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org

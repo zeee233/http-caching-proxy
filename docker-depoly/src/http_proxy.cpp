@@ -4,7 +4,6 @@
 //pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
 
 std::vector<std::thread> threads;
-std::mutex output_mutex;
 
 //pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
 

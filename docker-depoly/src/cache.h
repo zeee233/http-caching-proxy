@@ -15,7 +15,7 @@
 #include <iomanip>
 
 
-std::ofstream logFile("proxy.log");
+std::ofstream logFile("/var/log/erss/proxy.log");
 pthread_mutex_t plock = PTHREAD_MUTEX_INITIALIZER;
 
 

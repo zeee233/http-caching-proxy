@@ -1,0 +1,310 @@
+0: "CONNECT www.linkedin.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:43 2023
+1: "CONNECT outlook.office.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:43 2023
+2: "CONNECT f-log-extension.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:44 2023
+3: "CONNECT femetrics.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:44 2023
+4: "CONNECT d27xxe7juh1us6.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:44 2023
+5: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:48 2023
+6: "CONNECT www.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:48 2023
+7: "CONNECT cloudsearch.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:48 2023
+8: "CONNECT optimizationguide-pa.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:49 2023
+9: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:50 2023
+10: "CONNECT lh3.googleusercontent.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:50 2023
+11: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:50 2023
+12: "CONNECT apis.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:50 2023
+13: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:50 2023
+14: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:50 2023
+15: "CONNECT adservice.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:51 2023
+16: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:54 2023
+17: "CONNECT ogs.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:54 2023
+18: "CONNECT ssl.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:54 2023
+19: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:54 2023
+20: "CONNECT sakai.duke.edu:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:56 2023
+21: "CONNECT safebrowsing.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:56 2023
+22: "CONNECT fonts.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:57 2023
+23: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:57 2023
+24: "CONNECT www.google-analytics.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:03:59 2023
+25: "CONNECT clients4.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:00 2023
+26: "CONNECT neat-iodine-05e.notion.site:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:00 2023
+27: "CONNECT exp.notion.so:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:07 2023
+28: "CONNECT www.notion.so:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:26 2023
+29: "CONNECT google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:26 2023
+30: "CONNECT beacons3.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:38 2023
+2: Tunnel closed
+3: Tunnel closed
+31: "CONNECT presence.teams.microsoft.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:50 2023
+32: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:51 2023
+33: "CONNECT o324374.ingest.sentry.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:52 2023
+34: "CONNECT content-autofill.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+30: Tunnel closed
+29: Tunnel closed
+24: Tunnel closed
+28: Tunnel closed
+26: Tunnel closed
+19: Tunnel closed
+25: Tunnel closed
+10: Tunnel closed
+11: Tunnel closed
+20: Tunnel closed
+18: Tunnel closed
+1: Tunnel closed
+23: Tunnel closed
+22: Tunnel closed
+5: Tunnel closed
+7: Tunnel closed
+6: Tunnel closed
+9: Tunnel closed
+32: Tunnel closed
+31: Tunnel closed
+0: Tunnel closed
+4: Tunnel closed
+33: Tunnel closed
+12: Tunnel closed
+15: Tunnel closed
+17: Tunnel closed
+8: Tunnel closed
+13: Tunnel closed
+14: Tunnel closed
+16: Tunnel closed
+35: "CONNECT http-inputs-notion.splunkcloud.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+36: "CONNECT http-inputs-notion.splunkcloud.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+37: "CONNECT neat-iodine-05e.notion.site:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+38: "CONNECT www.googletagmanager.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+39: "CONNECT connect.facebook.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+40: "CONNECT http-inputs-notion.splunkcloud.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+41: "CONNECT snap.licdn.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+42: "CONNECT x.clearbitjs.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+43: "CONNECT munchkin.marketo.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+44: "CONNECT cdn.metadata.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+45: "CONNECT d2hrivdxn8ekm8.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+46: "CONNECT analytics.tiktok.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+47: "CONNECT px.ads.linkedin.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+48: "CONNECT acdn.adnxs.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+49: "CONNECT dvqigh9b7wa32.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+50: "CONNECT d330aiyvva2oww.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+51: "CONNECT d1lu3pmaz2ilpx.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+52: "CONNECT segment.prod.bidr.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+53: "CONNECT 414-xmy-838.mktoresp.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+54: "CONNECT ib.adnxs.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:53 2023
+55: "CONNECT notion-emojis.s3-us-west-2.amazonaws.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:54 2023
+56: "CONNECT app.clearbit.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:54 2023
+57: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:54 2023
+58: "CONNECT www.notion.so:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:54 2023
+59: "CONNECT optimizationguide-pa.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:58 2023
+60: "GET http://httpbin.org/forms/post HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:58 2023
+60: not in cache
+60: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+60: Receiving <!DOCTYPE html> from httpbin.org
+60: not cacheable because no ETag and no Last_Modified
+61: "GET http://httpbin.org/favicon.ico HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:59 2023
+62: "CONNECT content-autofill.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:59 2023
+61: not in cache
+61: Requesting "GET http://httpbin.org/favicon.ico HTTP/1.1" from httpbin.org
+61: Receiving HTTP/1.1 404 NOT FOUND from httpbin.org
+61: not cacheable because no ETag and no Last_Modified
+52: Tunnel closed
+63: "CONNECT o324374.ingest.sentry.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:04:59 2023
+55: Tunnel closed
+64: "CONNECT clients4.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:05:03 2023
+54: Tunnel closed
+42: Tunnel closed
+56: Tunnel closed
+65: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:05:12 2023
+41: Tunnel closed
+65: Tunnel closed
+36: Tunnel closed
+35: Tunnel closed
+40: Tunnel closed
+39: Tunnel closed
+53: Tunnel closed
+66: Responding "HTTP/1.1 400 Bad Request"
+66: "POST http://httpbin.org/post HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+67: "CONNECT f-log-extension.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+68: "CONNECT f-log-extension.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+69: "CONNECT www.linkedin.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+70: "CONNECT google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+71: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+72: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+73: "CONNECT www.linkedin.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:43 2023
+71: Tunnel closed
+72: Tunnel closed
+68: Tunnel closed
+67: Tunnel closed
+66: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+69: Tunnel closed
+70: Tunnel closed
+74: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:44 2023
+75: "CONNECT beacons.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:44 2023
+76: "CONNECT beacons.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:44 2023
+77: "CONNECT femetrics.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:44 2023
+78: "CONNECT presence.teams.microsoft.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:06:52 2023
+46: Tunnel closed
+47: Tunnel closed
+79: "CONNECT outlook.office.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:07:43 2023
+66: Receiving  from httpbin.org
+77: Tunnel closed
+80: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:30 2023
+81: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:40 2023
+82: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:40 2023
+83: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:41 2023
+84: "CONNECT apis.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:41 2023
+85: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:41 2023
+86: "CONNECT adservice.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:42 2023
+48: Tunnel closed
+87: "CONNECT d27xxe7juh1us6.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:44 2023
+43: Tunnel closed
+88: "CONNECT ogs.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:45 2023
+86: Tunnel closed
+83: Tunnel closed
+27: Tunnel closed
+78: Tunnel closed
+85: Tunnel closed
+62: Tunnel closed
+64: Tunnel closed
+57: Tunnel closed
+87: Tunnel closed
+58: Tunnel closed
+63: Tunnel closed
+84: Tunnel closed
+59: Tunnel closed
+79: Tunnel closed
+49: Tunnel closed
+51: Tunnel closed
+82: Tunnel closed
+74: Tunnel closed
+44: Tunnel closed
+38: Tunnel closed
+73: Tunnel closed
+37: Tunnel closed
+45: Tunnel closed
+76: Tunnel closed
+81: Tunnel closed
+75: Tunnel closed
+34: Tunnel closed
+50: Tunnel closed
+88: Tunnel closed
+89: "CONNECT lh3.googleusercontent.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:45 2023
+90: "CONNECT ssl.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:45 2023
+91: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:45 2023
+92: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:52 2023
+93: "CONNECT presence.teams.microsoft.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:54 2023
+94: "CONNECT www.linkedin.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:56 2023
+95: "CONNECT apis.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:57 2023
+96: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:57 2023
+97: "CONNECT adservice.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:57 2023
+98: "CONNECT encrypted-tbn0.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:08:58 2023
+99: "CONNECT ogs.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:06 2023
+100: "CONNECT clients4.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:07 2023
+101: "CONNECT optimizationguide-pa.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:19 2023
+21: Tunnel closed
+102: "CONNECT lh5.googleusercontent.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:24 2023
+103: "CONNECT i.ytimg.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:25 2023
+104: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:25 2023
+105: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+106: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+107: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+108: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+109: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+108: Tunnel closed
+110: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+111: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+112: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+113: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:26 2023
+114: "CONNECT treatment.grammarly.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:27 2023
+115: "CONNECT career10.successfactors.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:34 2023
+116: "CONNECT career10.successfactors.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:34 2023
+117: "CONNECT rmkcdn.successfactors.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:34 2023
+118: "CONNECT ro.careers.tsmc.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:34 2023
+119: "CONNECT beacons.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:34 2023
+116: Tunnel closed
+120: "CONNECT static.licdn.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:35 2023
+117: Tunnel closed
+121: "CONNECT static.licdn.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:35 2023
+118: Tunnel closed
+122: "CONNECT media.licdn.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:35 2023
+114: Tunnel closed
+123: "CONNECT rmkcdn.successfactors.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:37 2023
+123: Tunnel closed
+124: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:41 2023
+122: Tunnel closed
+121: Tunnel closed
+120: Tunnel closed
+105: Tunnel closed
+107: Tunnel closed
+80: Tunnel closed
+103: Tunnel closed
+104: Tunnel closed
+100: Tunnel closed
+109: Tunnel closed
+101: Tunnel closed
+102: Tunnel closed
+110: Tunnel closed
+106: Tunnel closed
+96: Tunnel closed
+112: Tunnel closed
+95: Tunnel closed
+113: Tunnel closed
+111: Tunnel closed
+119: Tunnel closed
+97: Tunnel closed
+98: Tunnel closed
+92: Tunnel closed
+99: Tunnel closed
+93: Tunnel closed
+89: Tunnel closed
+90: Tunnel closed
+91: Tunnel closed
+125: "CONNECT ro.careers.tsmc.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:41 2023
+126: "CONNECT rmkcdn.successfactors.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:41 2023
+127: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:41 2023
+128: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:41 2023
+129: "CONNECT ro.careers.tsmc.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+130: "CONNECT ro.careers.tsmc.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+131: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+132: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+133: "CONNECT content-autofill.googleapis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+134: "CONNECT rmkcdn.successfactors.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+135: "CONNECT www.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+136: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+137: "CONNECT ro.careers.tsmc.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:42 2023
+138: "CONNECT femetrics.grammarly.io:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:44 2023
+139: "CONNECT www.youtube.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:44 2023
+140: "CONNECT realtime.www.linkedin.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:45 2023
+141: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:46 2023
+125: Tunnel closed
+129: Tunnel closed
+130: Tunnel closed
+137: Tunnel closed
+142: "CONNECT clients4.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:54 2023
+143: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:56 2023
+144: "CONNECT play.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:09:57 2023
+145: "CONNECT www.google.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:10:13 2023
+138: Tunnel closed
+146: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:10:50 2023
+147: "CONNECT beacons.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:10:50 2023
+148: "CONNECT presence.teams.microsoft.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:10:56 2023
+115: Tunnel closed
+149: "CONNECT neat-iodine-05e.notion.site:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:11 2023
+150: "CONNECT beacons.gcp.gvt2.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:12 2023
+151: "CONNECT www.notion.so:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:14 2023
+152: "CONNECT outlook.office.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:31 2023
+153: "CONNECT exp.notion.so:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:43 2023
+154: "CONNECT i2-bjxaaqysllvvwdwdbfrfagzzuzrvof.init.cedexis-radar.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:49 2023
+155: "CONNECT static-azur.licdn.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:50 2023
+156: "CONNECT rpt.cedexis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:50 2023
+157: "CONNECT rpt.cedexis.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:50 2023
+158: "CONNECT static-akam.licdn.com:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:12:50 2023
+154: Tunnel closed
+156: Tunnel closed
+157: Tunnel closed
+124: Tunnel closed
+127: Tunnel closed
+128: Tunnel closed
+132: Tunnel closed
+133: Tunnel closed
+136: Tunnel closed
+135: Tunnel closed
+131: Tunnel closed
+159: "CONNECT d27xxe7juh1us6.cloudfront.net:443 HTTP/1.1" from 10.197.199.52 @ Tue Feb 28 21:13:44 2023
+139: Tunnel closed
+143: Tunnel closed
+144: Tunnel closed

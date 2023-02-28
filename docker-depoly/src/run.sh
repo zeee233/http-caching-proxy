@@ -2,5 +2,5 @@
 make clean
 make
 echo 'start running proxy server...'
-./main &
+./proxy &
 while true ; do continue ; done
