@@ -309,12 +309,16 @@ void handle_post(ClientRequest* request, int server_fd) {
     // modify here
     std::string request_str = request->first_line + "\r\n";
     request_str += "Host: " + request->hostname + "\r\n";
+    //cout<<"post string: "<<request->content<<endl;
     pthread_mutex_lock(&plock);
     logFile<<request->ID<<": Requesting " << '"'<<request->first_line << '"'<<" from " << request->hostname << std::endl;
     pthread_mutex_unlock(&plock); 
-    send_request(server_fd, request_str);
+    send_request(server_fd, request->content);
+    cout<<"first step complete"<<endl;
     std::string response_from_server = receive_response(server_fd, request);
+    cout<<"second step complete"<<endl;
     send_request(request->socket_fd, response_from_server);
+    cout<<"third step complete"<<endl;
 }
 
 

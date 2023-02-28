@@ -13,6 +13,7 @@ struct ClientRequest {
     std::string ip_address;
     int ID;
     int max_stale;
+    std::string content;
     // Add any other relevant fields
 };
 
