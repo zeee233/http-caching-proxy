@@ -1,0 +1,5 @@
+1. We weren't able to get the response after submitting the test of POST, we fixed it by sending the full content of request 
+2. time is a big problem that our c++ compiler weren't able to get the right UTC time, it somehow just pospond the time for a coulple hours
+3. Given time display issues, we later fixed our expiration time based on counting relaitve time
+4. We didn't consider max-stale so we fixed it to conform with expiration rules 
+5. We used boost so there were problem when we build Docker, we later included -lboost_regex -lboost_system -lboost_filesystem to our Makefile to fix it. 
